@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Color tokens */
+  --color-bg: #0A0A0B;
+  --color-fg: #F6F7F9;
+  --color-muted: #6B7078;
+  --color-border: #C9CDD4;
+  --color-accent: #FF4D4D;
+  
+  /* Graphite scale */
+  --color-graphite-900: #141518;
+  --color-graphite-700: #2B2D33;
+  --color-graphite-400: #6B7078;
+  --color-graphite-200: #C9CDD4;
+  
+  /* Typography tokens */
+  --font-sans: "GT America", system-ui, -apple-system, sans-serif;
+  --fs-display: clamp(3rem, 6vw, 6rem);
+  --fs-h1: clamp(2.25rem, 4vw, 4rem);
+  --fs-body: 1rem;
+  --lh-display: 1.1;
+  --lh-head: 1.2;
+  --lh-body: 1.65;
+  --tracking-display: -0.02em;
+  
+  /* Spacing tokens */
+  --s-0: 0;
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --s-8: 4rem;
+  --s-9: 6rem;
+  --s-10: 8rem;
+  --s-11: 10rem;
+  
+  /* Radius tokens */
+  --r-0: 0;
+  --r-1: 0.25rem;
+  --r-2: 0.5rem;
+  --r-card: 1rem;
+  
+  /* Shadow tokens */
+  --elev-1: 0 1px 1px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08);
+  
+  /* Motion tokens */
+  --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-emph: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-xs: 140ms;
+  --dur-s: 220ms;
+  --dur-m: 360ms;
+  
+  color-scheme: dark;
+}
+
+/* Light mode overrides (optional) */
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-bg: #F6F7F9;
+    --color-fg: #0A0A0B;
+    --color-graphite-900: #F6F7F9;
+    --color-graphite-700: #0A0A0B;
+  }
+}
+
+@layer base {
+  /* Prevent initial layout shift */
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: var(--font-sans);
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Typography base styles */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  
+  /* Remove default margins */
+  h1, h2, h3, h4, h5, h6, p, ul, ol, figure {
+    margin: 0;
+  }
+  
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  /* Luxury spacing utilities */
+  .luxury-container {
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .luxury-hero-container {
+    max-width: 90rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  /* Typography utilities */
+  .text-display {
+    font-size: var(--fs-display);
+    line-height: var(--lh-display);
+    letter-spacing: var(--tracking-display);
+    font-weight: 700;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Animation utilities */
+  .animate-reveal {
+    animation: reveal var(--dur-m) var(--ease-standard);
+  }
+  
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

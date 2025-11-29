@@ -35,7 +35,7 @@ export async function GET(req: NextRequest) {
     status: 200,
     headers: {
       "Content-Type": "image/png",
-      "Cache-Control": "public, max-age=86400, immutable"
+      "Cache-Control": "public, max-age=604800, immutable"
     }
   });
 

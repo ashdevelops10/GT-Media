@@ -3,58 +3,78 @@
 @tailwind utilities;
 
 :root {
-  /* Color tokens */
-  --color-bg: #0A0A0B;
-  --color-fg: #F6F7F9;
-  --color-muted: #6B7078;
-  --color-border: #C9CDD4;
-  --color-accent: #FF4D4D;
+  /* Stage 3: Luxury Cinematic Design System */
   
-  /* Graphite scale */
-  --color-graphite-900: #141518;
-  --color-graphite-700: #2B2D33;
-  --color-graphite-400: #6B7078;
-  --color-graphite-200: #C9CDD4;
+  /* Color Tokens */
+  --color-ink: #050508;
+  --color-charcoal: #111118;
+  --color-paper: #F6F3EE;
+  --color-stone: #CAC2B5;
+  --color-auric: #D9B06A;
+  --color-claret: #4F1F2D;
   
-  /* Typography tokens */
-  --font-sans: "GT America", system-ui, -apple-system, sans-serif;
-  --fs-display: clamp(3rem, 6vw, 6rem);
-  --fs-h1: clamp(2.25rem, 4vw, 4rem);
-  --fs-body: 1rem;
-  --lh-display: 1.1;
-  --lh-head: 1.2;
-  --lh-body: 1.65;
-  --tracking-display: -0.02em;
+  /* Text Tokens */
+  --text-primary-dark: #14131A;
+  --text-primary-light: #F6F3EE;
+  --text-secondary: #A39A8A;
   
-  /* Spacing tokens */
-  --s-0: 0;
-  --s-1: 0.25rem;
-  --s-2: 0.5rem;
-  --s-3: 0.75rem;
-  --s-4: 1rem;
-  --s-5: 1.5rem;
-  --s-6: 2rem;
-  --s-7: 3rem;
-  --s-8: 4rem;
-  --s-9: 6rem;
-  --s-10: 8rem;
-  --s-11: 10rem;
+  /* Typography Tokens */
+  --font-display: "Libre Caslon Display", "Times New Roman", serif;
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-accent: "Space Grotesk", ui-monospace, SFMono-Regular, Menlo, monospace;
   
-  /* Radius tokens */
-  --r-0: 0;
-  --r-1: 0.25rem;
-  --r-2: 0.5rem;
-  --r-card: 1rem;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 24px;
+  --font-size-2xl: 32px;
+  --font-size-3xl: 40px;
+  --font-size-4xl: 56px;
+  --font-size-5xl: 72px;
   
-  /* Shadow tokens */
-  --elev-1: 0 1px 1px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08);
+  --leading-tight: 1.1;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.7;
   
-  /* Motion tokens */
-  --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
-  --ease-emph: cubic-bezier(0.16, 1, 0.3, 1);
-  --dur-xs: 140ms;
-  --dur-s: 220ms;
-  --dur-m: 360ms;
+  /* Spacing Tokens (8px rhythm) */
+  --spacing-2xs: 4px;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+  --spacing-4xl: 96px;
+  
+  /* Radius Tokens */
+  --radius-none: 0px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 9999px;
+  
+  /* Shadow Tokens */
+  --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.25);
+  --shadow-subtle: 0 6px 16px rgba(0, 0, 0, 0.18);
+  
+  /* Motion Tokens */
+  --duration-xs: 0.18s;
+  --duration-sm: 0.24s;
+  --duration-md: 0.4s;
+  --duration-lg: 0.8s;
+  --duration-xl: 1.2s;
+  
+  --easing-soft: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --easing-smooth: cubic-bezier(0.19, 1, 0.22, 1);
+  --easing-luxury: cubic-bezier(0.16, 1, 0.3, 1);
+  
+  /* Layout Tokens */
+  --layout-max-width: 1440px;
+  --layout-gutter-mobile: 16px;
+  --layout-gutter-desktop: 72px;
   
   color-scheme: dark;
 }
@@ -62,10 +82,8 @@
 /* Light mode overrides (optional) */
 @media (prefers-color-scheme: light) {
   :root {
-    --color-bg: #F6F7F9;
-    --color-fg: #0A0A0B;
-    --color-graphite-900: #F6F7F9;
-    --color-graphite-700: #0A0A0B;
+    --color-bg: #F6F3EE;
+    --color-fg: #14131A;
   }
 }
 
@@ -75,10 +93,10 @@
     margin: 0;
     min-height: 100vh;
     font-family: var(--font-sans);
-    background-color: var(--color-bg);
-    color: var(--color-fg);
-    font-size: var(--fs-body);
-    line-height: var(--lh-body);
+    background-color: var(--color-ink);
+    color: var(--color-paper);
+    font-size: var(--font-size-md);
+    line-height: var(--leading-normal);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

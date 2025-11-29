@@ -8,40 +8,39 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Primary Palette
-        onyx: "#0A0A0B",
-        paper: "#F6F7F9",
+        // Stage 3: Luxury Cinematic Palette
+        ink: "#050508",
+        charcoal: "#111118",
+        paper: "#F6F3EE",
+        stone: "#CAC2B5",
+        auric: "#D9B06A",
+        claret: "#4F1F2D",
         
-        // Secondary Neutrals
-        graphite: {
-          900: "#141518",
-          700: "#2B2D33",
-          400: "#6B7078",
-          200: "#C9CDD4"
-        },
+        // Text tokens
+        "text-primary-dark": "#14131A",
+        "text-primary-light": "#F6F3EE",
+        "text-secondary": "#A39A8A",
         
-        // Accent System
-        vermilion: "#FF4D4D",
-        coral: "#FF6B5E",
-        
-        // Legacy aliases (for backwards compatibility)
-        "gt-bg": "#0A0A0B",
-        "gt-accent": "#FF4D4D",
-        "gt-muted": "#6B7078"
+        // Legacy aliases (backwards compatibility)
+        onyx: "#050508",
+        "soft-gray": "#A39A8A",
+        "accent-gold": "#D9B06A"
       },
       fontFamily: {
-        sans: ["var(--font-gt-sans)", "system-ui", "-apple-system", "sans-serif"],
-        display: ["var(--font-gt-display)", "var(--font-gt-sans)", "system-ui", "sans-serif"]
+        sans: ["var(--font-gt-sans)", "Inter", "system-ui", "-apple-system", "sans-serif"],
+        display: ["var(--font-gt-display)", "Libre Caslon Display", "Times New Roman", "serif"],
+        accent: ["var(--font-gt-accent)", "Space Grotesk", "ui-monospace", "SFMono-Regular", "monospace"]
       },
       fontSize: {
-        // Display scale
-        "display": ["clamp(3rem, 6vw, 6rem)", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
-        "display-sm": ["clamp(2.5rem, 5vw, 4.5rem)", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
+        // Stage 3: Editorial Typography Scale
+        // Display scale (for hero headlines)
+        "display": ["clamp(4rem, 8vw, 5.5rem)", { lineHeight: "1.05", letterSpacing: "-0.03em" }],
+        "display-sm": ["clamp(2.5rem, 6vw, 3.5rem)", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
         
         // Heading scale
-        "h1": ["clamp(2.25rem, 4vw, 4rem)", { lineHeight: "1.15", letterSpacing: "-0.01em" }],
-        "h2": ["clamp(1.875rem, 3vw, 3rem)", { lineHeight: "1.2", letterSpacing: "-0.01em" }],
-        "h3": ["clamp(1.5rem, 2.5vw, 2.25rem)", { lineHeight: "1.25", letterSpacing: "0" }],
+        "h1": ["clamp(2.25rem, 5vw, 4rem)", { lineHeight: "1.15", letterSpacing: "-0.02em" }],
+        "h2": ["clamp(1.875rem, 4vw, 3rem)", { lineHeight: "1.2", letterSpacing: "-0.01em" }],
+        "h3": ["clamp(1.5rem, 3vw, 2.25rem)", { lineHeight: "1.25", letterSpacing: "0" }],
         "h4": ["clamp(1.25rem, 2vw, 1.5rem)", { lineHeight: "1.3", letterSpacing: "0" }],
         
         // Body scale
@@ -49,12 +48,16 @@ module.exports = {
         "body": ["1rem", { lineHeight: "1.65" }],
         "body-sm": ["0.875rem", { lineHeight: "1.6" }],
         
-        // Micro scale
-        "micro": ["0.8125rem", { lineHeight: "1.75", letterSpacing: "0.02em" }],
-        "micro-sm": ["0.75rem", { lineHeight: "1.8", letterSpacing: "0.03em" }]
+        // Micro/accent scale (for stats, metadata)
+        "micro": ["0.8125rem", { lineHeight: "1.5", letterSpacing: "0.02em" }],
+        "micro-sm": ["0.75rem", { lineHeight: "1.5", letterSpacing: "0.03em" }],
+        
+        // Numeric accent sizes
+        "stat": ["2.5rem", { lineHeight: "1.1", letterSpacing: "-0.01em" }],
+        "stat-sm": ["1.75rem", { lineHeight: "1.2", letterSpacing: "0" }]
       },
       spacing: {
-        // 8px rhythm system
+        // Stage 3: 4px base unit, 8px vertical rhythm
         "0": "0",
         "1": "0.25rem",   // 4px
         "2": "0.5rem",    // 8px
@@ -62,7 +65,6 @@ module.exports = {
         "4": "1rem",      // 16px
         "5": "1.25rem",   // 20px
         "6": "1.5rem",    // 24px
-        "7": "1.75rem",   // 28px
         "8": "2rem",      // 32px
         "10": "2.5rem",   // 40px
         "12": "3rem",     // 48px
@@ -75,36 +77,40 @@ module.exports = {
         "56": "14rem",    // 224px
         "64": "16rem",    // 256px
         
-        // Section spacing (named)
-        "section-xs": "4rem",    // 64px
-        "section-s": "6rem",     // 96px
-        "section-m": "8rem",     // 128px
-        "section-l": "10rem",    // 160px
-        "section-xl": "14rem",   // 224px
-        "section-hero": "20rem"  // 320px
+        // Section spacing (named for clarity)
+        "section-compact": "2.5rem",   // 40px mobile
+        "section-default": "4rem",     // 64px desktop
+        "section-spacious": "6rem"     // 96px desktop
       },
       maxWidth: {
-        "content": "80rem",      // 1280px
-        "hero": "90rem",         // 1440px
-        "edge": "105rem"         // 1680px
+        "content": "90rem",      // 1440px
+        "wide": "100rem",        // 1600px
+        "narrow": "80rem"        // 1280px
       },
       borderRadius: {
         "none": "0",
-        "sm": "0.25rem",    // 4px
-        "DEFAULT": "0.5rem", // 8px
-        "card": "1rem"      // 16px (rare usage)
+        "xs": "0.125rem",   // 2px - global default
+        "sm": "0.25rem",    // 4px - cards
+        "md": "0.75rem",    // 12px - soft images
+        "pill": "9999px"    // pill buttons
       },
       boxShadow: {
-        "elevation-1": "0 1px 1px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08)"
+        "soft": "0 12px 30px rgba(0, 0, 0, 0.25)",
+        "subtle": "0 6px 16px rgba(0, 0, 0, 0.18)",
+        "elevation": "0 4px 12px rgba(0, 0, 0, 0.15)"
       },
       transitionDuration: {
-        "xs": "140ms",
-        "s": "220ms",
-        "m": "360ms"
+        "xs": "180ms",   // Button hover, quick UI
+        "sm": "240ms",   // Underline expansions
+        "md": "400ms",   // Card elevations
+        "lg": "800ms",   // Section entrances (slow luxury)
+        "xl": "1200ms"   // Image reveals, hero transitions
       },
       transitionTimingFunction: {
-        "standard": "cubic-bezier(0.2, 0.8, 0.2, 1)",
-        "emphasis": "cubic-bezier(0.16, 1, 0.3, 1)"
+        "soft": "cubic-bezier(0.25, 0.1, 0.25, 1)",      // ease
+        "smooth": "cubic-bezier(0.19, 1, 0.22, 1)",      // power2.out equivalent
+        "luxury": "cubic-bezier(0.16, 1, 0.3, 1)",       // power4.out - slow luxury
+        "sine": "cubic-bezier(0.445, 0.05, 0.55, 0.95)"  // subtle UI
       },
       zIndex: {
         "nav": "100",

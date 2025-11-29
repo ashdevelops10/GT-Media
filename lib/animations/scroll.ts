@@ -5,9 +5,12 @@
 
 'use client';
 
-import Lenis from '@studio-freight/lenis';
+// Lenis is optional; we intentionally use require and loose typing
+// so that missing type declarations do not break the build.
+// eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-unsafe-assignment
+const Lenis: any = require('@studio-freight/lenis');
 
-let lenisInstance: Lenis | null = null;
+let lenisInstance: any | null = null;
 
 /**
  * Initialize smooth scroll with Lenis
@@ -68,7 +71,7 @@ export function destroySmoothScroll() {
 /**
  * Get current Lenis instance
  */
-export function getLenis(): Lenis | null {
+export function getLenis(): any | null {
   return lenisInstance;
 }
 

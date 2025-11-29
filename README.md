@@ -1,3 +1,104 @@
+# GT Media — CMS & Dynamic Content (Stage 7)
+
+## Setup
+- Create `.env.local` from `.env.local.example` with values:
+  - `SANITY_PROJECT_ID`, `SANITY_DATASET`, `NEXT_PUBLIC_SANITY_DATASET`, `SANITY_READ_TOKEN`, `REVALIDATE_SECRET`.
+- Install deps and run:
+
+```bash
+pnpm install
+# npm install
+pnpm dev
+pnpm studio # runs Sanity Studio locally
+```
+
+## Sanity Studio
+- Config: `sanity/config.ts`, schemas under `sanity/schemas/*`.
+- Deploy studio (optional):
+
+```bash
+pnpm sanity:deploy
+```
+
+## Seed Sample Content (optional)
+Requires `SANITY_WRITE_TOKEN` locally. Do not commit real token.
+
+```bash
+SANITY_WRITE_TOKEN=your_token SANITY_PROJECT_ID=pid SANITY_DATASET=production \
+  node scripts/seed-sample-data.ts
+```
+
+## Preview & Revalidate
+- Preview: `/api/preview?secret=$REVALIDATE_SECRET&slug=case-studies/auric-records-launch`
+- Webhook: POST to `/api/revalidate` with header `x-revalidate-secret: $REVALIDATE_SECRET` and body:
+
+```json
+{ "_type": "caseStudy", "slug": { "current": "auric-records-launch" } }
+```
+
+## Routes Added
+- Dynamic pages: `app/case-studies/[slug]`, `app/artists/[slug]`, `app/services/[slug]`, `app/pages/[slug]`.
+- SEO: JSON-LD injected server-side; OG image routes under `app/api/og/[slug]`.
+- Sitemap/Robots: `app/sitemap.xml/route.ts`, `app/robots.txt/route.ts`.
+
+## Verification Checklist (CMS & ISR)
+- Visit `http://localhost:3000/case-studies/auric-records-launch` → 200 with seeded content.
+- Visit `http://localhost:3333` (Studio) → docs exist.
+- Trigger webhook via curl:
+
+```bash
+curl -X POST http://localhost:3000/api/revalidate \
+  -H "x-revalidate-secret: $REVALIDATE_SECRET" \
+  -H "Content-Type: application/json" \
+  -d '{"_type":"caseStudy","slug":{"current":"auric-records-launch"}}'
+```
+
+- Check `http://localhost:3000/sitemap.xml` includes slug with `<lastmod>`.
+
+## Launch Runbook (Production)
+
+1. **Pre-flight checks (local):**
+  - Ensure `.env.local` mirrors production secrets (without write tokens).
+  - Run `pnpm lint`, `pnpm typecheck`, and `pnpm build` locally.
+2. **Run full CI pipeline:**
+  - Push a branch and open a PR; verify GitHub Actions `CI` job passes.
+  - Confirm Lighthouse scores in the uploaded `lhci-results` artifact (>= 90 across categories).
+3. **Content freeze & sync:**
+  - Coordinate a short content freeze window with stakeholders.
+  - Confirm Sanity datasets (project/dataset IDs) match production.
+4. **Sanity webhooks:**
+  - Verify `REVALIDATE_SECRET` matches Sanity webhook configuration.
+  - Confirm `caseStudy`, `artist`, `service`, and `page` webhooks are enabled.
+5. **Vercel configuration:**
+  - Ensure environment variables are set in Vercel (`SANITY_PROJECT_ID`, `SANITY_DATASET`, `SANITY_READ_TOKEN`, `REVALIDATE_SECRET`).
+  - Confirm build command (`pnpm build`) and output settings are default.
+6. **Security headers & domains:**
+  - Verify `next.config.mjs` security headers are active on preview/staging.
+  - Confirm canonical domain (`www.gt-media.com`) is primary and HTTPS-only.
+7. **Smoke test (staging):**
+  - Navigate: `/`, `/work`, `/case-studies/auric-records-launch`, `/artists`, `/services`, `/contact`.
+  - Validate hero, navigation, forms, and footer links.
+8. **Performance spot-check:**
+  - Run Lighthouse in Chrome DevTools on `/` and `/case-studies/auric-records-launch` (mobile, slow 4G).
+  - Optionally run `window.__gtMeasureFPS(5000)` from `scripts/measure-fps.js` snippet in DevTools to validate animation smoothness.
+9. **Launch:**
+  - Merge PR to `main`; verify final CI run passes.
+  - Monitor Vercel deployment logs and initial traffic.
+10. **Rollback plan:**
+  - If a critical issue is found, revert the merge commit on `main` and redeploy.
+  - Use Sanity draft/restore features to revert content-only regressions.
+
+## Security Notes
+- Never commit `SANITY_WRITE_TOKEN`. Use minimal read token for preview only.
+- Lock webhooks with strong `REVALIDATE_SECRET`. Use HTTPS endpoints.
+- Limit tokens to read-only for preview; write token only for local scripts.
+
+## Bundle Avoidance Summary
+- Avoid client-side fetching; use server components for data.
+- Do not import Sanity client on the client; keep in `server` runtime.
+- Use `next/image` with `auto('format')` and srcset to reduce payload.
+- Prefer ISR with low `revalidate` over frequent client hydration.
+- Keep OG generation simple (SVG+sharp) and cache aggressively.
 # GT Media — Premium Website
 ## "Cinematic Precision on the Web"
 

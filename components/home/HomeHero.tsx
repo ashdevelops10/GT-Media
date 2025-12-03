@@ -1,6 +1,7 @@
 "use client";
 
 import { Container, Grid12 } from "@/components/layout";
+import { HomeHeroVideo } from "@/components/home/HomeHeroVideo";
 import Link from "next/link";
 
 export function HomeHero() {
@@ -45,6 +46,9 @@ export function HomeHero() {
 
           <div className="col-span-12 lg:col-span-5 relative h-[400px] lg:h-[600px] mt-12 lg:mt-0" data-hero-bg>
             <div className="absolute inset-0 bg-gradient-to-br from-accent-gold/20 to-transparent rounded-lg" />
+            <div className="relative w-full h-full overflow-hidden rounded-lg border border-soft-gray/20 bg-black/60">
+              <HomeHeroVideo />
+            </div>
           </div>
         </Grid12>
       </Container>

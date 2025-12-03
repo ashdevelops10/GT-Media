@@ -23,7 +23,7 @@ export function Section({
   const backgroundClasses = {
     default: "bg-onyx text-paper",
     dark: "bg-black text-paper",
-    accent: "bg-accent-gold text-onyx",
+    accent: "text-onyx bg-[linear-gradient(145deg,var(--accent-red-deep)_0%,var(--accent-red-dark)_35%,var(--accent-red)_70%,var(--accent-red-highlight)_100%)]",
   };
 
   return (

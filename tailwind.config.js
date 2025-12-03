@@ -13,8 +13,15 @@ module.exports = {
         charcoal: "#111118",
         paper: "#F6F3EE",
         stone: "#CAC2B5",
-        auric: "#D9B06A",
+        // Executive accent red replacing auric gold
+        auric: "#B32635",
         claret: "#4F1F2D",
+
+        // Luxury Red Accent System (from CSS variables)
+        "accent-red": "var(--accent-red)",
+        "accent-red-deep": "var(--accent-red-deep)",
+        "accent-red-highlight": "var(--accent-red-highlight)",
+        "accent-red-dark": "var(--accent-red-dark)",
         
         // Text tokens
         "text-primary-dark": "#14131A",
@@ -24,7 +31,8 @@ module.exports = {
         // Legacy aliases (backwards compatibility)
         onyx: "#050508",
         "soft-gray": "#A39A8A",
-        "accent-gold": "#D9B06A"
+        // Accent alias now uses executive red as well
+        "accent-gold": "#B32635"
       },
       fontFamily: {
         sans: ["var(--font-gt-sans)", "Inter", "system-ui", "-apple-system", "sans-serif"],

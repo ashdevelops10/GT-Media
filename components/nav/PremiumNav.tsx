@@ -53,17 +53,17 @@ export function PremiumNav() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="group relative font-accent text-xs uppercase tracking-[0.18em] text-stone hover:text-auric transition-colors duration-sm"
+                    className="group relative font-accent text-xs uppercase tracking-[0.18em] text-stone hover:text-accent-red transition-colors duration-sm"
                   >
                     {item.label}
-                    <span className="absolute -bottom-2 left-0 h-[1px] w-0 bg-auric transition-all duration-sm group-hover:w-full" />
+                    <span className="absolute -bottom-2 left-0 h-[1px] w-0 bg-accent-red transition-all duration-sm group-hover:w-full" />
                   </Link>
                 </li>
               ))}
               <li>
                 <Link
                   href="/contact"
-                  className="px-6 py-3 border border-auric text-auric rounded-pill hover:bg-auric hover:text-ink transition-all duration-sm"
+                  className="px-6 py-3 border border-accent-red text-accent-red rounded-pill hover:bg-accent-red hover:text-ink transition-all duration-sm"
                 >
                   Start Project
                 </Link>
@@ -114,7 +114,7 @@ export function PremiumNav() {
               <button
                 aria-label="Close menu"
                 onClick={() => setOpen(false)}
-                className="text-stone hover:text-auric transition-colors duration-sm"
+                className="text-stone hover:text-accent-red transition-colors duration-sm"
               >
                 ✕
               </button>
@@ -131,7 +131,7 @@ export function PremiumNav() {
                     <Link
                       href={item.href}
                       onClick={() => setOpen(false)}
-                      className="block py-3 font-sans text-body text-paper hover:text-auric transition-colors duration-sm"
+                      className="block py-3 font-sans text-body text-paper hover:text-accent-red transition-colors duration-sm"
                     >
                       {item.label}
                     </Link>
@@ -143,7 +143,7 @@ export function PremiumNav() {
                 <Link
                   href="/contact"
                   onClick={() => setOpen(false)}
-                  className="inline-block px-8 py-4 border border-auric text-auric rounded-pill hover:bg-auric hover:text-ink transition-all duration-sm"
+                  className="inline-block px-8 py-4 border border-accent-red text-accent-red rounded-pill hover:bg-accent-red hover:text-ink transition-all duration-sm"
                 >
                   Start Project
                 </Link>

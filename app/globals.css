@@ -75,6 +75,12 @@
   --layout-max-width: 1440px;
   --layout-gutter-mobile: 16px;
   --layout-gutter-desktop: 72px;
+
+  /* Luxury Red Accent System */
+  --accent-red: #A30812;              /* Muted Ferrari Red */
+  --accent-red-deep: #3C0003;         /* Cinematic Oxblood */
+  --accent-red-highlight: #C21807;    /* Metallic Highlight */
+  --accent-red-dark: #72050A;         /* Shadow Red */
   
   color-scheme: dark;
 }

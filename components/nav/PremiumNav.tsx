@@ -10,6 +10,7 @@ type NavItem = {
 };
 
 const NAV_ITEMS: NavItem[] = [
+  { label: "Home", href: "/" },
   { label: "Work", href: "/work" },
   { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
@@ -33,57 +34,66 @@ export function PremiumNav() {
   }, [open]);
 
   return (
-    <header
-      className={
-        `fixed top-0 left-0 right-0 z-[100] transition-colors duration-sm ` +
-        (scrolled ? "bg-ink/90 backdrop-blur-md border-b border-stone/10" : "bg-transparent")
-      }
-    >
-      <div className="max-w-content mx-auto px-4 md:px-16 py-5">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="font-display text-xl text-paper">
-            GT Media
-          </Link>
+    <>
+      <header
+        className={
+          `fixed top-0 left-0 right-0 z-[100] transition-colors duration-sm ` +
+          (scrolled ? "bg-ink/90 backdrop-blur-md border-b border-stone/10" : "bg-transparent")
+        }
+      >
+        <div className="max-w-content mx-auto px-4 md:px-16 py-5">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <Link href="/" className="font-display text-xl text-paper">
+              GT Media
+            </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden md:block">
-            <ul className="flex items-center gap-10">
-              {NAV_ITEMS.map((item) => (
-                <li key={item.href}>
+            {/* Desktop nav */}
+            <nav className="hidden md:block">
+              <ul className="flex items-center gap-10">
+                {NAV_ITEMS.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className="group relative font-accent text-xs uppercase tracking-[0.18em] text-stone transition-colors duration-sm"
+                      style={{ 
+                        color: undefined,
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent-red)'}
+                      onMouseLeave={(e) => e.currentTarget.style.color = ''}
+                    >
+                      {item.label}
+                      <span 
+                        className="absolute -bottom-2 left-0 h-[1px] w-0 transition-all duration-sm group-hover:w-full"
+                        style={{ backgroundColor: 'var(--accent-red)' }}
+                      />
+                    </Link>
+                  </li>
+                ))}
+                <li>
                   <Link
-                    href={item.href}
-                    className="group relative font-accent text-xs uppercase tracking-[0.18em] text-stone hover:text-accent-red transition-colors duration-sm"
+                    href="/contact"
+                    className="px-6 py-3 border border-accent-red text-accent-red rounded-pill hover:bg-accent-red hover:text-ink transition-all duration-sm"
                   >
-                    {item.label}
-                    <span className="absolute -bottom-2 left-0 h-[1px] w-0 bg-accent-red transition-all duration-sm group-hover:w-full" />
+                    Start Project
                   </Link>
                 </li>
-              ))}
-              <li>
-                <Link
-                  href="/contact"
-                  className="px-6 py-3 border border-accent-red text-accent-red rounded-pill hover:bg-accent-red hover:text-ink transition-all duration-sm"
-                >
-                  Start Project
-                </Link>
-              </li>
-            </ul>
-          </nav>
+              </ul>
+            </nav>
 
-          {/* Mobile trigger */}
-          <button
-            aria-label="Open menu"
-            onClick={() => setOpen(true)}
-            className="md:hidden text-paper"
-          >
-            <span className="inline-block w-6 h-[2px] bg-paper" />
-            <span className="inline-block w-6 h-[2px] bg-paper ml-2" />
-          </button>
+            {/* Mobile trigger */}
+            <button
+              aria-label="Open menu"
+              onClick={() => setOpen(true)}
+              className="md:hidden text-paper font-accent text-xs uppercase tracking-[0.18em]"
+            >
+              Menu
+            </button>
+          </div>
         </div>
-      </div>
+      </header>
 
-      {/* Mobile menu overlay */}
+      {/* Mobile menu overlay - full screen solid background (outside header) */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -92,13 +102,14 @@ export function PremiumNav() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.24, ease: [0.25, 0.1, 0.25, 1] }}
-            className="fixed inset-0 bg-ink/70"
+            className="fixed inset-0 z-[200]"
+            style={{ backgroundColor: "#050508" }}
             onClick={() => setOpen(false)}
           />
         )}
       </AnimatePresence>
 
-      {/* Mobile menu panel */}
+      {/* Mobile menu panel (outside header) */}
       <AnimatePresence>
         {open && (
           <motion.aside
@@ -107,7 +118,8 @@ export function PremiumNav() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.32, ease: [0.19, 1, 0.22, 1] }}
-            className="fixed top-0 right-0 h-full w-[82%] sm:w-[420px] bg-charcoal border-l border-stone/10 z-[110]"
+            className="fixed top-0 right-0 h-full w-[82%] sm:w-[420px] border-l border-stone/10 z-[210]"
+            style={{ backgroundColor: "#111118" }}
           >
             <div className="px-6 pt-6 pb-4 flex items-center justify-between border-b border-stone/10">
               <p className="font-display text-lg text-paper">Menu</p>
@@ -152,7 +164,7 @@ export function PremiumNav() {
           </motion.aside>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }
 

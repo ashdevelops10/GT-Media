@@ -17,7 +17,7 @@ import { InitInteractions } from "@/src/animations/InitInteractionsClient";
 
 export default async function HomePage() {
   return (
-    <div className="relative min-h-screen bg-onyx text-paper">
+    <div className="relative min-h-screen bg-onyx text-white">
       <PremiumNav />
       <LuxuryCursor />
       <InitInteractions />

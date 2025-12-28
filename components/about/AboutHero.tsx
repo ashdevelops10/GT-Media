@@ -16,7 +16,7 @@ export function AboutHero() {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-display leading-tight">
-                We Believe Design Is Strategic Intelligence
+                Performance-First Creative Partner
               </h1>
             </motion.div>
           }
@@ -27,9 +27,9 @@ export function AboutHero() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex items-center"
             >
-              <p className="text-xl text-accent-gold italic font-serif">
-                "Every pixel, every motion curve, every typographic choice is a strategic
-                decision—never decoration."
+              <p className="text-xl text-mahogany italic font-serif">
+                "We hold the creative, the narrative, and the numbers at the same level—because 
+                results matter as much as aesthetics."
               </p>
             </motion.div>
           }

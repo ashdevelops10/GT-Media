@@ -8,31 +8,42 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Stage 3: Luxury Cinematic Palette
-        ink: "#050508",
-        charcoal: "#111118",
-        paper: "#F6F3EE",
-        stone: "#CAC2B5",
-        // Executive accent red replacing auric gold
-        auric: "#B32635",
-        claret: "#4F1F2D",
-
-        // Luxury Red Accent System (from CSS variables)
+        // GT Media Color Palette
+        // Dark Colors
+        onyx: "#0b090a",              // Primary dark background
+        carbon: "#161a1d",            // Secondary dark / cards
+        ink: "#0b090a",               // Alias
+        charcoal: "#161a1d",          // Alias
+        
+        // Red Accent System
+        garnet: "#660708",            // Deep red - dark accents
+        mahogany: "#a4161a",          // Primary brand red
+        "mahogany-bright": "#ba181b", // Hover states
+        strawberry: "#e5383b",        // CTAs, highlights
+        
+        // Light & Neutral Colors
+        silver: "#b1a7a6",            // Secondary text
+        dust: "#d3d3d3",              // Borders, dividers
+        smoke: "#f5f3f4",             // Light backgrounds
+        paper: "#f5f3f4",             // Alias
+        stone: "#b1a7a6",             // Alias
+        
+        // Accent system (via CSS variables)
         "accent-red": "var(--accent-red)",
         "accent-red-deep": "var(--accent-red-deep)",
         "accent-red-highlight": "var(--accent-red-highlight)",
         "accent-red-dark": "var(--accent-red-dark)",
         
         // Text tokens
-        "text-primary-dark": "#14131A",
-        "text-primary-light": "#F6F3EE",
-        "text-secondary": "#A39A8A",
+        "text-primary-dark": "#0b090a",
+        "text-primary-light": "#ffffff",
+        "text-secondary": "#b1a7a6",
         
         // Legacy aliases (backwards compatibility)
-        onyx: "#050508",
-        "soft-gray": "#A39A8A",
-        // Accent alias now uses executive red as well
-        "accent-gold": "#B32635"
+        "soft-gray": "#b1a7a6",
+        "accent-gold": "#a4161a",
+        auric: "#a4161a",
+        claret: "#660708"
       },
       fontFamily: {
         sans: ["var(--font-gt-sans)", "Inter", "system-ui", "-apple-system", "sans-serif"],

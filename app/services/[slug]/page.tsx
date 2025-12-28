@@ -4,6 +4,7 @@ import { urlFor } from '../../../lib/sanity/urlFor';
 import Image from 'next/image';
 
 export const revalidate = 300; // services change less frequently
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
   const slugs = await getAllServiceSlugs();

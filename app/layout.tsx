@@ -7,12 +7,52 @@ import Providers from "./providers";
 import { gtSans, gtDisplay } from "./fonts";
 
 export const metadata: Metadata = {
-  title: "GT Media — Creative Studio",
+  title: {
+    default: "GT Media Studio — Performance-First Creative Partner",
+    template: "%s | GT Media Studio"
+  },
   description:
-    "GT Media is an elite creative agency crafting premium digital experiences.",
+    "GT Media is a performance-first creative partner uniting brand strategy, high-impact content, and precision media across music, celebrity, brand, and political ecosystems.",
   metadataBase: new URL("https://www.gt-media.com"),
+  keywords: ["creative agency", "brand strategy", "digital marketing", "content production", "music industry", "celebrity management", "performance marketing", "India"],
+  authors: [{ name: "GT Media Studio" }],
+  creator: "GT Media Studio",
+  publisher: "GT Media Studio",
   icons: {
     icon: "/favicon.ico"
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://www.gt-media.com",
+    siteName: "GT Media Studio",
+    title: "GT Media Studio — Performance-First Creative Partner",
+    description: "Cinematic campaigns that move markets and minds. Strategy, creative, and performance under one roof.",
+    images: [
+      {
+        url: "/images/hero/hero-bg.jpg",
+        width: 1200,
+        height: 630,
+        alt: "GT Media Studio"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "GT Media Studio — Performance-First Creative Partner",
+    description: "Cinematic campaigns that move markets and minds.",
+    creator: "@gtmediastudio"
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   alternates: {
     canonical: "https://www.gt-media.com",
@@ -23,7 +63,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0A0A0B"
+  themeColor: "#0b090a"
 };
 
 export default function RootLayout({
@@ -44,28 +84,32 @@ export default function RootLayout({
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'Organization',
-              name: 'GT Media',
+              name: 'GT Media Studio',
               url: 'https://www.gt-media.com',
               logo: 'https://www.gt-media.com/favicon.ico',
               sameAs: [
-                'https://www.instagram.com/gtmedia',
-                'https://www.linkedin.com/company/gtmedia'
+                'https://www.instagram.com/gtmediastudio',
+                'https://www.linkedin.com/company/gt-media-studio',
+                'https://twitter.com/gtmediastudio'
               ],
               description:
-                'GT Media is an elite creative agency crafting premium digital experiences.',
-              potentialAction: {
-                '@type': 'SearchAction',
-                target: 'https://www.gt-media.com/search?q={query}',
-                'query-input': 'required name=query'
+                'GT Media is a performance-first creative partner uniting brand strategy, high-impact content, and precision media across music, celebrity, brand, and political ecosystems.',
+              contactPoint: {
+                '@type': 'ContactPoint',
+                telephone: '+91-9999999999',
+                contactType: 'customer service',
+                email: 'hello@gt-media.com',
+                areaServed: 'IN',
+                availableLanguage: ['English', 'Hindi']
               }
             })
           }}
         />
       </head>
-      <body className="bg-onyx text-paper antialiased font-sans">
+      <body className="bg-onyx text-smoke antialiased font-sans">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-paper focus:px-4 focus:py-2 focus:text-onyx"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-smoke focus:px-4 focus:py-2 focus:text-onyx"
         >
           Skip to main content
         </a>

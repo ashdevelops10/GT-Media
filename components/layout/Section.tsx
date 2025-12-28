@@ -5,7 +5,7 @@ interface SectionProps {
   children: ReactNode;
   className?: string;
   spacing?: "default" | "compact" | "spacious";
-  background?: "default" | "dark" | "accent";
+  background?: "default" | "dark" | "carbon" | "accent";
 }
 
 export function Section({
@@ -21,9 +21,10 @@ export function Section({
   };
 
   const backgroundClasses = {
-    default: "bg-onyx text-paper",
-    dark: "bg-black text-paper",
-    accent: "text-onyx bg-[linear-gradient(145deg,var(--accent-red-deep)_0%,var(--accent-red-dark)_35%,var(--accent-red)_70%,var(--accent-red-highlight)_100%)]",
+    default: "bg-onyx text-white",
+    dark: "bg-[#0b090a] text-white",
+    carbon: "bg-carbon text-white",
+    accent: "text-white bg-gradient-to-br from-garnet via-mahogany to-strawberry",
   };
 
   return (

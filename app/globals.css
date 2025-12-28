@@ -3,20 +3,32 @@
 @tailwind utilities;
 
 :root {
-  /* Stage 3: Luxury Cinematic Design System */
+  /* GT Media Color Palette */
   
-  /* Color Tokens */
-  --color-ink: #050508;
-  --color-charcoal: #111118;
-  --color-paper: #F6F3EE;
-  --color-stone: #CAC2B5;
-  --color-auric: #D9B06A;
-  --color-claret: #4F1F2D;
+  /* Dark Colors */
+  --color-onyx: #0b090a;              /* Primary dark background */
+  --color-carbon: #161a1d;            /* Secondary dark / cards */
+  --color-ink: #0b090a;               /* Alias for onyx */
+  --color-charcoal: #161a1d;          /* Alias for carbon */
+  
+  /* Red Accent System */
+  --color-garnet: #660708;            /* Deep red - dark accents */
+  --color-mahogany: #a4161a;          /* Primary brand red */
+  --color-mahogany-bright: #ba181b;   /* Hover states */
+  --color-strawberry: #e5383b;        /* CTAs, highlights */
+  
+  /* Light & Neutral Colors */
+  --color-silver: #b1a7a6;            /* Secondary text */
+  --color-dust: #d3d3d3;              /* Borders, dividers */
+  --color-smoke: #f5f3f4;             /* Light backgrounds */
+  --color-white: #ffffff;             /* Pure white text */
+  --color-paper: #f5f3f4;             /* Alias for smoke */
+  --color-stone: #b1a7a6;             /* Alias for silver */
   
   /* Text Tokens */
-  --text-primary-dark: #14131A;
-  --text-primary-light: #F6F3EE;
-  --text-secondary: #A39A8A;
+  --text-primary-dark: #0b090a;
+  --text-primary-light: #ffffff;
+  --text-secondary: #b1a7a6;
   
   /* Typography Tokens */
   --font-display: "Libre Caslon Display", "Times New Roman", serif;
@@ -76,11 +88,11 @@
   --layout-gutter-mobile: 16px;
   --layout-gutter-desktop: 72px;
 
-  /* Luxury Red Accent System */
-  --accent-red: #A30812;              /* Muted Ferrari Red */
-  --accent-red-deep: #3C0003;         /* Cinematic Oxblood */
-  --accent-red-highlight: #C21807;    /* Metallic Highlight */
-  --accent-red-dark: #72050A;         /* Shadow Red */
+  /* Accent Red System (from palette) */
+  --accent-red: #a4161a;              /* Mahogany Red - primary */
+  --accent-red-deep: #660708;         /* Dark Garnet - deep */
+  --accent-red-highlight: #e5383b;    /* Strawberry Red - bright */
+  --accent-red-dark: #ba181b;         /* Mahogany Red 2 - hover */
   
   color-scheme: dark;
 }
@@ -99,8 +111,8 @@
     margin: 0;
     min-height: 100vh;
     font-family: var(--font-sans);
-    background-color: var(--color-ink);
-    color: var(--color-paper);
+    background-color: var(--color-onyx);
+    color: var(--color-white);
     font-size: var(--font-size-md);
     line-height: var(--leading-normal);
     -webkit-font-smoothing: antialiased;

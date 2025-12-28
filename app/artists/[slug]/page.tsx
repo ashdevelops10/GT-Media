@@ -5,6 +5,7 @@ import { urlFor } from '../../../lib/sanity/urlFor';
 import Image from 'next/image';
 
 export const revalidate = 120;
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
   const slugs = await getAllArtistSlugs();

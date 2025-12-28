@@ -71,7 +71,7 @@ export default function HeroClient() {
     <div className="relative space-y-8">
       <h1
         ref={headingRef}
-        className="text-display font-display text-balance text-paper"
+        className="text-display font-display text-balance text-white"
       >
         Cinematic Precision
         <span className="block text-vermilion">on the Web.</span>

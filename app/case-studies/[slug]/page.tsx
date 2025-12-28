@@ -6,6 +6,7 @@ import type { PageSection } from '../../../types/sanity';
 import Image from 'next/image';
 
 export const revalidate = 60; // ISR default; adjust per page if needed
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
   const slugs = await getAllCaseStudySlugs();

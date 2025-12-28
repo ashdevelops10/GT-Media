@@ -7,7 +7,7 @@ import Link from "next/link";
 export function HomeHero() {
   return (
     <section
-      className="relative h-[100dvh] w-full flex items-center justify-center bg-onyx text-paper overflow-hidden"
+      className="relative h-[100dvh] w-full flex items-center justify-center bg-onyx text-white overflow-hidden"
       data-hero-root
     >
       <Container className="h-full flex items-center py-4 sm:py-20 md:py-24">
@@ -21,7 +21,7 @@ export function HomeHero() {
               <span className="block">markets and minds.</span>
             </h1>
 
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-soft-gray max-w-[52ch] mb-5 sm:mb-6 md:mb-8 lg:mb-10">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-silver max-w-[52ch] mb-5 sm:mb-6 md:mb-8 lg:mb-10">
               GT Media Studio is a performance-first creative partner uniting brand strategy,
               high-impact content, and precision media across music, celebrity, brand, and
               political ecosystems—built for clients who expect results, not experiments.
@@ -30,13 +30,13 @@ export function HomeHero() {
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center h-12 sm:h-12 md:h-14 px-6 sm:px-7 md:px-8 bg-accent-gold text-onyx font-medium text-sm sm:text-base hover:bg-opacity-90 transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-gold whitespace-nowrap"
+                className="inline-flex items-center justify-center h-12 sm:h-12 md:h-14 px-6 sm:px-7 md:px-8 bg-mahogany text-onyx font-medium text-sm sm:text-base hover:bg-opacity-90 transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mahogany whitespace-nowrap"
               >
                 Book a Consultation
               </Link>
               <Link
                 href="/work"
-                className="inline-flex items-center justify-center h-12 sm:h-12 md:h-14 px-6 sm:px-7 md:px-8 border border-soft-gray text-paper text-sm sm:text-base hover:border-paper transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-soft-gray"
+                className="inline-flex items-center justify-center h-12 sm:h-12 md:h-14 px-6 sm:px-7 md:px-8 border border-silver text-white text-sm sm:text-base hover:border-paper transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-silver"
               >
                 View Work
               </Link>
@@ -47,8 +47,8 @@ export function HomeHero() {
             className="col-span-12 lg:col-span-5 relative h-[45vh] sm:h-[50vh] lg:h-[80vh] mb-4 lg:mb-0 lg:mt-0 order-1 lg:order-2"
             data-hero-bg
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-accent-gold/20 to-transparent rounded-lg" />
-            <div className="relative w-full h-full overflow-hidden rounded-lg border border-soft-gray/20 bg-black/60">
+            <div className="absolute inset-0 bg-gradient-to-br from-mahogany/20 to-transparent rounded-lg" />
+            <div className="relative w-full h-full overflow-hidden rounded-lg border border-silver/20 bg-black/60">
               <HomeHeroVideo />
             </div>
           </div>

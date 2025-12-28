@@ -3,12 +3,14 @@
 import { motion, useInView } from "framer-motion";
 import { Container, Section, SplitBlock } from "@/components/layout";
 import { useRef } from "react";
+import Image from "next/image";
 
 const services = [
   {
     id: "strategy",
     title: "Strategy",
     tagline: "Foundation for differentiation",
+    image: "/images/services/strategy.jpg",
     deliverables: [
       "Brand positioning & messaging architecture",
       "Competitive analysis & market research",
@@ -22,6 +24,7 @@ const services = [
     id: "brand",
     title: "Brand Identity",
     tagline: "Visual systems that scale",
+    image: "/images/services/brand.jpg",
     deliverables: [
       "Logo design & mark exploration",
       "Typography system & hierarchy",
@@ -35,6 +38,7 @@ const services = [
     id: "web",
     title: "Web Experience",
     tagline: "Performance meets aesthetics",
+    image: "/images/services/web.jpg",
     deliverables: [
       "UX architecture & wireframing",
       "UI design & component systems",
@@ -48,6 +52,7 @@ const services = [
     id: "content",
     title: "Visual Content",
     tagline: "Narrative-driven production",
+    image: "/images/services/content.jpg",
     deliverables: [
       "Art direction & photography",
       "Motion graphics & animation",
@@ -82,7 +87,7 @@ function ServiceModule({ service, index }: { service: typeof services[0]; index:
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
-                  className="text-xs uppercase tracking-widest text-accent-gold mb-4"
+                  className="text-xs uppercase tracking-widest text-mahogany mb-4"
                 >
                   0{index + 1}
                 </motion.p>
@@ -98,7 +103,7 @@ function ServiceModule({ service, index }: { service: typeof services[0]; index:
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
-                  className="text-xl text-soft-gray mb-8"
+                  className="text-xl text-silver mb-8"
                 >
                   {service.tagline}
                 </motion.p>
@@ -107,9 +112,15 @@ function ServiceModule({ service, index }: { service: typeof services[0]; index:
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ duration: 0.6, delay: 0.5 }}
-                  className="aspect-[16/9] bg-soft-gray/10 mb-8"
+                  className="aspect-[16/9] bg-silver/10 mb-8 relative overflow-hidden"
                 >
-                  {/* Visual placeholder */}
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 60vw"
+                  />
                 </motion.div>
 
                 <motion.div
@@ -117,8 +128,8 @@ function ServiceModule({ service, index }: { service: typeof services[0]; index:
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ duration: 0.6, delay: 0.6 }}
                 >
-                  <p className="text-sm text-soft-gray/70 mb-2">PROCESS</p>
-                  <p className="text-soft-gray">{service.process}</p>
+                  <p className="text-sm text-silver/70 mb-2">PROCESS</p>
+                  <p className="text-silver">{service.process}</p>
                 </motion.div>
               </div>
             }
@@ -130,20 +141,20 @@ function ServiceModule({ service, index }: { service: typeof services[0]; index:
                 className="flex flex-col justify-center"
               >
                 <div className="mb-8">
-                  <p className="text-sm text-soft-gray/70 mb-4">DELIVERABLES</p>
+                  <p className="text-sm text-silver/70 mb-4">DELIVERABLES</p>
                   <ul className="space-y-3">
                     {service.deliverables.map((item) => (
-                      <li key={item} className="text-soft-gray flex items-start">
-                        <span className="mr-3 mt-1.5 w-1.5 h-1.5 bg-accent-gold rounded-full flex-shrink-0" />
+                      <li key={item} className="text-silver flex items-start">
+                        <span className="mr-3 mt-1.5 w-1.5 h-1.5 bg-mahogany rounded-full flex-shrink-0" />
                         {item}
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="border-t border-soft-gray/20 pt-6">
-                  <p className="text-sm text-soft-gray/70 mb-2">OUTCOMES</p>
-                  <p className="text-soft-gray">{service.outcomes}</p>
+                <div className="border-t border-silver/20 pt-6">
+                  <p className="text-sm text-silver/70 mb-2">OUTCOMES</p>
+                  <p className="text-silver">{service.outcomes}</p>
                 </div>
               </motion.div>
             }

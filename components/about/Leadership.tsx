@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { Container, Section, SplitBlock } from "@/components/layout";
 import { useRef } from "react";
+import Image from "next/image";
 
 export function Leadership() {
   const ref = useRef(null);
@@ -19,19 +20,15 @@ export function Leadership() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.8 }}
-              className="aspect-[3/4] bg-soft-gray/10 relative overflow-hidden"
+              className="aspect-[3/4] bg-silver/10 relative overflow-hidden"
             >
-              {/* Portrait placeholder */}
-              <div className="absolute inset-0 flex items-center justify-center text-soft-gray/30">
-                <svg className="w-24 h-24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1}
-                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                  />
-                </svg>
-              </div>
+              <Image
+                src="/images/team/founder.jpg"
+                alt="GT Media Founder"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 40vw"
+              />
             </motion.div>
           }
           right={
@@ -41,33 +38,34 @@ export function Leadership() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex flex-col justify-center"
             >
-              <p className="text-xs uppercase tracking-widest text-accent-gold mb-4">
-                Creative Director
+              <p className="text-xs uppercase tracking-widest text-mahogany mb-4">
+                Founder & Creative Director
               </p>
-              <h3 className="text-3xl md:text-4xl font-display mb-6">Leadership Profile</h3>
-              <p className="text-lg text-soft-gray mb-6 leading-relaxed">
-                With 15+ years spanning brand strategy, interaction design, and technical
-                implementation, our leadership brings both creative vision and engineering rigor
-                to every engagement.
+              <h3 className="text-3xl md:text-4xl font-display mb-6">Gaurav Taneja</h3>
+              <p className="text-lg text-silver mb-6 leading-relaxed">
+                With over a decade of experience spanning brand strategy, creative direction, and 
+                performance marketing, Gaurav founded GT Media to bridge the gap between creative 
+                excellence and measurable business outcomes.
               </p>
-              <p className="text-soft-gray mb-8 leading-relaxed">
-                Previously: Art Director at Pentagram, Lead Designer at IDEO, Senior Engineer at
-                Google. Published in Communication Arts, featured speaker at Awwwards Conference.
+              <p className="text-silver mb-8 leading-relaxed">
+                His cross-industry expertise spans music labels, celebrity management, premium F&B brands, 
+                and political campaigns—bringing a unique perspective that moves seamlessly between 
+                boardrooms and creative studios.
               </p>
 
               {/* Stats */}
-              <div className="grid grid-cols-3 gap-6 pt-6 border-t border-soft-gray/20">
+              <div className="grid grid-cols-3 gap-6 pt-6 border-t border-silver/20">
                 <div>
-                  <p className="text-3xl font-display text-accent-gold mb-1">15+</p>
-                  <p className="text-sm text-soft-gray">Years Experience</p>
+                  <p className="text-3xl font-display text-mahogany mb-1">10+</p>
+                  <p className="text-sm text-silver">Years Experience</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-display text-accent-gold mb-1">8</p>
-                  <p className="text-sm text-soft-gray">Core Disciplines</p>
+                  <p className="text-3xl font-display text-mahogany mb-1">50+</p>
+                  <p className="text-sm text-silver">Clients Served</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-display text-accent-gold mb-1">Global</p>
-                  <p className="text-sm text-soft-gray">Client Reach</p>
+                  <p className="text-3xl font-display text-mahogany mb-1">4</p>
+                  <p className="text-sm text-silver">Industry Verticals</p>
                 </div>
               </div>
             </motion.div>

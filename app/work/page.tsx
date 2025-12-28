@@ -5,7 +5,7 @@ import { WorkGrid } from "@/components/work/WorkGrid";
 
 export default function WorkPage() {
   return (
-    <main className="relative min-h-screen bg-onyx text-paper">
+    <main className="relative min-h-screen bg-onyx text-white">
       <PremiumNav />
       <WorkHero />
       <WorkGrid />

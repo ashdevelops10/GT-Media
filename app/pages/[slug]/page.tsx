@@ -6,6 +6,7 @@ import type { PageSection } from '../../../types/sanity';
 import Image from 'next/image';
 
 export const revalidate = 180;
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
   const slugs = await getAllPageSlugs();

@@ -38,13 +38,13 @@ export function PremiumNav() {
       <header
         className={
           `fixed top-0 left-0 right-0 z-[100] transition-colors duration-sm ` +
-          (scrolled ? "bg-ink/90 backdrop-blur-md border-b border-stone/10" : "bg-transparent")
+          (scrolled ? "bg-onyx/95 backdrop-blur-md border-b border-dust/10" : "bg-transparent")
         }
       >
         <div className="max-w-content mx-auto px-4 md:px-16 py-5">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="font-display text-xl text-paper">
+            <Link href="/" className="font-display text-xl text-white">
               GT Media
             </Link>
 
@@ -55,17 +55,11 @@ export function PremiumNav() {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="group relative font-accent text-xs uppercase tracking-[0.18em] text-stone transition-colors duration-sm"
-                      style={{ 
-                        color: undefined,
-                      }}
-                      onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent-red)'}
-                      onMouseLeave={(e) => e.currentTarget.style.color = ''}
+                      className="group relative font-accent text-xs uppercase tracking-[0.18em] text-silver transition-colors duration-sm hover:text-strawberry"
                     >
                       {item.label}
                       <span 
-                        className="absolute -bottom-2 left-0 h-[1px] w-0 transition-all duration-sm group-hover:w-full"
-                        style={{ backgroundColor: 'var(--accent-red)' }}
+                        className="absolute -bottom-2 left-0 h-[1px] w-0 bg-strawberry transition-all duration-sm group-hover:w-full"
                       />
                     </Link>
                   </li>
@@ -73,7 +67,7 @@ export function PremiumNav() {
                 <li>
                   <Link
                     href="/contact"
-                    className="px-6 py-3 border border-accent-red text-accent-red rounded-pill hover:bg-accent-red hover:text-ink transition-all duration-sm"
+                    className="px-6 py-3 border border-strawberry text-strawberry rounded-pill hover:bg-strawberry hover:text-onyx transition-all duration-sm"
                   >
                     Start Project
                   </Link>
@@ -85,7 +79,7 @@ export function PremiumNav() {
             <button
               aria-label="Open menu"
               onClick={() => setOpen(true)}
-              className="md:hidden text-paper font-accent text-xs uppercase tracking-[0.18em]"
+              className="md:hidden text-white font-accent text-xs uppercase tracking-[0.18em]"
             >
               Menu
             </button>
@@ -121,12 +115,12 @@ export function PremiumNav() {
             className="fixed top-0 right-0 h-full w-[82%] sm:w-[420px] border-l border-stone/10 z-[210]"
             style={{ backgroundColor: "#111118" }}
           >
-            <div className="px-6 pt-6 pb-4 flex items-center justify-between border-b border-stone/10">
-              <p className="font-display text-lg text-paper">Menu</p>
+            <div className="px-6 pt-6 pb-4 flex items-center justify-between border-b border-dust/10">
+              <p className="font-display text-lg text-white">Menu</p>
               <button
                 aria-label="Close menu"
                 onClick={() => setOpen(false)}
-                className="text-stone hover:text-accent-red transition-colors duration-sm"
+                className="text-silver hover:text-strawberry transition-colors duration-sm"
               >
                 ✕
               </button>
@@ -143,7 +137,7 @@ export function PremiumNav() {
                     <Link
                       href={item.href}
                       onClick={() => setOpen(false)}
-                      className="block py-3 font-sans text-body text-paper hover:text-accent-red transition-colors duration-sm"
+                      className="block py-3 font-sans text-body text-white hover:text-strawberry transition-colors duration-sm"
                     >
                       {item.label}
                     </Link>
@@ -151,11 +145,11 @@ export function PremiumNav() {
                 ))}
               </ul>
 
-              <div className="mt-6 pt-6 border-t border-stone/10">
+              <div className="mt-6 pt-6 border-t border-dust/10">
                 <Link
                   href="/contact"
                   onClick={() => setOpen(false)}
-                  className="inline-block px-8 py-4 border border-accent-red text-accent-red rounded-pill hover:bg-accent-red hover:text-ink transition-all duration-sm"
+                  className="inline-block px-8 py-4 border border-strawberry text-strawberry rounded-pill hover:bg-strawberry hover:text-onyx transition-all duration-sm"
                 >
                   Start Project
                 </Link>

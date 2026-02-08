@@ -1,16 +1,32 @@
-import { Inter, Oswald } from "next/font/google";
+import { Inter, Bebas_Neue, Alex_Brush, Space_Grotesk } from "next/font/google";
 
-// Temporary replacement for GT Sans until files are provided
+// Clean sans-serif for body text
 export const gtSans = Inter({
   subsets: ["latin"],
   variable: "--font-gt-sans",
   display: "swap",
 });
 
-// Temporary replacement for GT Display
-export const gtDisplay = Oswald({
+// Bold condensed headlines - Industrial look
+export const gtDisplay = Bebas_Neue({
+  weight: "400",
   subsets: ["latin"],
   variable: "--font-gt-display",
+  display: "swap",
+});
+
+// Elegant accent font - Refined cursive
+export const scriptFont = Alex_Brush({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-script",
+  display: "swap",
+});
+
+// Technical/accent font
+export const accentFont = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-accent",
   display: "swap",
 });
 

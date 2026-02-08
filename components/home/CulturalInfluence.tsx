@@ -26,7 +26,7 @@ export async function CulturalInfluence() {
   return (
     <Section background="carbon" spacing="compact">
       <Container size="wide">
-        <div className="border-t border-dust/10 pt-16 md:pt-20 lg:pt-24">
+        <div className="border-t border-dust/10">
           {/* Section Header */}
           <div className="max-w-5xl mx-auto text-center mb-12 md:mb-16 lg:mb-20">
             {/* Accent line */}
@@ -38,53 +38,35 @@ export async function CulturalInfluence() {
               <span className="h-px w-12 md:w-16 bg-gradient-to-l from-transparent to-strawberry/60" />
             </div>
 
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-[0.06em] uppercase mb-8 md:mb-10">
-              Influence, Relationships &amp;
-              <br className="hidden md:block" />
-              <span className="text-strawberry"> Cultural Presence</span>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-7xl uppercase mb-6 tracking-tight">
+              Influence & <span className="text-strawberry">Cultural Presence</span>
             </h2>
 
-            <div className="grid md:grid-cols-3 gap-6 md:gap-8 lg:gap-12 text-sm md:text-base text-silver leading-relaxed max-w-6xl mx-auto">
-              <div className="space-y-3 p-4 md:p-6 rounded-lg bg-onyx/50 border border-dust/10 hover:border-mahogany/30 transition-colors duration-300">
-                <div className="w-10 h-10 rounded-full bg-mahogany/20 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-strawberry text-lg">★</span>
-                </div>
-                <p>
-                  GT Media has built a strong presence in celebrity collaborations and influencer-led marketing. Through our network,
-                  brands get direct access to high-credibility faces, wider reach, and faster trust-building.
-                </p>
-              </div>
-              <div className="space-y-3 p-4 md:p-6 rounded-lg bg-onyx/50 border border-dust/10 hover:border-mahogany/30 transition-colors duration-300">
-                <div className="w-10 h-10 rounded-full bg-mahogany/20 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-strawberry text-lg">◆</span>
-                </div>
-                <p>
-                  We've collaborated with multiple celebrities, creators, and public figures — including conducting interviews with icons
-                  like Milkha Singh — helping brands amplify visibility and create authentic audience engagement.
-                </p>
-              </div>
-              <div className="space-y-3 p-4 md:p-6 rounded-lg bg-onyx/50 border border-dust/10 hover:border-mahogany/30 transition-colors duration-300">
-                <div className="w-10 h-10 rounded-full bg-mahogany/20 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-strawberry text-lg">●</span>
-                </div>
-                <p>
-                  Our connections allow us to secure the right faces for the right campaigns, ensuring every collaboration delivers
-                  impact, authority, and measurable brand lift.
-                </p>
-              </div>
+            <p className="text-silver text-sm md:text-lg max-w-[50ch] mx-auto mb-10 leading-relaxed font-medium">
+              A high-credibility network across celebrity, music, and public ecosystems. We don't just bridge gaps; we engineer authority.
+            </p>
+
+            <div className="flex justify-center">
+              <a
+                href="/culture"
+                className="group relative px-8 py-4 bg-strawberry text-white font-bold uppercase tracking-widest text-xs rounded-full overflow-hidden transition-all duration-300 hover:pr-12"
+              >
+                <span className="relative z-10 font-display">View Full Network</span>
+                <span className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300">→</span>
+              </a>
             </div>
           </div>
 
-          {/* Photo Gallery */}
-          <div className="mt-8 md:mt-12">
+          {/* Photo Marquee */}
+          <div className="mt-4">
             <CulturalInfluenceClient photos={photos} />
           </div>
 
           {/* Footer Caption */}
-          <div className="mt-12 md:mt-16 flex items-center justify-center gap-4">
+          <div className="mt-8 flex items-center justify-center gap-4 opacity-40">
             <span className="h-px w-8 md:w-12 bg-dust/20" />
-            <p className="text-[10px] md:text-[11px] tracking-[0.25em] uppercase text-silver/60">
-              A minimal glimpse into our broader cultural network
+            <p className="text-[10px] tracking-[0.3em] uppercase text-silver">
+              A glimpse into our deep cultural ties
             </p>
             <span className="h-px w-8 md:w-12 bg-dust/20" />
           </div>

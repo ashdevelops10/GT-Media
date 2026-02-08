@@ -4,7 +4,7 @@ import type React from "react";
 import "./globals.css";
 
 import Providers from "./providers";
-import { gtSans, gtDisplay } from "./fonts";
+import { gtSans, gtDisplay, scriptFont, accentFont } from "./fonts";
 
 export const metadata: Metadata = {
   title: {
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0b090a"
+  themeColor: "#000000"
 };
 
 export default function RootLayout({
@@ -72,7 +72,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${gtSans.variable} ${gtDisplay.variable}`}>
+    <html lang="en" className={`${gtSans.variable} ${gtDisplay.variable} ${scriptFont.variable} ${accentFont.variable}`}>
       <head>
         {/* Preconnect to CDNs for performance */}
         <link rel="preconnect" href="https://cdn.sanity.io" />

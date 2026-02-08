@@ -2,10 +2,9 @@
 
 import { motion } from "framer-motion";
 import { Container, Section } from "@/components/layout";
-import Link from "next/link";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import Image from "next/image";
+import { DesignVisual } from "@/components/layout/DesignVisual";
 
 const featuredProjects = [
   {
@@ -14,6 +13,7 @@ const featuredProjects = [
     client: "Little Bay",
     category: "Brand Strategy",
     image: "/images/work/project-strategy.jpg",
+    videoUrl: "/videos/little-bay/biki-singh-1.mp4",
     span: "col-span-12 md:col-span-5",
     tall: true,
   },
@@ -49,6 +49,20 @@ const featuredProjects = [
 function ProjectCard({ project, index }: { project: typeof featuredProjects[0]; index: number }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handleMouseEnter = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+  };
 
   return (
     <motion.div
@@ -56,82 +70,85 @@ function ProjectCard({ project, index }: { project: typeof featuredProjects[0]; 
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className={`${project.span} ${project.tall ? "aspect-[3/4]" : "aspect-[16/9]"} relative group overflow-hidden bg-silver/10`}
+      className={`${project.span} ${project.tall ? "aspect-[3/4]" : "aspect-[16/9]"} relative group overflow-hidden bg-carbon border border-gray-dark rounded-3xl hover:border-orange transition-colors duration-500`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
-      <Link href={`/case-studies/${project.id}`} className="block h-full">
-        <Image
-          src={project.image}
-          alt={project.title}
-          fill
-          className="object-cover transition-transform duration-700 group-hover:scale-105"
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-onyx via-onyx/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
-        
-        <div className="absolute bottom-0 left-0 p-6 md:p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-          <p className="text-xs uppercase tracking-widest text-mahogany mb-2">
+      <div className="block w-full h-full relative">
+        {project.videoUrl ? (
+          <video
+            ref={videoRef}
+            src={project.videoUrl}
+            poster={project.image}
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-10"
+          />
+        ) : (
+          <DesignVisual
+            type="concept"
+            color={index % 2 === 0 ? "garnet" : "carbon"}
+            className="transition-transform duration-700 group-hover:scale-110"
+          />
+        )}
+
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500 z-20" />
+
+        <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 translate-y-2 group-hover:translate-y-0 transition-transform duration-500 z-30">
+          <p className="font-accent text-orange text-xs uppercase tracking-widest mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
             {project.category}
           </p>
-          <h3 className="text-2xl md:text-3xl font-medium mb-1">{project.title}</h3>
-          <p className="text-silver text-sm">{project.client}</p>
+          <h3 className="font-display text-2xl md:text-3xl lg:text-4xl text-white uppercase leading-none mb-1 group-hover:text-orange transition-colors duration-300">
+            {project.title}
+          </h3>
+          <p className="text-gray text-sm">{project.client}</p>
         </div>
-
-        {/* Hover Indicator */}
-        <div className="absolute top-6 right-6 w-12 h-12 border border-paper rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-75 group-hover:scale-100">
-          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </div>
-      </Link>
+      </div>
     </motion.div>
   );
 }
 
 export function FeaturedWork() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   return (
-    <Section spacing="default">
-      <Container>
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8 }}
-          className="mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display mb-4">
-            Selected Work
-          </h2>
-          <p className="text-lg text-silver max-w-[60ch]">
-            Curated case studies demonstrating strategic depth and aesthetic excellence
-          </p>
-        </motion.div>
+    <Section id="work" showGridLines className="relative bg-black overflow-hidden" spacing="compact">
+      {/* Giant background text */}
+      <div className="absolute top-20 left-0 right-0 flex justify-center pointer-events-none z-0">
+        <span className="font-display text-[15vw] text-cream/[0.03] uppercase tracking-widest leading-none">
+          SELECTED
+        </span>
+      </div>
 
-        <div className="grid grid-cols-12 gap-6 md:gap-8">
+      <Container className="relative z-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div>
+            <p className="font-script text-orange text-xl md:text-2xl mb-2">Selected Cases</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-7xl text-white uppercase tracking-tight leading-none">
+              WORK THAT <span className="text-orange">DEFINES US</span>
+            </h2>
+          </div>
+
+          <div
+            className="inline-flex items-center gap-2 px-6 py-3 border border-gray-dark text-white rounded-full font-bold uppercase tracking-wider transition-all duration-300"
+          >
+            <span>Our Signature Projects</span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-12 gap-6">
           {featuredProjects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
-          
-          {/* CTA Tile */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="col-span-12 md:col-span-4 aspect-[16/9] bg-mahogany text-onyx flex items-center justify-center p-8"
+        </div>
+
+        {/* Mobile CTA */}
+        <div className="mt-8 text-center md:hidden">
+          <div
+            className="inline-flex items-center gap-2 px-6 py-3 border border-gray-dark text-white rounded-full font-bold uppercase tracking-wider"
           >
-            <Link href="/work" className="text-center group">
-              <p className="text-2xl font-medium mb-4 group-hover:translate-y-[-4px] transition-transform duration-300">
-                View All Projects
-              </p>
-              <div className="w-12 h-12 mx-auto border-2 border-onyx rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </div>
-            </Link>
-          </motion.div>
+            <span>Our Signature Projects</span>
+          </div>
         </div>
       </Container>
     </Section>

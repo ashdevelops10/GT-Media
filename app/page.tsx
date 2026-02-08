@@ -2,15 +2,14 @@ import PremiumNav from "@/components/nav/PremiumNav";
 import { Footer } from "@/components/nav/Footer";
 import { HomeHero } from "@/components/home/HomeHero";
 import { FeaturedWork } from "@/components/home/FeaturedWork";
-import { SocialProofBar } from "@/components/home/SocialProofBar";
 import { BrandPartners } from "@/components/home/BrandPartners";
-import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 import { SignatureCapabilities } from "@/components/home/SignatureCapabilities";
 import { ResultsProof } from "@/components/home/ResultsProof";
-import { AboutSection } from "@/components/home/AboutSection";
-import { ProcessTimeline } from "@/components/home/ProcessTimeline";
 import { FinalCTA } from "@/components/home/FinalCTA";
 import { CulturalInfluence } from "@/components/home/CulturalInfluence";
+import { InternationalCollabs } from "@/components/home/InternationalCollabs";
+import { ArtistCollabs } from "@/components/home/ArtistCollabs";
+import { PRWins } from "@/components/home/PRWins";
 
 import LuxuryCursor from "@/src/components/LuxuryCursor";
 import { InitInteractions } from "@/src/animations/InitInteractionsClient";
@@ -22,15 +21,14 @@ export default async function HomePage() {
       <LuxuryCursor />
       <InitInteractions />
       <HomeHero />
-      <SocialProofBar />
       <BrandPartners />
-      <FeaturedWork />
-      <WhyChooseUs />
       <SignatureCapabilities />
+      <FeaturedWork />
+      <ArtistCollabs />
+      <InternationalCollabs />
+      <PRWins />
       <CulturalInfluence />
       <ResultsProof />
-      <AboutSection />
-      <ProcessTimeline />
       <FinalCTA />
       <Footer />
     </div>

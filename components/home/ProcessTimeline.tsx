@@ -11,9 +11,9 @@ const phases = [
     principle: "Audit brand, data, and market reality to clarify where attention, trust, or performance is leaking.",
     icon: (
       <svg className="w-6 h-6 sm:w-7 sm:h-7" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="2"/>
-        <path d="M18 18L26 26" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-        <path d="M12 8V12L15 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="2" />
+        <path d="M18 18L26 26" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <path d="M12 8V12L15 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },
@@ -23,10 +23,10 @@ const phases = [
     principle: "Design a focused plan with clear levers, budgets, and timelines linking creative, channels, and messaging to specific outcomes.",
     icon: (
       <svg className="w-6 h-6 sm:w-7 sm:h-7" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="3" y="3" width="22" height="22" rx="2" stroke="currentColor" strokeWidth="2"/>
-        <path d="M3 10H25" stroke="currentColor" strokeWidth="2"/>
-        <path d="M10 10V25" stroke="currentColor" strokeWidth="2"/>
-        <circle cx="17.5" cy="17.5" r="3" stroke="currentColor" strokeWidth="1.5"/>
+        <rect x="3" y="3" width="22" height="22" rx="2" stroke="currentColor" strokeWidth="2" />
+        <path d="M3 10H25" stroke="currentColor" strokeWidth="2" />
+        <path d="M10 10V25" stroke="currentColor" strokeWidth="2" />
+        <circle cx="17.5" cy="17.5" r="3" stroke="currentColor" strokeWidth="1.5" />
       </svg>
     ),
   },
@@ -36,9 +36,9 @@ const phases = [
     principle: "Develop assets, journeys, and systems—content, funnels, sites, campaigns, and reporting—so execution runs without friction.",
     icon: (
       <svg className="w-6 h-6 sm:w-7 sm:h-7" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 24L14 4L24 24H4Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
-        <path d="M9 24L14 14L19 24" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
-        <circle cx="14" cy="10" r="2" fill="currentColor"/>
+        <path d="M4 24L14 4L24 24H4Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+        <path d="M9 24L14 14L19 24" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+        <circle cx="14" cy="10" r="2" fill="currentColor" />
       </svg>
     ),
   },
@@ -48,10 +48,10 @@ const phases = [
     principle: "Double down on what works, cut what doesn't, and compound gains through iteration while protecting brand equity.",
     icon: (
       <svg className="w-6 h-6 sm:w-7 sm:h-7" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 20L10 14L14 18L24 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M18 8H24V14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <circle cx="10" cy="14" r="2" stroke="currentColor" strokeWidth="1.5"/>
-        <circle cx="14" cy="18" r="2" stroke="currentColor" strokeWidth="1.5"/>
+        <path d="M4 20L10 14L14 18L24 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M18 8H24V14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="10" cy="14" r="2" stroke="currentColor" strokeWidth="1.5" />
+        <circle cx="14" cy="18" r="2" stroke="currentColor" strokeWidth="1.5" />
       </svg>
     ),
   },
@@ -71,7 +71,7 @@ export function ProcessTimeline() {
           className="text-center mb-12 sm:mb-16 md:mb-20"
         >
           <p className="text-xs sm:text-sm uppercase tracking-widest text-mahogany mb-3 sm:mb-4">Our Process</p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display mb-4 px-4 sm:px-0">From Vision to Victory</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display text-white mb-4 px-4 sm:px-0">From Vision to Victory</h2>
           <p className="text-base sm:text-lg text-silver max-w-[60ch] mx-auto px-4 sm:px-0">
             A proven ritual for transforming strategic vision into exceptional reality
           </p>
@@ -81,7 +81,7 @@ export function ProcessTimeline() {
         <div ref={ref} className="hidden lg:block relative">
           {/* Connector Line */}
           <div className="absolute top-12 left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-mahogany/30 to-transparent" />
-          
+
           <div className="grid grid-cols-4 gap-6">
             {phases.map((phase, index) => (
               <motion.div
@@ -94,7 +94,7 @@ export function ProcessTimeline() {
                 {/* Number Circle */}
                 <div className="relative z-10 w-24 h-24 mx-auto mb-8 rounded-full border-2 border-mahogany/50 bg-onyx flex items-center justify-center group-hover:border-mahogany group-hover:bg-mahogany/10 transition-all duration-500">
                   <div className="text-center">
-                    <span className="block text-mahogany text-2xl font-display">{phase.number}</span>
+                    <span className="block text-mahogany text-3xl font-display">{phase.number}</span>
                     <span className="text-mahogany/60 group-hover:text-mahogany transition-colors duration-300">
                       {phase.icon}
                     </span>
@@ -129,7 +129,7 @@ export function ProcessTimeline() {
               >
                 {/* Number Circle */}
                 <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-full border-2 border-mahogany/50 flex items-center justify-center bg-onyx relative z-10 group-hover:border-mahogany group-hover:bg-mahogany/10 transition-all duration-500">
-                  <span className="text-mahogany font-medium text-sm sm:text-base">{phase.number}</span>
+                  <span className="text-mahogany font-display text-base sm:text-lg">{phase.number}</span>
                 </div>
 
                 {/* Content */}

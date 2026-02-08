@@ -1,62 +1,166 @@
 "use client";
 
-import { Container, Grid12 } from "@/components/layout";
-import { HomeHeroVideo } from "@/components/home/HomeHeroVideo";
+import { Container } from "@/components/layout";
 import Link from "next/link";
+import NextImage from "next/image";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { useState, useEffect } from "react";
+
+const HERO_IMAGES = [
+  "/images/services/content.jpg",
+  "/images/work/project-content.jpg"
+];
 
 export function HomeHero() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section
-      className="relative h-[100dvh] w-full flex items-center justify-center bg-onyx text-white overflow-hidden"
+      className="relative h-[100dvh] w-full flex items-center bg-black text-white overflow-hidden pt-12 md:pt-16 lg:pt-20"
       data-hero-root
     >
-      <Container className="h-full flex items-center py-4 sm:py-20 md:py-24">
-        <Grid12 className="items-start lg:items-center w-full h-full lg:h-auto" gap="tight">
-          <div className="col-span-12 lg:col-span-7 z-10 flex flex-col justify-center order-2 lg:order-1">
-            <h1
-              className="font-display text-[2rem] sm:text-[2.5rem] md:text-5xl lg:text-6xl xl:text-7xl leading-[0.95] mb-4 sm:mb-5 md:mb-6 lg:mb-7"
-              data-hero-title
+      <Container className="h-full relative z-10">
+        <div className="grid grid-cols-12 gap-8 lg:gap-12 h-full items-stretch">
+
+          {/* COLUMN 1: PITCH & CONTENT (Left, 5 cols on lg) */}
+          <div className="col-span-12 lg:col-span-5 flex flex-col justify-center py-12 order-2 lg:order-1 relative z-20">
+            {/* Mobile Logo Show */}
+            <div className="lg:hidden mb-10">
+              <div className="relative w-16 h-16">
+                <NextImage
+                  src="/logos/file_000000001db4720692432eb1b5ba9db6.png"
+                  alt="GT Media Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <span className="block">Cinematic campaigns that move</span>
-              <span className="block">markets and minds.</span>
-            </h1>
+              <p className="font-script text-orange text-2xl md:text-3xl mb-4">
+                Take control of your brand
+              </p>
 
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-silver max-w-[52ch] mb-5 sm:mb-6 md:mb-8 lg:mb-10">
-              GT Media Studio is a performance-first creative partner uniting brand strategy,
-              high-impact content, and precision media across music, celebrity, brand, and
-              political ecosystems—built for clients who expect results, not experiments.
-            </p>
+              <h1 className="font-display text-4xl md:text-5xl xl:text-7xl leading-[0.9] uppercase mb-4 tracking-tight">
+                <span className="block text-white">Cinematic</span>
+                <span className="block text-white">campaigns</span>
+                <span className="block text-orange">that move markets.</span>
+              </h1>
 
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center h-12 sm:h-12 md:h-14 px-6 sm:px-7 md:px-8 bg-mahogany text-onyx font-medium text-sm sm:text-base hover:bg-opacity-90 transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mahogany whitespace-nowrap"
+              <p className="text-gray-light text-base md:text-lg mb-8 max-w-[50ch] leading-relaxed">
+                From Creating Brands to Delivering Real Estate Solutions — All in One Place. A complete 360° approach that blends strategy, creativity, and execution.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center gap-2 h-12 px-8 bg-orange text-black text-xs font-bold uppercase tracking-wider rounded-full hover:bg-white transition-all duration-300"
+                >
+                  Start Project <span className="text-lg">»</span>
+                </Link>
+                <Link
+                  href="/work"
+                  className="inline-flex items-center justify-center gap-2 h-12 px-8 border border-gray text-white text-xs font-bold uppercase tracking-wider rounded-full hover:border-orange hover:text-orange transition-all duration-300"
+                >
+                  View Work
+                </Link>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* COLUMN 2: VERTICAL BRANDING (Center, 1 col on lg) */}
+          <div className="hidden lg:flex col-span-1 flex-col items-center justify-between py-12 order-2 border-x border-gray-dark/30 bg-black/50 backdrop-blur-sm relative">
+            {/* Top Logo */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <div className="relative w-12 h-12">
+                <NextImage
+                  src="/logos/file_000000001db4720692432eb1b5ba9db6.png"
+                  alt="GT Media Logo"
+                  fill
+                  className="object-contain animate-pulse-slow"
+                />
+              </div>
+            </motion.div>
+
+            {/* Vertical Typography */}
+            <div className="flex-1 flex items-center justify-center py-6">
+              <div className="writing-vertical-rl text-orientation-mixed rotate-180 transform">
+                <span className="font-display text-[5rem] xl:text-[6rem] leading-none text-stroke-gray text-transparent opacity-30 tracking-widest whitespace-nowrap">
+                  GT MEDIA
+                </span>
+              </div>
+            </div>
+
+            {/* Bottom Indicator */}
+            <motion.div
+              className="text-orange text-2xl"
+              animate={{ y: [0, 10, 0] }}
+              transition={{ repeat: Infinity, duration: 2 }}
+            >
+              ↓
+            </motion.div>
+          </div>
+
+          {/* COLUMN 3: IMAGE SLIDER (Right, 6 cols) */}
+          <div className="col-span-12 lg:col-span-6 h-[35vh] sm:h-[40vh] lg:h-[75vh] order-1 lg:order-3 relative rounded-2xl lg:rounded-3xl overflow-hidden border border-gray-dark group">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentImageIndex}
+                className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700"
+                initial={{ opacity: 0, scale: 1.1 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1 }}
               >
-                Book a Consultation
-              </Link>
-              <Link
-                href="/work"
-                className="inline-flex items-center justify-center h-12 sm:h-12 md:h-14 px-6 sm:px-7 md:px-8 border border-silver text-white text-sm sm:text-base hover:border-paper transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-silver"
-              >
-                View Work
-              </Link>
+                <motion.div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{
+                    backgroundImage: `url(${HERO_IMAGES[currentImageIndex]})`,
+                    y: useTransform(useScroll().scrollYProgress, [0, 1], [0, 100])
+                  }}
+                />
+                <div className="absolute inset-0 bg-black/30 group-hover:bg-transparent transition-colors duration-500" />
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Overlay Grid Lines */}
+            <div className="absolute inset-0 border-[0.5px] border-white/10 pointer-events-none grid grid-rows-3">
+              <div className="border-b border-white/10" />
+              <div className="border-b border-white/10" />
             </div>
           </div>
 
-          <div
-            className="col-span-12 lg:col-span-5 relative h-[45vh] sm:h-[50vh] lg:h-[80vh] mb-4 lg:mb-0 lg:mt-0 order-1 lg:order-2"
-            data-hero-bg
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-mahogany/20 to-transparent rounded-lg" />
-            <div className="relative w-full h-full overflow-hidden rounded-lg border border-silver/20 bg-black/60">
-              <HomeHeroVideo />
-            </div>
-          </div>
-        </Grid12>
+        </div>
       </Container>
 
-      <div className="absolute inset-0 opacity-[0.015] pointer-events-none mix-blend-overlay bg-[url('/noise.png')] bg-repeat" />
+      {/* Marquee Bottom */}
+      <div className="absolute bottom-0 left-0 right-0 border-t border-gray-dark bg-carbon py-3 z-30">
+        <div className="animate-marquee whitespace-nowrap flex gap-12">
+          {[...Array(6)].map((_, i) => (
+            <div key={i} className="flex items-center gap-6">
+              <span className="text-sm font-bold bg-orange text-black px-3 py-1 rounded-sm">STUDIO</span>
+              <span className="text-gray-light font-accent text-sm uppercase tracking-widest">
+                BRAND STRATEGY // HIGH-IMPACT CONTENT // PRECISION MEDIA // RESULTS DRIVEN //
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
-

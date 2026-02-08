@@ -3,20 +3,51 @@
 import { motion, useInView } from "framer-motion";
 import { Container, Section } from "@/components/layout";
 import { useRef, useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
+import { ProjectModal } from "./ProjectModal";
 
 const allProjects = [
-  { id: "little-bay", title: "Restaurant Launch Campaign", client: "Little Bay", category: "Strategy", industry: "Hospitality", image: "/images/work/project-strategy.jpg" },
-  { id: "zenergy-rebrand", title: "Brand Evolution", client: "Zenergy", category: "Brand", industry: "Wellness", image: "/images/work/project-brand.jpg" },
-  { id: "urban-theka-digital", title: "Digital Transformation", client: "Urban Theka", category: "Web", industry: "F&B", image: "/images/work/project-web.jpg" },
-  { id: "artist-campaign", title: "Artist Launch Campaign", client: "Music Division", category: "Content", industry: "Entertainment", image: "/images/work/project-content.jpg" },
-  { id: "corporate-rebrand", title: "Corporate Identity System", client: "Bastian Group", category: "Brand", industry: "Corporate", image: "/images/work/project-corporate.jpg" },
-  { id: "performance-marketing", title: "Performance Marketing", client: "Wildhood", category: "Strategy", industry: "Lifestyle", image: "/images/work/project-marketing.jpg" },
+  {
+    id: "luxury-real-estate",
+    title: "Elite Real Estate Branding",
+    client: "Saahayak",
+    category: "Brand",
+    industry: "Real Estate",
+    image: "/images/work/project-brand.jpg",
+    description: "A comprehensive 360° approach for a premium real estate solutions provider. We blended strategy, creativity, and execution to deliver a brand that stands out in a crowded market.",
+    metrics: [{ label: "Lead Generation", value: "300%" }, { label: "Brand Equity", value: "High" }],
+    testimonial: { quote: "GT Media transformed our digital presence into a luxury experience.", author: "CEO", role: "Saahayak" }
+  },
+  {
+    id: "viral-marketing-kkg",
+    title: "Viral Performance Strategy",
+    client: "KKG",
+    category: "Strategy",
+    industry: "Entertainment",
+    image: "/images/work/project-strategy.jpg",
+    metrics: [{ label: "Instagram Growth", value: "300%" }, { label: "Engagement", value: "10x" }]
+  },
+  {
+    id: "mash-global-launch",
+    title: "Global Launch Campaign",
+    client: "Mach Global",
+    category: "Web",
+    industry: "International",
+    image: "/images/work/project-web.jpg"
+  },
+  {
+    id: "artist-campaign",
+    title: "Artist Impact Campaign",
+    client: "Music Studio",
+    category: "Content",
+    industry: "Entertainment",
+    image: "/images/work/project-content.jpg",
+    metrics: [{ label: "Media Reach", value: "Viral" }]
+  },
 ];
 
 const filters = {
-  industry: ["All", "Entertainment", "Hospitality", "F&B", "Wellness", "Corporate", "Lifestyle"],
+  industry: ["All", "Entertainment", "Real Estate", "International"],
   category: ["All", "Strategy", "Brand", "Web", "Content"],
 };
 
@@ -25,6 +56,7 @@ export function WorkGrid() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [activeIndustry, setActiveIndustry] = useState("All");
   const [activeCategory, setActiveCategory] = useState("All");
+  const [selectedProject, setSelectedProject] = useState<typeof allProjects[0] | null>(null);
 
   const filteredProjects = allProjects.filter(
     (project) =>
@@ -42,93 +74,106 @@ export function WorkGrid() {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <div className="mb-6">
-            <p className="text-xs uppercase tracking-widest text-silver mb-3">Industry</p>
-            <div className="flex flex-wrap gap-3">
-              {filters.industry.map((filter) => (
-                <button
-                  key={filter}
-                  onClick={() => setActiveIndustry(filter)}
-                  className={`px-4 py-2 border transition-all duration-300 ${
-                    activeIndustry === filter
-                      ? "border-mahogany bg-mahogany/10 text-mahogany"
-                      : "border-silver/30 text-silver hover:border-mahogany/40"
-                  }`}
-                >
-                  {filter}
-                </button>
-              ))}
+          <div className="flex flex-col md:flex-row gap-8 justify-between items-start md:items-end">
+            <div className="space-y-6 flex-1">
+              <div>
+                <p className="text-xs uppercase tracking-widest text-silver mb-3">Industry</p>
+                <div className="flex flex-wrap gap-2">
+                  {filters.industry.map((filter) => (
+                    <button
+                      key={filter}
+                      onClick={() => setActiveIndustry(filter)}
+                      className={`px-4 py-2 rounded-full text-sm transition-all duration-300 border ${activeIndustry === filter
+                        ? "border-mahogany bg-mahogany text-white"
+                        : "border-white/10 text-silver hover:border-white/30 hover:text-white"
+                        }`}
+                    >
+                      {filter}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <p className="text-xs uppercase tracking-widest text-silver mb-3">Discipline</p>
+                <div className="flex flex-wrap gap-2">
+                  {filters.category.map((filter) => (
+                    <button
+                      key={filter}
+                      onClick={() => setActiveCategory(filter)}
+                      className={`px-4 py-2 rounded-full text-sm transition-all duration-300 border ${activeCategory === filter
+                        ? "border-mahogany bg-mahogany text-white"
+                        : "border-white/10 text-silver hover:border-white/30 hover:text-white"
+                        }`}
+                    >
+                      {filter}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="text-right hidden md:block">
+              <p className="text-sm text-silver">
+                Showing <span className="text-white font-medium">{filteredProjects.length}</span> project{filteredProjects.length !== 1 ? "s" : ""}
+              </p>
             </div>
           </div>
-
-          <div>
-            <p className="text-xs uppercase tracking-widest text-silver mb-3">Discipline</p>
-            <div className="flex flex-wrap gap-3">
-              {filters.category.map((filter) => (
-                <button
-                  key={filter}
-                  onClick={() => setActiveCategory(filter)}
-                  className={`px-4 py-2 border transition-all duration-300 ${
-                    activeCategory === filter
-                      ? "border-mahogany bg-mahogany/10 text-mahogany"
-                      : "border-silver/30 text-silver hover:border-mahogany/40"
-                  }`}
-                >
-                  {filter}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {(activeIndustry !== "All" || activeCategory !== "All") && (
-            <p className="mt-4 text-sm text-silver">
-              Showing {filteredProjects.length} project{filteredProjects.length !== 1 ? "s" : ""}
-            </p>
-          )}
         </motion.div>
 
-        {/* Projects Grid */}
-        <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-            >
-              <Link href={`/case-studies/${project.id}`} className="block group">
-                <div className="aspect-[4/3] bg-silver/10 mb-4 relative overflow-hidden">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-onyx/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  
-                  {/* Hover Indicator */}
-                  <div className="absolute top-4 right-4 w-10 h-10 border border-paper rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 scale-75 group-hover:scale-100">
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                </div>
+        {/* Masonry-style Grid using CSS Grid + different spans */}
+        <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[300px]">
+          {filteredProjects.map((project, index) => {
+            // Logic to create masonry variation based on index
+            const isLarge = index % 4 === 0 || index % 5 === 0;
+            const spanClass = isLarge ? "md:row-span-2" : "";
 
-                <div className="space-y-2">
-                  <p className="text-xs uppercase tracking-widest text-mahogany">
+            return (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 40 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className={`group relative overflow-hidden rounded-lg bg-onyx cursor-pointer ${spanClass}`}
+                onClick={() => setSelectedProject(project)}
+              >
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-onyx/90 via-onyx/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+
+                <div className="absolute bottom-0 left-0 p-6 w-full transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                  <p className="text-xs uppercase tracking-widest text-mahogany mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
                     {project.category}
                   </p>
-                  <h3 className="text-2xl font-medium group-hover:text-mahogany transition-colors duration-300">
+                  <h3 className="text-2xl font-medium text-white group-hover:text-mahogany transition-colors duration-300">
                     {project.title}
                   </h3>
-                  <p className="text-silver">{project.client}</p>
+                  <p className="text-silver text-sm opacity-80 group-hover:opacity-100">{project.client}</p>
                 </div>
-              </Link>
-            </motion.div>
-          ))}
+
+                {/* Hover Indicator */}
+                <div className="absolute top-4 right-4 w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 scale-75 group-hover:scale-100">
+                  <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </Container>
+
+      <ProjectModal
+        project={selectedProject}
+        isOpen={!!selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
     </Section>
   );
 }

@@ -8,69 +8,85 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // GT Media Color Palette
-        // Dark Colors
-        onyx: "#0b090a",              // Primary dark background
-        carbon: "#161a1d",            // Secondary dark / cards
-        ink: "#0b090a",               // Alias
-        charcoal: "#161a1d",          // Alias
-        
-        // Red Accent System
-        garnet: "#660708",            // Deep red - dark accents
-        mahogany: "#a4161a",          // Primary brand red
-        "mahogany-bright": "#ba181b", // Hover states
-        strawberry: "#e5383b",        // CTAs, highlights
-        
-        // Light & Neutral Colors
-        silver: "#b1a7a6",            // Secondary text
-        dust: "#d3d3d3",              // Borders, dividers
-        smoke: "#f5f3f4",             // Light backgrounds
-        paper: "#f5f3f4",             // Alias
-        stone: "#b1a7a6",             // Alias
-        
+        // GT Media - Bold Industrial Theme
+
+        // PURE BLACK (#000000) - Primary background
+        onyx: "#000000",
+        carbon: "#0a0a0a",
+        ink: "#000000",
+        charcoal: "#111111",
+        noir: "#000000",
+        black: "#000000",
+
+        // BRIGHT ORANGE (#FF5722) - Primary accent
+        orange: "#FF5722",
+        "orange-dark": "#E64A19",
+        "orange-light": "#FF7043",
+        mahogany: "#FF5722",
+        "mahogany-bright": "#FF7043",
+        strawberry: "#FF5722",
+
+        // CREAM WHITE (#F5F0E6) - Primary text
+        cream: "#F5F0E6",
+        cotton: "#F5F0E6",
+        smoke: "#F5F0E6",
+        paper: "#F5F0E6",
+        silver: "#888888",
+        dust: "#666666",
+        stone: "#444444",
+
+        // MUTED GRAY - Secondary elements
+        gray: "#888888",
+        "gray-dark": "#444444",
+        "gray-light": "#aaaaaa",
+
         // Accent system (via CSS variables)
-        "accent-red": "var(--accent-red)",
-        "accent-red-deep": "var(--accent-red-deep)",
-        "accent-red-highlight": "var(--accent-red-highlight)",
-        "accent-red-dark": "var(--accent-red-dark)",
-        
+        "accent-red": "var(--accent-orange)",
+        "accent-red-deep": "var(--accent-orange-dark)",
+        "accent-red-highlight": "var(--accent-orange-light)",
+        "accent-red-dark": "var(--accent-orange)",
+
         // Text tokens
-        "text-primary-dark": "#0b090a",
-        "text-primary-light": "#ffffff",
-        "text-secondary": "#b1a7a6",
-        
-        // Legacy aliases (backwards compatibility)
-        "soft-gray": "#b1a7a6",
-        "accent-gold": "#a4161a",
-        auric: "#a4161a",
-        claret: "#660708"
+        "text-primary-dark": "#000000",
+        "text-primary-light": "#F5F0E6",
+        "text-secondary": "#888888",
+
+        // Legacy aliases
+        "soft-gray": "#888888",
+        "accent-gold": "#FF5722",
+        auric: "#FF5722",
+        claret: "#E64A19",
+        maroon: "#E64A19",
+        garnet: "#E64A19",
+        cherry: "#FF5722"
       },
       fontFamily: {
         sans: ["var(--font-gt-sans)", "Inter", "system-ui", "-apple-system", "sans-serif"],
-        display: ["var(--font-gt-display)", "Libre Caslon Display", "Times New Roman", "serif"],
-        accent: ["var(--font-gt-accent)", "Space Grotesk", "ui-monospace", "SFMono-Regular", "monospace"]
+        display: ["var(--font-gt-display)", "Bebas Neue", "Impact", "sans-serif"],
+        script: ["var(--font-script)", "Pacifico", "cursive"],
+        accent: ["var(--font-accent)", "Space Grotesk", "ui-monospace", "monospace"]
       },
       fontSize: {
         // Stage 3: Editorial Typography Scale
         // Display scale (for hero headlines)
         "display": ["clamp(4rem, 8vw, 5.5rem)", { lineHeight: "1.05", letterSpacing: "-0.03em" }],
         "display-sm": ["clamp(2.5rem, 6vw, 3.5rem)", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
-        
+
         // Heading scale
         "h1": ["clamp(2.25rem, 5vw, 4rem)", { lineHeight: "1.15", letterSpacing: "-0.02em" }],
         "h2": ["clamp(1.875rem, 4vw, 3rem)", { lineHeight: "1.2", letterSpacing: "-0.01em" }],
         "h3": ["clamp(1.5rem, 3vw, 2.25rem)", { lineHeight: "1.25", letterSpacing: "0" }],
         "h4": ["clamp(1.25rem, 2vw, 1.5rem)", { lineHeight: "1.3", letterSpacing: "0" }],
-        
+
         // Body scale
         "body-lg": ["1.125rem", { lineHeight: "1.7" }],
         "body": ["1rem", { lineHeight: "1.65" }],
         "body-sm": ["0.875rem", { lineHeight: "1.6" }],
-        
+
         // Micro/accent scale (for stats, metadata)
         "micro": ["0.8125rem", { lineHeight: "1.5", letterSpacing: "0.02em" }],
         "micro-sm": ["0.75rem", { lineHeight: "1.5", letterSpacing: "0.03em" }],
-        
+
         // Numeric accent sizes
         "stat": ["2.5rem", { lineHeight: "1.1", letterSpacing: "-0.01em" }],
         "stat-sm": ["1.75rem", { lineHeight: "1.2", letterSpacing: "0" }]
@@ -95,7 +111,7 @@ module.exports = {
         "48": "12rem",    // 192px
         "56": "14rem",    // 224px
         "64": "16rem",    // 256px
-        
+
         // Section spacing (named for clarity)
         "section-compact": "2.5rem",   // 40px mobile
         "section-default": "4rem",     // 64px desktop
@@ -138,5 +154,8 @@ module.exports = {
       }
     }
   },
-  plugins: []
+  plugins: [],
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
 };

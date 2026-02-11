@@ -20,11 +20,6 @@ jobs:
           version: 9
           run_install: false
 
-      - name: Verify pnpm installation
-        run: |
-          pnpm --version
-          which pnpm
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:

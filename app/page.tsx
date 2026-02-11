@@ -3,6 +3,7 @@ import { Footer } from "@/components/nav/Footer";
 import { HomeHero } from "@/components/home/HomeHero";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
+import { ClientInteractionsWrapper } from "./ClientInteractionsWrapper";
 
 // Lazy load non-critical sections
 const FeaturedWork = dynamic(() => import("@/components/home/FeaturedWork").then(mod => ({ default: mod.FeaturedWork })), {
@@ -50,20 +51,11 @@ const PRWins = dynamic(() => import("@/components/home/PRWins").then(mod => ({ d
   ssr: true
 });
 
-const LuxuryCursor = dynamic(() => import("@/src/components/LuxuryCursor"), {
-  ssr: false
-});
-
-const InitInteractions = dynamic(() => import("@/src/animations/InitInteractionsClient").then(mod => ({ default: mod.InitInteractions })), {
-  ssr: false
-});
-
 export default async function HomePage() {
   return (
     <div className="relative min-h-screen bg-onyx text-white">
       <PremiumNav />
-      <LuxuryCursor />
-      <InitInteractions />
+      <ClientInteractionsWrapper />
       <HomeHero />
       <Suspense fallback={<div className="h-80 bg-carbon animate-pulse" />}>
         <BrandPartners />

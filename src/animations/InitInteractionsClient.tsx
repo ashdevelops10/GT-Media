@@ -13,16 +13,22 @@ export function InitInteractions() {
       return;
     }
     ensureScrollTrigger();
-    const init = () => {
-      const root = document.querySelector("[data-hero-root]") as HTMLElement | null;
-      if (root) initHeroInteractions(root);
-      initSeparators(document.body);
-      attachMicroInteractions(document.body);
-    };
+    // Defer animation initialization to idle callback with longer timeout
     if ("requestIdleCallback" in window) {
-      (window as any).requestIdleCallback(init);
+      (window as any).requestIdleCallback(() => {
+        const root = document.querySelector("[data-hero-root]") as HTMLElement | null;
+        if (root) initHeroInteractions(root);
+        initSeparators(document.body);
+        attachMicroInteractions(document.body);
+      }, { timeout: 2000 });
     } else {
-      setTimeout(init, 0);
+      // Fallback: use setTimeout with 1 second delay instead of 0
+      setTimeout(() => {
+        const root = document.querySelector("[data-hero-root]") as HTMLElement | null;
+        if (root) initHeroInteractions(root);
+        initSeparators(document.body);
+        attachMicroInteractions(document.body);
+      }, 1000);
     }
   }, []);
 

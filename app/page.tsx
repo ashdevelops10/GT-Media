@@ -1,18 +1,62 @@
 import PremiumNav from "@/components/nav/PremiumNav";
 import { Footer } from "@/components/nav/Footer";
 import { HomeHero } from "@/components/home/HomeHero";
-import { FeaturedWork } from "@/components/home/FeaturedWork";
-import { BrandPartners } from "@/components/home/BrandPartners";
-import { SignatureCapabilities } from "@/components/home/SignatureCapabilities";
-import { ResultsProof } from "@/components/home/ResultsProof";
-import { FinalCTA } from "@/components/home/FinalCTA";
-import { CulturalInfluence } from "@/components/home/CulturalInfluence";
-import { InternationalCollabs } from "@/components/home/InternationalCollabs";
-import { ArtistCollabs } from "@/components/home/ArtistCollabs";
-import { PRWins } from "@/components/home/PRWins";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
 
-import LuxuryCursor from "@/src/components/LuxuryCursor";
-import { InitInteractions } from "@/src/animations/InitInteractionsClient";
+// Lazy load non-critical sections
+const FeaturedWork = dynamic(() => import("@/components/home/FeaturedWork").then(mod => ({ default: mod.FeaturedWork })), {
+  loading: () => <div className="h-96 bg-carbon animate-pulse" />,
+  ssr: true
+});
+
+const BrandPartners = dynamic(() => import("@/components/home/BrandPartners").then(mod => ({ default: mod.BrandPartners })), {
+  loading: () => <div className="h-80 bg-carbon animate-pulse" />,
+  ssr: true
+});
+
+const SignatureCapabilities = dynamic(() => import("@/components/home/SignatureCapabilities").then(mod => ({ default: mod.SignatureCapabilities })), {
+  loading: () => <div className="h-96 bg-carbon animate-pulse" />,
+  ssr: true
+});
+
+const ResultsProof = dynamic(() => import("@/components/home/ResultsProof").then(mod => ({ default: mod.ResultsProof })), {
+  loading: () => <div className="h-96 bg-carbon animate-pulse" />,
+  ssr: true
+});
+
+const FinalCTA = dynamic(() => import("@/components/home/FinalCTA").then(mod => ({ default: mod.FinalCTA })), {
+  loading: () => <div className="h-80 bg-carbon animate-pulse" />,
+  ssr: true
+});
+
+const CulturalInfluence = dynamic(() => import("@/components/home/CulturalInfluence").then(mod => ({ default: mod.CulturalInfluence })), {
+  loading: () => <div className="h-96 bg-carbon animate-pulse" />,
+  ssr: true
+});
+
+const InternationalCollabs = dynamic(() => import("@/components/home/InternationalCollabs").then(mod => ({ default: mod.InternationalCollabs })), {
+  loading: () => <div className="h-96 bg-carbon animate-pulse" />,
+  ssr: true
+});
+
+const ArtistCollabs = dynamic(() => import("@/components/home/ArtistCollabs").then(mod => ({ default: mod.ArtistCollabs })), {
+  loading: () => <div className="h-96 bg-carbon animate-pulse" />,
+  ssr: true
+});
+
+const PRWins = dynamic(() => import("@/components/home/PRWins").then(mod => ({ default: mod.PRWins })), {
+  loading: () => <div className="h-96 bg-carbon animate-pulse" />,
+  ssr: true
+});
+
+const LuxuryCursor = dynamic(() => import("@/src/components/LuxuryCursor"), {
+  ssr: false
+});
+
+const InitInteractions = dynamic(() => import("@/src/animations/InitInteractionsClient").then(mod => ({ default: mod.InitInteractions })), {
+  ssr: false
+});
 
 export default async function HomePage() {
   return (
@@ -21,15 +65,33 @@ export default async function HomePage() {
       <LuxuryCursor />
       <InitInteractions />
       <HomeHero />
-      <BrandPartners />
-      <SignatureCapabilities />
-      <FeaturedWork />
-      <ArtistCollabs />
-      <InternationalCollabs />
-      <PRWins />
-      <CulturalInfluence />
-      <ResultsProof />
-      <FinalCTA />
+      <Suspense fallback={<div className="h-80 bg-carbon animate-pulse" />}>
+        <BrandPartners />
+      </Suspense>
+      <Suspense fallback={<div className="h-96 bg-carbon animate-pulse" />}>
+        <SignatureCapabilities />
+      </Suspense>
+      <Suspense fallback={<div className="h-96 bg-carbon animate-pulse" />}>
+        <FeaturedWork />
+      </Suspense>
+      <Suspense fallback={<div className="h-96 bg-carbon animate-pulse" />}>
+        <ArtistCollabs />
+      </Suspense>
+      <Suspense fallback={<div className="h-96 bg-carbon animate-pulse" />}>
+        <InternationalCollabs />
+      </Suspense>
+      <Suspense fallback={<div className="h-96 bg-carbon animate-pulse" />}>
+        <PRWins />
+      </Suspense>
+      <Suspense fallback={<div className="h-96 bg-carbon animate-pulse" />}>
+        <CulturalInfluence />
+      </Suspense>
+      <Suspense fallback={<div className="h-96 bg-carbon animate-pulse" />}>
+        <ResultsProof />
+      </Suspense>
+      <Suspense fallback={<div className="h-80 bg-carbon animate-pulse" />}>
+        <FinalCTA />
+      </Suspense>
       <Footer />
     </div>
   );

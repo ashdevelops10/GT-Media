@@ -1,5 +1,3 @@
-import React from "react";
-
 export function OwlLogo({ className = "w-8 h-8", color = "currentColor" }: { className?: string; color?: string }) {
     return (
         <svg

@@ -3,7 +3,7 @@
 import { Container } from "@/components/layout";
 import Link from "next/link";
 import NextImage from "next/image";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
 const HERO_IMAGES = [
@@ -121,18 +121,19 @@ export function HomeHero() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentImageIndex}
-                className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700"
-                initial={{ opacity: 0, scale: 1.1 }}
+                className="absolute inset-0 overflow-hidden"
+                initial={{ opacity: 0, scale: 1.05 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 1 }}
+                transition={{ duration: 0.8 }}
               >
-                <motion.div
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{
-                    backgroundImage: `url(${HERO_IMAGES[currentImageIndex]})`,
-                    y: useTransform(useScroll().scrollYProgress, [0, 1], [0, 100])
-                  }}
+                <NextImage
+                  src={HERO_IMAGES[currentImageIndex]}
+                  alt="Featured work showcase"
+                  fill
+                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                  priority={currentImageIndex === 0}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1920px"
                 />
                 <div className="absolute inset-0 bg-black/30 group-hover:bg-transparent transition-colors duration-500" />
               </motion.div>

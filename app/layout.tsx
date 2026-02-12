@@ -6,6 +6,13 @@ import "./globals.css";
 import Providers from "./providers";
 import { gtSans, gtDisplay, scriptFont, accentFont } from "./fonts";
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#000000",
+};
+
 export const metadata: Metadata = {
   title: {
     default: "GT Media Studio — Performance-First Creative Partner",
@@ -62,9 +69,6 @@ export const metadata: Metadata = {
   }
 };
 
-export const viewport: Viewport = {
-  themeColor: "#000000"
-};
 
 export default function RootLayout({
   children

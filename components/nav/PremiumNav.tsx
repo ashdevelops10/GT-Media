@@ -88,7 +88,7 @@ export function PremiumNav() {
             <button
               aria-label="Open menu"
               onClick={() => setOpen(true)}
-              className="md:hidden text-white font-accent text-xs uppercase tracking-[0.18em]"
+              className="md:hidden text-white font-accent text-xs uppercase tracking-[0.18em] p-2 -mr-2"
             >
               Menu
             </button>
@@ -129,7 +129,7 @@ export function PremiumNav() {
               <button
                 aria-label="Close menu"
                 onClick={() => setOpen(false)}
-                className="text-silver hover:text-strawberry transition-colors duration-sm"
+                className="text-silver hover:text-strawberry transition-colors duration-sm p-2 -mr-2"
               >
                 ✕
               </button>

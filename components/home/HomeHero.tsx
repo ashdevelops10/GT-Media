@@ -23,7 +23,7 @@ export function HomeHero() {
 
   return (
     <section
-      className="relative h-[100dvh] w-full flex items-center bg-black text-white overflow-hidden pt-12 md:pt-16 lg:pt-20"
+      className="relative min-h-[100dvh] w-full flex items-center bg-black text-white overflow-hidden pt-24 md:pt-28 lg:pt-32 pb-12"
       data-hero-root
     >
       <Container className="h-full relative z-10">

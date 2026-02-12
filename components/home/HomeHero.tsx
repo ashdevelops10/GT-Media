@@ -1,10 +1,11 @@
 "use client";
 
-import { Container } from "@/components/layout";
-import Link from "next/link";
-import NextImage from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import NextImage from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
+
+import { Container } from "@/components/layout";
 
 const HERO_IMAGES = [
   "/images/services/content.jpg",

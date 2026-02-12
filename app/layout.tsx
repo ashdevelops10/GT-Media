@@ -3,8 +3,8 @@ import type React from "react";
 
 import "./globals.css";
 
-import Providers from "./providers";
 import { gtSans, gtDisplay, scriptFont, accentFont } from "./fonts";
+import Providers from "./providers";
 
 export const metadata: Metadata = {
   title: {

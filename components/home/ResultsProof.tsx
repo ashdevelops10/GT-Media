@@ -3,7 +3,6 @@
 import { motion, useInView } from "framer-motion";
 import { Container, Section } from "@/components/layout";
 import { useRef } from "react";
-import { DesignVisual } from "@/components/layout/DesignVisual";
 
 const results = [
   {
@@ -94,7 +93,7 @@ export function ResultsProof() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {results.map((result, index) => (
             <motion.div
               key={result.label}
@@ -103,37 +102,24 @@ export function ResultsProof() {
               transition={{ duration: 0.5, delay: index * 0.08 }}
               className="group relative"
             >
-              <div className="relative border border-onyx/10 p-5 sm:p-6 md:p-8 bg-white/20 hover:border-mahogany/30 hover:bg-white/40 transition-all duration-500 overflow-hidden h-full rounded-3xl">
-                {/* Background Visual */}
-                <DesignVisual
-                  type="mesh"
-                  color="garnet"
-                  className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-700"
-                />
-
+              <div className="relative border border-onyx/8 p-5 sm:p-6 md:p-7 bg-white/30 hover:border-mahogany/30 hover:bg-white/50 transition-all duration-300 overflow-hidden h-full rounded-2xl">
                 {/* Icon */}
-                <div className="relative z-10 text-mahogany/60 mb-4 group-hover:text-mahogany transition-colors duration-300">
+                <div className="relative z-10 text-mahogany/50 mb-3 group-hover:text-mahogany transition-colors duration-300">
                   {result.icon}
                 </div>
 
                 {/* Metric */}
-                <div className="relative z-10 mb-3">
-                  <span className="text-3xl sm:text-4xl md:text-5xl text-onyx group-hover:text-mahogany transition-colors duration-300 font-display italic">
+                <div className="relative z-10 mb-2">
+                  <span className="text-3xl sm:text-4xl text-onyx group-hover:text-mahogany transition-colors duration-300 font-display italic">
                     {result.metric}
                   </span>
-                  <span className="block text-xs sm:text-sm uppercase tracking-wider text-mahogany/80 mt-1">
+                  <span className="block text-[10px] sm:text-xs uppercase tracking-wider text-mahogany/70 mt-1">
                     {result.label}
                   </span>
                 </div>
 
                 {/* Description */}
-                <p className="relative z-10 text-sm sm:text-base text-onyx/70 leading-relaxed">{result.description}</p>
-
-                {/* Corner accent */}
-                <div className="absolute top-0 right-0 w-12 h-12 overflow-hidden">
-                  <div className="absolute top-0 right-0 w-[1px] h-8 bg-gradient-to-b from-mahogany/40 to-transparent" />
-                  <div className="absolute top-0 right-0 w-8 h-[1px] bg-gradient-to-l from-mahogany/40 to-transparent" />
-                </div>
+                <p className="relative z-10 text-sm text-onyx/55 leading-relaxed">{result.description}</p>
               </div>
             </motion.div>
           ))}

@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export function PRWins() {
     return (
-        <Section background="dark" spacing="compact" className="bg-carbon border-t border-white/5">
+        <Section background="dark" spacing="compact" className="bg-black border-t border-white/[0.04]">
             <Container>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
 
@@ -65,15 +65,15 @@ export function PRWins() {
                             <span className="w-2 h-2 rounded-full bg-mahogany animate-pulse" />
                             Confidential Highlights
                         </p>
-                        <h2 className="text-4xl md:text-5xl font-display text-white mb-6">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-white mb-5">
                             PR &amp; MEDIA <span className="text-orange">WINS</span>
                         </h2>
-                        <p className="text-lg text-silver mb-8 leading-relaxed">
+                        <p className="text-base text-white/40 mb-6 leading-relaxed">
                             Powered high-profile PR campaigns for undisclosed blue-chip clients, politicians, and enterprises.
                             We deliver viral buzz, exponential media reach, and ethical storytelling at scale—all while strictly adhering to confidentiality agreements.
                         </p>
 
-                        <div className="p-6 bg-white/5 rounded-lg border-l-2 border-mahogany mb-8">
+                        <div className="p-5 bg-white/[0.03] rounded-xl border-l-2 border-mahogany mb-6">
                             <p className="text-white italic">
                                 "Results that speak louder than the NDAs that bind them."
                             </p>

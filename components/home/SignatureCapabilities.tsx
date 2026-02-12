@@ -5,7 +5,6 @@ import { Container, Section } from "@/components/layout";
 import { useRef } from "react";
 import Link from "next/link";
 import { MusicIcon, CelebrityIcon, PerformanceIcon, PoliticalIcon } from "@/components/ui/Icons";
-import { DesignVisual } from "@/components/layout/DesignVisual";
 
 const verticals = [
   {
@@ -52,31 +51,24 @@ export function SignatureCapabilities() {
 
   return (
     <Section background="parchment" spacing="compact" className="relative overflow-hidden">
-      {/* Giant background text */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-5 transform rotate-12 scale-150">
-        <span className="font-display text-[25vw] text-stroke-onyx text-transparent uppercase tracking-widest whitespace-nowrap">
-          EXPERTISE
-        </span>
-      </div>
-
       <Container className="relative z-10">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16 px-4"
+          className="text-center mb-12 md:mb-16 px-4"
         >
-          <p className="font-script text-mahogany text-xl md:text-2xl mb-3">What We Do</p>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-7xl uppercase text-onyx tracking-tight">
+          <p className="font-script text-mahogany text-lg md:text-2xl mb-2">What We Do</p>
+          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl uppercase text-onyx tracking-tight leading-[0.9]">
             FOUR VERTICALS. <span className="text-mahogany">ONE PARTNER.</span>
           </h2>
-          <p className="text-sm md:text-lg text-onyx/60 mt-6 max-w-[60ch] mx-auto">
+          <p className="text-sm md:text-base text-onyx/50 mt-4 max-w-[55ch] mx-auto leading-relaxed">
             Dedicated practice areas engineered for music, celebrity, brand performance, and political mandates.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 px-4 sm:px-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
           {verticals.map((vertical, index) => {
             const IconComponent = vertical.Icon;
             return (
@@ -87,43 +79,36 @@ export function SignatureCapabilities() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <Link href={vertical.link} className="block group h-full">
-                  <div className="relative border border-onyx/10 p-6 md:p-8 h-full flex flex-col rounded-3xl hover:border-mahogany transition-all duration-500 bg-white/30 backdrop-blur-sm group-hover:-translate-y-2 overflow-hidden">
-
-                    {/* Background Blueprint */}
-                    <DesignVisual
-                      type="blueprint"
-                      color={index % 2 === 0 ? "garnet" : "carbon"}
-                      className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-700"
-                    />
+                  <div className="relative border border-onyx/8 p-6 md:p-7 h-full flex flex-col rounded-2xl hover:border-mahogany/40 transition-all duration-300 bg-white/40 group-hover:bg-white/60 group-hover:-translate-y-1 group-hover:shadow-lg overflow-hidden">
 
                     {/* Icon */}
-                    <div className="relative z-10 w-12 h-12 mb-6 text-onyx/40 group-hover:text-mahogany transition-colors duration-300">
+                    <div className="relative z-10 w-10 h-10 mb-5 text-onyx/30 group-hover:text-mahogany transition-colors duration-300">
                       <IconComponent className="w-full h-full" />
                     </div>
 
-                    <h3 className="relative z-10 font-display text-2xl uppercase mb-3 text-onyx group-hover:text-mahogany transition-colors duration-300 leading-none">
+                    <h3 className="relative z-10 font-display text-xl lg:text-2xl uppercase mb-2.5 text-onyx group-hover:text-mahogany transition-colors duration-300 leading-none">
                       {vertical.title}
                     </h3>
 
-                    <p className="relative z-10 text-sm text-onyx/60 mb-6 leading-relaxed">
+                    <p className="relative z-10 text-sm text-onyx/50 mb-5 leading-relaxed line-clamp-3">
                       {vertical.description}
                     </p>
 
-                    <ul className="relative z-10 space-y-2 flex-1 border-t border-onyx/10 pt-4 mb-6">
+                    <ul className="relative z-10 space-y-1.5 flex-1 border-t border-onyx/8 pt-4 mb-5">
                       {vertical.services.map((service) => (
-                        <li key={service} className="text-onyx/70 text-xs uppercase tracking-wide flex items-start">
-                          <span className="mr-2 text-mahogany">»</span>
+                        <li key={service} className="text-onyx/60 text-xs uppercase tracking-wide flex items-start">
+                          <span className="mr-2 text-mahogany/70">»</span>
                           {service}
                         </li>
                       ))}
                     </ul>
 
                     <div className="relative z-10 mt-auto flex items-center justify-between">
-                      <span className="text-xs font-bold uppercase tracking-widest text-mahogany opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-mahogany opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         Explore
                       </span>
-                      <div className="w-8 h-8 rounded-full border border-onyx/20 group-hover:border-mahogany flex items-center justify-center transition-colors">
-                        <span className="text-onyx group-hover:text-mahogany text-lg">↗</span>
+                      <div className="w-7 h-7 rounded-full border border-onyx/15 group-hover:border-mahogany group-hover:bg-mahogany/10 flex items-center justify-center transition-all duration-300">
+                        <span className="text-onyx/50 group-hover:text-mahogany text-sm">↗</span>
                       </div>
                     </div>
                   </div>

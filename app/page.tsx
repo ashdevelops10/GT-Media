@@ -46,6 +46,11 @@ const ArtistCollabs = dynamic(() => import("@/components/home/ArtistCollabs").th
   ssr: true
 });
 
+const BrandShowcase = dynamic(() => import("@/components/home/BrandShowcase").then(mod => ({ default: mod.BrandShowcase })), {
+  loading: () => <div className="h-96 bg-carbon animate-pulse" />,
+  ssr: true
+});
+
 const PRWins = dynamic(() => import("@/components/home/PRWins").then(mod => ({ default: mod.PRWins })), {
   loading: () => <div className="h-96 bg-carbon animate-pulse" />,
   ssr: true
@@ -65,6 +70,9 @@ export default async function HomePage() {
       </Suspense>
       <Suspense fallback={<div className="h-96 bg-carbon animate-pulse" />}>
         <FeaturedWork />
+      </Suspense>
+      <Suspense fallback={<div className="h-96 bg-carbon animate-pulse" />}>
+        <BrandShowcase />
       </Suspense>
       <Suspense fallback={<div className="h-96 bg-carbon animate-pulse" />}>
         <ArtistCollabs />

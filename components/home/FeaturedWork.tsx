@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Container, Section } from "@/components/layout";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { DesignVisual } from "@/components/layout/DesignVisual";
+import Link from "next/link";
 
 const featuredProjects = [
   {
@@ -41,7 +41,7 @@ const featuredProjects = [
     client: "Music Division",
     category: "Visual Content",
     image: "/images/work/project-content.jpg",
-    span: "col-span-12 md:col-span-4",
+    span: "col-span-12 md:col-span-8",
     tall: false,
   },
 ];
@@ -70,7 +70,7 @@ function ProjectCard({ project, index }: { project: typeof featuredProjects[0]; 
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className={`${project.span} ${project.tall ? "aspect-[3/4]" : "aspect-[16/9]"} relative group overflow-hidden bg-carbon border border-gray-dark rounded-3xl hover:border-orange transition-colors duration-500`}
+      className={`${project.span} ${project.tall ? "aspect-[3/4]" : "aspect-[16/9]"} relative group overflow-hidden bg-carbon border border-white/[0.06] rounded-2xl hover:border-orange/40 transition-all duration-300`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -87,10 +87,9 @@ function ProjectCard({ project, index }: { project: typeof featuredProjects[0]; 
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-10"
           />
         ) : (
-          <DesignVisual
-            type="concept"
-            color={index % 2 === 0 ? "garnet" : "carbon"}
-            className="transition-transform duration-700 group-hover:scale-110"
+          <div
+            className="absolute inset-0 bg-carbon transition-transform duration-700 group-hover:scale-105"
+            style={{ backgroundImage: `url(${project.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
           />
         )}
 
@@ -112,43 +111,29 @@ function ProjectCard({ project, index }: { project: typeof featuredProjects[0]; 
 
 export function FeaturedWork() {
   return (
-    <Section id="work" showGridLines className="relative bg-black overflow-hidden" spacing="compact">
-      {/* Giant background text */}
-      <div className="absolute top-20 left-0 right-0 flex justify-center pointer-events-none z-0">
-        <span className="font-display text-[15vw] text-cream/[0.03] uppercase tracking-widest leading-none">
-          SELECTED
-        </span>
-      </div>
-
+    <Section id="work" className="relative bg-black overflow-hidden" spacing="compact">
       <Container className="relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-14 gap-4">
           <div>
-            <p className="font-script text-orange text-xl md:text-2xl mb-2">Selected Cases</p>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-7xl text-white uppercase tracking-tight leading-none">
+            <p className="font-script text-orange text-lg md:text-2xl mb-2">Selected Cases</p>
+            <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-white uppercase tracking-tight leading-none">
               WORK THAT <span className="text-orange">DEFINES US</span>
             </h2>
           </div>
 
-          <div
-            className="inline-flex items-center gap-2 px-6 py-3 border border-gray-dark text-white rounded-full font-bold uppercase tracking-wider transition-all duration-300"
+          <Link
+            href="/work"
+            className="group inline-flex items-center gap-2 px-6 py-3 border border-white/15 text-white/70 rounded-full text-xs font-bold uppercase tracking-wider hover:border-orange/40 hover:text-orange transition-all duration-300"
           >
-            <span>Our Signature Projects</span>
-          </div>
+            <span>View All Work</span>
+            <span className="group-hover:translate-x-0.5 transition-transform duration-200">→</span>
+          </Link>
         </div>
 
-        <div className="grid grid-cols-12 gap-6">
+        <div className="grid grid-cols-12 gap-4 md:gap-5">
           {featuredProjects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
-        </div>
-
-        {/* Mobile CTA */}
-        <div className="mt-8 text-center md:hidden">
-          <div
-            className="inline-flex items-center gap-2 px-6 py-3 border border-gray-dark text-white rounded-full font-bold uppercase tracking-wider"
-          >
-            <span>Our Signature Projects</span>
-          </div>
         </div>
       </Container>
     </Section>

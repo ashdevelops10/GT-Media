@@ -1,14 +1,12 @@
 import PremiumNav from "@/components/nav/PremiumNav";
 import { Footer } from "@/components/nav/Footer";
-import { WorkHero } from "@/components/work/WorkHero";
-import { WorkGrid } from "@/components/work/WorkGrid";
+import { BrandPortfolio } from "@/components/work/BrandPortfolio";
 
 export default function WorkPage() {
   return (
     <main className="relative min-h-screen bg-onyx text-white">
       <PremiumNav />
-      <WorkHero />
-      <WorkGrid />
+      <BrandPortfolio />
       <Footer />
     </main>
   );

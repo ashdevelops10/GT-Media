@@ -63,13 +63,13 @@ export function WhyChooseUs() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-14"
         >
-          <p className="font-script text-orange text-2xl mb-4">Why Us</p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display mb-4 sm:mb-6 px-4 sm:px-0">
+          <p className="font-script text-orange text-lg md:text-xl mb-2">Why Us</p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display mb-4 px-4 sm:px-0">
             ENGINEERED FOR <span className="text-orange">OUTCOMES</span>
           </h2>
-          <p className="text-base sm:text-lg text-silver leading-relaxed max-w-[60ch] mx-auto px-4 sm:px-0">
+          <p className="text-sm sm:text-base text-white/40 leading-relaxed max-w-[55ch] mx-auto px-4 sm:px-0">
             GT Media is built for leaders who demand ROI from every creative move. We design
             systems where the idea, the craft, and the media spend are owned by the same senior team.
           </p>
@@ -85,7 +85,7 @@ export function WhyChooseUs() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group relative"
             >
-              <div className="relative border border-silver/20 p-5 sm:p-6 md:p-8 h-full bg-onyx/30 hover:border-mahogany/40 hover:bg-onyx/60 transition-all duration-500 hover:translate-y-[-4px] overflow-hidden">
+              <div className="relative border border-white/[0.06] p-5 sm:p-6 h-full bg-white/[0.02] hover:border-orange/20 hover:bg-white/[0.04] transition-all duration-300 hover:translate-y-[-2px] overflow-hidden rounded-2xl">
                 {/* Background number */}
                 <span className="absolute -right-2 -top-4 text-[80px] sm:text-[100px] font-display text-silver/5 leading-none pointer-events-none select-none">
                   0{index + 1}

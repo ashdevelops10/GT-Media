@@ -3,8 +3,8 @@ import type React from "react";
 
 import "./globals.css";
 
-import Providers from "./providers";
 import { gtSans, gtDisplay, scriptFont, accentFont } from "./fonts";
+import Providers from "./providers";
 
 export const metadata: Metadata = {
   title: {
@@ -63,6 +63,10 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 3,
+  userScalable: true,
   themeColor: "#000000"
 };
 

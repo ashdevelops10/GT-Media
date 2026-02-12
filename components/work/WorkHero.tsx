@@ -37,12 +37,12 @@ export function WorkHero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-16 md:mb-20"
         >
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-display mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-display mb-4 sm:mb-6">
             Selected Work
           </h1>
-          <p className="text-xl text-silver max-w-[60ch] mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-silver max-w-[60ch] mx-auto px-4">
             Strategic brand systems that drive measurable business outcomes
           </p>
         </motion.div>
@@ -66,20 +66,20 @@ export function WorkHero() {
                 priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-onyx via-onyx/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
-              <div className="absolute bottom-0 left-0 p-8 md:p-12">
-                <p className="text-xs uppercase tracking-widest text-mahogany mb-2">
+              <div className="absolute bottom-0 left-0 p-4 sm:p-6 md:p-8 lg:p-12">
+                <p className="text-xs uppercase tracking-widest text-mahogany mb-1 sm:mb-2">
                   {flagshipProjects[0]?.category}
                 </p>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-display mb-2">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display mb-1 sm:mb-2">
                   {flagshipProjects[0]?.title}
                 </h2>
-                <p className="text-silver">{flagshipProjects[0]?.client}</p>
+                <p className="text-silver text-sm sm:text-base">{flagshipProjects[0]?.client}</p>
               </div>
             </Link>
           </motion.div>
 
           {/* Stacked Duo */}
-          <div className="col-span-12 lg:col-span-5 space-y-6 lg:space-y-8">
+          <div className="col-span-12 lg:col-span-5 space-y-4 sm:space-y-6 lg:space-y-8">
             {flagshipProjects.slice(1).map((project, index) => (
               <motion.div
                 key={project.id}
@@ -97,12 +97,12 @@ export function WorkHero() {
                     sizes="(max-width: 1024px) 100vw, 40vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-onyx via-onyx/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
-                  <div className="absolute bottom-0 left-0 p-6 md:p-8">
-                    <p className="text-xs uppercase tracking-widest text-mahogany mb-2">
+                  <div className="absolute bottom-0 left-0 p-4 sm:p-6 md:p-8">
+                    <p className="text-xs uppercase tracking-widest text-mahogany mb-1 sm:mb-2">
                       {project.category}
                     </p>
-                    <h3 className="text-2xl md:text-3xl font-medium mb-1">{project.title}</h3>
-                    <p className="text-silver text-sm">{project.client}</p>
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-medium mb-1">{project.title}</h3>
+                    <p className="text-silver text-xs sm:text-sm">{project.client}</p>
                   </div>
                 </Link>
               </motion.div>

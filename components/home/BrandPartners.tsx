@@ -40,12 +40,12 @@ export function BrandPartners() {
       </div>
 
       <Container className="relative z-10">
-        <div className="text-center mb-24 max-w-3xl mx-auto">
+        <div className="text-center mb-16 sm:mb-20 md:mb-24 max-w-3xl mx-auto px-4">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-script text-orange text-2xl md:text-3xl mb-4"
+            className="font-script text-orange text-xl sm:text-2xl md:text-3xl mb-3 sm:mb-4"
           >
             Digital Marketing Brands
           </motion.p>
@@ -54,7 +54,7 @@ export function BrandPartners() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-display text-4xl md:text-6xl lg:text-7xl uppercase text-white tracking-tight leading-[0.9]"
+            className="font-display text-3xl sm:text-4xl md:text-6xl lg:text-7xl uppercase text-white tracking-tight leading-[0.9]"
           >
             TRUSTED BY THE <span className="text-orange">BEST</span>
           </motion.h2>

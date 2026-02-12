@@ -20,9 +20,9 @@ export function Section({
   id,
 }: SectionProps) {
   const spacingClasses = {
-    default: "py-24 md:py-32 lg:py-40",
-    compact: "py-16 md:py-24 lg:py-32",
-    spacious: "py-32 md:py-48 lg:py-64",
+    default: "py-16 sm:py-20 md:py-32 lg:py-40",
+    compact: "py-12 sm:py-16 md:py-24 lg:py-32",
+    spacious: "py-20 sm:py-24 md:py-48 lg:py-64",
   };
 
   const backgroundClasses = {

@@ -40,8 +40,9 @@ export default function Nav() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2 text-white focus:outline-none"
+          className="md:hidden p-3 text-white focus:outline-none focus:ring-2 focus:ring-orange focus:ring-offset-2 focus:ring-offset-onyx rounded-md min-w-[48px] min-h-[48px] flex items-center justify-center"
           aria-label="Toggle menu"
+          aria-expanded={isOpen}
         >
           <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             {isOpen ? (
@@ -64,7 +65,7 @@ export default function Nav() {
               <Link
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="block py-3 text-base text-graphite-400 transition-colors duration-xs hover:text-white border-b border-graphite-700/20 last:border-0"
+                className="block py-4 px-2 text-base text-graphite-400 transition-colors duration-xs hover:text-white border-b border-graphite-700/20 last:border-0 min-h-[48px] flex items-center"
               >
                 {item.label}
               </Link>

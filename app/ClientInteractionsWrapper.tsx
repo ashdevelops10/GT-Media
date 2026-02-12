@@ -6,15 +6,16 @@ const LuxuryCursor = dynamic(() => import("@/src/components/LuxuryCursor"), {
   ssr: false
 });
 
-const InitInteractions = dynamic(() => import("@/src/animations/InitInteractionsClient").then(mod => mod.InitInteractions ? { default: mod.InitInteractions } : mod), {
-  ssr: false
-});
+const InitInteractionsComponent = dynamic(
+  () => import("@/src/animations/InitInteractionsClient"),
+  { ssr: false }
+);
 
 export function ClientInteractionsWrapper() {
   return (
     <>
       <LuxuryCursor />
-      <InitInteractions />
+      <InitInteractionsComponent />
     </>
   );
 }

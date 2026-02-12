@@ -15,8 +15,8 @@
     "studio": "sanity start --host 0.0.0.0",
     "sanity:deploy": "sanity deploy",
     "typecheck": "tsc --noEmit",
-    "ci:lh": "pnpm dlx @lhci/cli@0.13.0 autorun --config=./scripts/ci/lighthouse-ci-config.js",
-    "ci:full-check": "pnpm lint && pnpm typecheck && pnpm test --if-present && pnpm build && pnpm run ci:lh"
+    "ci:lh": "npx @lhci/cli@0.13.0 autorun --config=./scripts/ci/lighthouse-ci-config.js",
+    "ci:full-check": "npm run lint && npm run typecheck && npm test --if-present && npm run build && npm run ci:lh"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",

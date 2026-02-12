@@ -34,3 +34,5 @@ export function InitInteractions() {
 
   return null;
 }
+
+export default InitInteractions;

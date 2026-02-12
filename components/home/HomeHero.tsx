@@ -9,10 +9,10 @@ import { useState, useEffect } from "react";
 const HERO_IMAGES = [
   "/images/services/content.jpg",
   "/images/work/project-content.jpg"
-];
+] as const;
 
 export function HomeHero() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -128,7 +128,7 @@ export function HomeHero() {
                 transition={{ duration: 0.8 }}
               >
                 <NextImage
-                  src={HERO_IMAGES[currentImageIndex]}
+                  src={HERO_IMAGES[currentImageIndex] || HERO_IMAGES[0]}
                   alt="Featured work showcase"
                   fill
                   className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"

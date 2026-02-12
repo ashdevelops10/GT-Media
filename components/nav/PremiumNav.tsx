@@ -42,11 +42,11 @@ export function PremiumNav() {
           (scrolled ? "bg-black/95 backdrop-blur-md border-b border-orange/10" : "bg-transparent")
         }
       >
-        <div className="max-w-content mx-auto px-4 md:px-16 py-5">
+        <div className="max-w-content mx-auto px-4 sm:px-6 md:px-16 py-4 sm:py-5">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative w-10 h-10 overflow-hidden">
+            <Link href="/" className="flex items-center gap-2 sm:gap-3 group">
+              <div className="relative w-8 h-8 sm:w-10 sm:h-10 overflow-hidden">
                 <NextImage
                   src="/logos/file_000000001db4720692432eb1b5ba9db6.png"
                   alt="GT Media Logo"
@@ -54,7 +54,7 @@ export function PremiumNav() {
                   className="object-contain brightness-100 group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <span className="font-display text-xl text-white group-hover:text-orange transition-colors">GT Media</span>
+              <span className="font-display text-lg sm:text-xl text-white group-hover:text-orange transition-colors">GT Media</span>
             </Link>
 
             {/* Desktop nav */}
@@ -88,7 +88,7 @@ export function PremiumNav() {
             <button
               aria-label="Open menu"
               onClick={() => setOpen(true)}
-              className="md:hidden text-white font-accent text-xs uppercase tracking-[0.18em]"
+              className="md:hidden text-white font-accent text-xs uppercase tracking-[0.18em] min-h-[48px] min-w-[48px] flex items-center justify-center"
             >
               Menu
             </button>
@@ -124,18 +124,18 @@ export function PremiumNav() {
             className="fixed top-0 right-0 h-full w-[82%] sm:w-[420px] border-l border-orange/20 z-[210]"
             style={{ backgroundColor: "#0a0a0a" }}
           >
-            <div className="px-6 pt-6 pb-4 flex items-center justify-between border-b border-dust/10">
-              <p className="font-display text-lg text-white">Menu</p>
+            <div className="px-4 sm:px-6 pt-5 sm:pt-6 pb-3 sm:pb-4 flex items-center justify-between border-b border-dust/10">
+              <p className="font-display text-base sm:text-lg text-white">Menu</p>
               <button
                 aria-label="Close menu"
                 onClick={() => setOpen(false)}
-                className="text-silver hover:text-strawberry transition-colors duration-sm"
+                className="text-silver hover:text-strawberry transition-colors duration-sm min-h-[48px] min-w-[48px] flex items-center justify-center text-xl"
               >
                 ✕
               </button>
             </div>
-            <nav className="px-6 py-6">
-              <ul className="space-y-4">
+            <nav className="px-4 sm:px-6 py-4 sm:py-6">
+              <ul className="space-y-3 sm:space-y-4">
                 {NAV_ITEMS.map((item, i) => (
                   <motion.li
                     key={item.href}
@@ -146,7 +146,7 @@ export function PremiumNav() {
                     <Link
                       href={item.href}
                       onClick={() => setOpen(false)}
-                      className="block py-3 font-sans text-body text-white hover:text-strawberry transition-colors duration-sm"
+                      className="block py-3 sm:py-4 font-sans text-base sm:text-body text-white hover:text-strawberry transition-colors duration-sm min-h-[48px] flex items-center"
                     >
                       {item.label}
                     </Link>

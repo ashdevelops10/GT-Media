@@ -5,22 +5,21 @@ import { cn } from "@/lib/utils";
 
 interface DesignVisualProps {
     type?: "mesh" | "blueprint" | "concept" | "texture";
-    color?: "garnet" | "carbon" | "orange" | "silver";
+    color?: "burgundy" | "dark" | "light";
     className?: string;
     animate?: boolean;
 }
 
 export function DesignVisual({
     type = "mesh",
-    color = "carbon",
+    color = "dark",
     className,
     animate = true,
 }: DesignVisualProps) {
     const colorSchemes = {
-        garnet: "from-garnet/20 via-mahogany/10 to-transparent",
-        carbon: "from-carbon/40 via-onyx/20 to-transparent",
-        orange: "from-orange/10 via-mahogany/5 to-transparent",
-        silver: "from-silver/10 via-gray-dark/5 to-transparent",
+        burgundy: "from-burgundy/20 via-burgundy/10 to-transparent",
+        dark: "from-black/40 via-black/20 to-transparent",
+        light: "from-white/10 via-white/5 to-transparent",
     };
 
     return (
@@ -57,7 +56,7 @@ export function DesignVisual({
                         }}
                         className={cn(
                             "absolute -inset-[50%] bg-gradient-to-tr filter blur-[100px]",
-                            color === "garnet" ? "from-mahogany/20" : "from-gray-dark/20"
+                            color === "burgundy" ? "from-burgundy/20" : "from-white/10"
                         )}
                     />
                 </div>
@@ -71,7 +70,7 @@ export function DesignVisual({
                         "absolute inset-0 bg-gradient-to-br",
                         colorSchemes[color]
                     )} />
-                    {/* Faux Carbon Fiber Pattern */}
+                    {/* Faux Fiber Pattern */}
                     <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:4px_4px]" />
                 </div>
             )}
@@ -114,8 +113,8 @@ export function DesignVisual({
                     animate={{ opacity: 1, scale: 1 }}
                     className="absolute inset-0 flex items-center justify-center"
                 >
-                    <div className="w-24 h-24 border border-orange/20 rounded-full flex items-center justify-center p-4">
-                        <div className="w-full h-full border border-orange/40 rounded-full animate-pulse-slow" />
+                    <div className="w-24 h-24 border border-burgundy/20 rounded-full flex items-center justify-center p-4">
+                        <div className="w-full h-full border border-burgundy/40 rounded-full animate-pulse-slow" />
                     </div>
                 </motion.div>
             )}

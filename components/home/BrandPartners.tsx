@@ -32,7 +32,7 @@ export function BrandPartners() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-script text-orange text-xl md:text-2xl mb-3"
+            className="font-editorial italic text-burgundy text-xl md:text-2xl mb-3"
           >
             Digital Marketing Brands
           </motion.p>
@@ -43,7 +43,7 @@ export function BrandPartners() {
             transition={{ delay: 0.1 }}
             className="font-display text-3xl md:text-5xl lg:text-6xl uppercase text-white tracking-tight leading-[0.9]"
           >
-            TRUSTED BY THE <span className="text-orange">BEST</span>
+            TRUSTED BY THE <span className="text-burgundy">BEST</span>
           </motion.h2>
         </div>
 
@@ -66,7 +66,7 @@ export function BrandPartners() {
                     className="object-contain grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
                   />
                 </div>
-                <span className="text-[9px] uppercase tracking-[0.25em] text-white/30 group-hover:text-orange/80 transition-all duration-300 text-center truncate max-w-full">
+                <span className="text-[9px] uppercase tracking-[0.25em] text-white/30 group-hover:text-burgundy/80 transition-all duration-300 text-center truncate max-w-full">
                   {partner.name}
                 </span>
               </div>
@@ -78,7 +78,7 @@ export function BrandPartners() {
         <div className="mt-16 md:mt-20">
           <div className="flex items-center justify-center gap-4 md:gap-8 mb-10">
             <div className="h-px w-12 bg-white/10 hidden md:block" />
-            <p className="font-script text-orange/50 text-lg">Also Collaborated With</p>
+            <p className="font-editorial italic text-burgundy/50 text-lg">Also Collaborated With</p>
             <div className="h-px w-12 bg-white/10 hidden md:block" />
           </div>
 

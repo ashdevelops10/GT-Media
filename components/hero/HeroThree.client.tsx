@@ -20,7 +20,7 @@ function RotatingShape() {
 
 export default function HeroThree() {
   return (
-    <div className="h-96 overflow-hidden rounded-card border border-graphite-700/30 bg-gradient-to-br from-graphite-700/10 via-onyx to-vermilion/20">
+    <div className="h-96 overflow-hidden rounded-card border border-graphite-700/30 bg-gradient-to-br from-graphite-700/10 via-black to-vermilion/20">
       <Canvas camera={{ position: [0, 0, 4], fov: 40 }}>
         <Suspense fallback={null}>
           <ambientLight intensity={0.6} />

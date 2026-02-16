@@ -70,9 +70,9 @@ export function ProcessTimeline() {
           transition={{ duration: 0.8 }}
           className="text-center mb-12 sm:mb-16 md:mb-20"
         >
-          <p className="text-xs sm:text-sm uppercase tracking-widest text-mahogany mb-3 sm:mb-4">Our Process</p>
+          <p className="text-xs sm:text-sm uppercase tracking-widest text-burgundy mb-3 sm:mb-4">Our Process</p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display text-white mb-4 px-4 sm:px-0">From Vision to Victory</h2>
-          <p className="text-base sm:text-lg text-silver max-w-[60ch] mx-auto px-4 sm:px-0">
+          <p className="text-base sm:text-lg text-white/50 max-w-[60ch] mx-auto px-4 sm:px-0">
             A proven ritual for transforming strategic vision into exceptional reality
           </p>
         </motion.div>
@@ -80,7 +80,7 @@ export function ProcessTimeline() {
         {/* Desktop: Horizontal Timeline */}
         <div ref={ref} className="hidden lg:block relative">
           {/* Connector Line */}
-          <div className="absolute top-12 left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-mahogany/30 to-transparent" />
+          <div className="absolute top-12 left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-burgundy/30 to-transparent" />
 
           <div className="grid grid-cols-4 gap-6">
             {phases.map((phase, index) => (
@@ -92,10 +92,10 @@ export function ProcessTimeline() {
                 className="relative group"
               >
                 {/* Number Circle */}
-                <div className="relative z-10 w-24 h-24 mx-auto mb-8 rounded-full border-2 border-mahogany/50 bg-onyx flex items-center justify-center group-hover:border-mahogany group-hover:bg-mahogany/10 transition-all duration-500">
+                <div className="relative z-10 w-24 h-24 mx-auto mb-8 rounded-full border-2 border-burgundy/50 bg-black flex items-center justify-center group-hover:border-burgundy group-hover:bg-burgundy/10 transition-all duration-500">
                   <div className="text-center">
-                    <span className="block text-mahogany text-3xl font-display">{phase.number}</span>
-                    <span className="text-mahogany/60 group-hover:text-mahogany transition-colors duration-300">
+                    <span className="block text-burgundy text-3xl font-display">{phase.number}</span>
+                    <span className="text-burgundy/60 group-hover:text-burgundy transition-colors duration-300">
                       {phase.icon}
                     </span>
                   </div>
@@ -103,8 +103,8 @@ export function ProcessTimeline() {
 
                 {/* Content */}
                 <div className="text-center">
-                  <h3 className="text-xl md:text-2xl font-medium mb-3 group-hover:text-mahogany transition-colors duration-300">{phase.title}</h3>
-                  <p className="text-silver leading-relaxed text-sm md:text-base">
+                  <h3 className="text-xl md:text-2xl font-medium mb-3 group-hover:text-burgundy transition-colors duration-300">{phase.title}</h3>
+                  <p className="text-white/50 leading-relaxed text-sm md:text-base">
                     {phase.principle}
                   </p>
                 </div>
@@ -116,7 +116,7 @@ export function ProcessTimeline() {
         {/* Mobile/Tablet: Vertical Timeline */}
         <div className="lg:hidden relative px-4 sm:px-0">
           {/* Connector Line */}
-          <div className="absolute left-6 sm:left-8 top-6 bottom-6 w-px bg-gradient-to-b from-mahogany/40 via-mahogany/20 to-transparent" />
+          <div className="absolute left-6 sm:left-8 top-6 bottom-6 w-px bg-gradient-to-b from-burgundy/40 via-burgundy/20 to-transparent" />
 
           <div className="space-y-8 sm:space-y-12">
             {phases.map((phase, index) => (
@@ -128,19 +128,19 @@ export function ProcessTimeline() {
                 className="relative flex items-start gap-4 sm:gap-6 md:gap-8 group"
               >
                 {/* Number Circle */}
-                <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-full border-2 border-mahogany/50 flex items-center justify-center bg-onyx relative z-10 group-hover:border-mahogany group-hover:bg-mahogany/10 transition-all duration-500">
-                  <span className="text-mahogany font-display text-base sm:text-lg">{phase.number}</span>
+                <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-full border-2 border-burgundy/50 flex items-center justify-center bg-black relative z-10 group-hover:border-burgundy group-hover:bg-burgundy/10 transition-all duration-500">
+                  <span className="text-burgundy font-display text-base sm:text-lg">{phase.number}</span>
                 </div>
 
                 {/* Content */}
                 <div className="flex-1 pt-1 sm:pt-2">
                   <div className="flex items-center gap-3 mb-2 sm:mb-3">
-                    <span className="text-mahogany/60 group-hover:text-mahogany transition-colors duration-300">
+                    <span className="text-burgundy/60 group-hover:text-burgundy transition-colors duration-300">
                       {phase.icon}
                     </span>
-                    <h3 className="text-xl sm:text-2xl font-medium group-hover:text-mahogany transition-colors duration-300">{phase.title}</h3>
+                    <h3 className="text-xl sm:text-2xl font-medium group-hover:text-burgundy transition-colors duration-300">{phase.title}</h3>
                   </div>
-                  <p className="text-sm sm:text-base text-silver leading-relaxed">
+                  <p className="text-sm sm:text-base text-white/50 leading-relaxed">
                     {phase.principle}
                   </p>
                 </div>

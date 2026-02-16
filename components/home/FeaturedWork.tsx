@@ -70,7 +70,7 @@ function ProjectCard({ project, index }: { project: typeof featuredProjects[0]; 
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className={`${project.span} ${project.tall ? "aspect-[3/4]" : "aspect-[16/9]"} relative group overflow-hidden bg-carbon border border-white/[0.06] rounded-2xl hover:border-orange/40 transition-all duration-300`}
+      className={`${project.span} ${project.tall ? "aspect-[3/4]" : "aspect-[16/9]"} relative group overflow-hidden bg-black border border-white/[0.06] rounded-2xl hover:border-burgundy/40 transition-all duration-300`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -88,7 +88,7 @@ function ProjectCard({ project, index }: { project: typeof featuredProjects[0]; 
           />
         ) : (
           <div
-            className="absolute inset-0 bg-carbon transition-transform duration-700 group-hover:scale-105"
+            className="absolute inset-0 bg-black transition-transform duration-700 group-hover:scale-105"
             style={{ backgroundImage: `url(${project.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
           />
         )}
@@ -96,13 +96,13 @@ function ProjectCard({ project, index }: { project: typeof featuredProjects[0]; 
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500 z-20" />
 
         <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 translate-y-2 group-hover:translate-y-0 transition-transform duration-500 z-30">
-          <p className="font-accent text-orange text-xs uppercase tracking-widest mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+          <p className="font-accent text-burgundy text-xs uppercase tracking-widest mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
             {project.category}
           </p>
-          <h3 className="font-display text-2xl md:text-3xl lg:text-4xl text-white uppercase leading-none mb-1 group-hover:text-orange transition-colors duration-300">
+          <h3 className="font-display text-2xl md:text-3xl lg:text-4xl text-white uppercase leading-none mb-1 group-hover:text-burgundy transition-colors duration-300">
             {project.title}
           </h3>
-          <p className="text-gray text-sm">{project.client}</p>
+          <p className="text-white/50 text-sm">{project.client}</p>
         </div>
       </div>
     </motion.div>
@@ -115,15 +115,15 @@ export function FeaturedWork() {
       <Container className="relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-14 gap-4">
           <div>
-            <p className="font-script text-orange text-lg md:text-2xl mb-2">Selected Cases</p>
+            <p className="font-editorial italic text-burgundy text-lg md:text-2xl mb-2">Selected Cases</p>
             <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-white uppercase tracking-tight leading-none">
-              WORK THAT <span className="text-orange">DEFINES US</span>
+              WORK THAT <span className="text-burgundy">DEFINES US</span>
             </h2>
           </div>
 
           <Link
             href="/work"
-            className="group inline-flex items-center gap-2 px-6 py-3 border border-white/15 text-white/70 rounded-full text-xs font-bold uppercase tracking-wider hover:border-orange/40 hover:text-orange transition-all duration-300"
+            className="group inline-flex items-center gap-2 px-6 py-3 border border-white/15 text-white/70 rounded-full text-xs font-bold uppercase tracking-wider hover:border-burgundy/40 hover:text-burgundy transition-all duration-300"
           >
             <span>View All Work</span>
             <span className="group-hover:translate-x-0.5 transition-transform duration-200">→</span>

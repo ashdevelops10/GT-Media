@@ -38,10 +38,10 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 mb-12 relative z-10">
           {/* Brand */}
           <div className="md:col-span-4">
-            <Link href="/" className="text-3xl md:text-4xl font-display uppercase mb-4 block text-white hover:text-orange transition-colors duration-200">
+            <Link href="/" className="text-3xl md:text-4xl font-display uppercase mb-4 block text-white hover:text-burgundy transition-colors duration-200">
               GT Media
             </Link>
-            <p className="font-script text-orange/80 text-lg mb-4">
+            <p className="font-editorial italic text-burgundy/80 text-lg mb-4">
               Performance-First Creative Partner
             </p>
             <p className="text-sm text-white/35 max-w-[30ch] mb-6 leading-relaxed">
@@ -50,11 +50,11 @@ export function Footer() {
 
             <Link
               href="/contact"
-              className="group relative inline-flex items-center gap-2 px-6 py-3 border border-orange/50 text-orange rounded-full text-xs font-bold uppercase tracking-wider overflow-hidden hover:text-black transition-colors duration-300"
-            >
+className="group relative inline-flex items-center gap-2 px-6 py-3 border border-burgundy/50 text-burgundy rounded-full text-xs font-accent font-bold uppercase tracking-wider overflow-hidden hover:text-white transition-colors duration-300"
+              >
               <span className="relative z-10">Start Project</span>
               <span className="relative z-10">→</span>
-              <span className="absolute inset-0 bg-orange scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+              <span className="absolute inset-0 bg-burgundy scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
             </Link>
           </div>
 
@@ -68,7 +68,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-white/40 hover:text-orange transition-colors duration-200 uppercase tracking-wide"
+                      className="text-sm text-white/40 hover:text-burgundy transition-colors duration-200 uppercase tracking-wide"
                     >
                       {link.label}
                     </Link>
@@ -85,7 +85,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-white/40 hover:text-orange transition-colors duration-200 uppercase tracking-wide"
+                      className="text-sm text-white/40 hover:text-burgundy transition-colors duration-200 uppercase tracking-wide"
                     >
                       {link.label}
                     </Link>
@@ -104,7 +104,7 @@ export function Footer() {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-white/40 hover:text-orange transition-colors duration-200 uppercase tracking-wide"
+                      className="text-sm text-white/40 hover:text-burgundy transition-colors duration-200 uppercase tracking-wide"
                     >
                       {link.label}
                     </a>
@@ -121,10 +121,10 @@ export function Footer() {
             © {new Date().getFullYear()} GT Media. All rights reserved.
           </p>
           <div className="flex items-center gap-5">
-            <Link href="/privacy" className="text-[10px] text-white/25 hover:text-orange uppercase tracking-[0.2em] transition-colors duration-200">
+            <Link href="/privacy" className="text-[10px] text-white/25 hover:text-burgundy uppercase tracking-[0.2em] transition-colors duration-200">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-[10px] text-white/25 hover:text-orange uppercase tracking-[0.2em] transition-colors duration-200">
+            <Link href="/terms" className="text-[10px] text-white/25 hover:text-burgundy uppercase tracking-[0.2em] transition-colors duration-200">
               Terms of Service
             </Link>
           </div>

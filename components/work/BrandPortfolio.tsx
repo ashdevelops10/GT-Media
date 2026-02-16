@@ -39,7 +39,7 @@ export function BrandPortfolio() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-script text-orange text-lg md:text-2xl mb-2"
+            className="font-editorial italic text-burgundy text-lg md:text-2xl mb-2"
           >
             Real Work, Real Results
           </motion.p>
@@ -50,7 +50,7 @@ export function BrandPortfolio() {
             transition={{ delay: 0.1 }}
             className="font-display text-3xl md:text-5xl lg:text-6xl uppercase text-white tracking-tight leading-[0.9] mb-4"
           >
-            BRAND <span className="text-orange">PORTFOLIO</span>
+            BRAND <span className="text-burgundy">PORTFOLIO</span>
           </motion.h2>
           <p className="text-sm text-white/40 max-w-[50ch] mx-auto">
             Live campaigns across hospitality, fashion, immigration, events, and
@@ -193,7 +193,7 @@ function BrandPill({
       onClick={onClick}
       className={`group flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 border ${
         active
-          ? "border-orange/40 bg-orange/10 text-orange"
+          ? "border-burgundy/40 bg-burgundy/10 text-burgundy"
           : "border-white/[0.06] text-white/40 hover:border-white/15 hover:text-white/60"
       }`}
     >
@@ -210,7 +210,7 @@ function BrandPill({
       <span>{label}</span>
       <span
         className={`text-[9px] px-1.5 py-0.5 rounded-full ${
-          active ? "bg-orange/20 text-orange" : "bg-white/5 text-white/25"
+          active ? "bg-burgundy/20 text-burgundy" : "bg-white/5 text-white/25"
         }`}
       >
         {count}
@@ -240,7 +240,7 @@ function PortfolioCard({
       transition={{ duration: 0.4, delay: index * 0.05 }}
       className="group"
     >
-      <div className="rounded-2xl border border-white/[0.06] overflow-hidden bg-carbon hover:border-white/[0.12] transition-colors duration-300">
+      <div className="rounded-2xl border border-white/[0.06] overflow-hidden bg-black hover:border-white/[0.12] transition-colors duration-300">
         {/* Instagram embed */}
         <InstagramEmbed
           poster={item.poster}

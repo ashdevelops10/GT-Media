@@ -1,146 +1,304 @@
 "use client";
 
-import { Container } from "@/components/layout";
 import Link from "next/link";
-import NextImage from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import Image from "next/image";
+import { motion, useTransform, useScroll, AnimatePresence } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 
-const HERO_IMAGES = [
-  "/images/services/content.jpg",
-  "/images/work/project-content.jpg"
-] as const;
+const FloatingLines = dynamic(() => import("@/components/ui/FloatingLines"), {
+  ssr: false,
+});
+
+const WORDS_ROTATE = ["Brands", "Campaigns", "Stories", "Content"];
+
+/* ── Brand logos for the marquee ── */
+const BRAND_LOGOS = [
+  { name: "Mach Global", src: "/logos/mach global.jpg" },
+  { name: "Event ResQ", src: "/logos/event resq.jpg" },
+  { name: "Saahayak", src: "/logos/sahayak.webp" },
+  { name: "Wildhood", src: "/logos/wildhood.jpg" },
+  { name: "Studio Neoteric", src: "/logos/studeo-nuteric-logo.webp" },
+  { name: "Rabab Music", src: "/logos/rabab music.webp" },
+  { name: "Uttam", src: "/logos/uttam.png" },
+  { name: "Dharmayu", src: "/logos/dharmayu.png" },
+  { name: "Urban Theka", src: "/logos/urban_theka.png" },
+  { name: "Bastian", src: "/logos/bastian.png" },
+  { name: "Wildin", src: "/logos/wildin.png" },
+  { name: "Zenergy", src: "/logos/zenergy.svg" },
+  { name: "Little Bay", src: "/logos/little_bay.png" },
+];
+
+/* ── Word rotation animation variants ── */
+const wordVariants = {
+  enter: {
+    y: "100%",
+    opacity: 0,
+  },
+  center: {
+    y: "0%",
+    opacity: 1,
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as const },
+  },
+  exit: {
+    y: "-100%",
+    opacity: 0,
+    transition: { duration: 0.4, ease: [0.7, 0, 0.84, 0] as const },
+  },
+};
 
 export function HomeHero() {
-  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
+  const sectionRef = useRef<HTMLElement>(null);
+  const [wordIndex, setWordIndex] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % HERO_IMAGES.length);
-    }, 5000);
+      setWordIndex((prev) => (prev + 1) % WORDS_ROTATE.length);
+    }, 3000);
     return () => clearInterval(timer);
   }, []);
 
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+
+  /* Content fades out as user scrolls */
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.25], [1, 0]);
+  const contentY = useTransform(scrollYProgress, [0, 0.25], [0, -60]);
+
+  /* Parallax background shift */
+  const bgY = useTransform(scrollYProgress, [0, 1], [0, 120]);
+
+  /* Video expansion parallax - starts expanding after content fades, stops at 50% width */
+  const videoScale = useTransform(scrollYProgress, [0.25, 0.5], [1, 2.3]);
+  const videoOpacity = useTransform(scrollYProgress, [0, 0.25, 1], [1, 1, 1]);
+  const videoBorderRadius = useTransform(scrollYProgress, [0.25, 0.5], [16, 0]);
+  const overlayOpacity = useTransform(scrollYProgress, [0.25, 0.5], [1, 0]);
+  
+  /* Keep video at bottom-right while scaling to 50% screen width */
+  const videoRight = useTransform(scrollYProgress, [0, 0.5, 1], ["3%", "3%", "3%"]);
+  const videoBottom = useTransform(scrollYProgress, [0, 0.5, 1], ["8.5rem", "8.5rem", "8.5rem"]);
+  const videoTranslateX = useTransform(scrollYProgress, [0, 0.5, 1], ["0%", "0%", "0%"]);
+  const videoTranslateY = useTransform(scrollYProgress, [0, 0.5, 1], ["0%", "0%", "0%"]);
+  
+  /* Left side text content fades in when video expands */
+  const leftContentOpacity = useTransform(scrollYProgress, [0.35, 0.5], [0, 1]);
+  const leftContentY = useTransform(scrollYProgress, [0.35, 0.5], [30, 0]);
+
   return (
     <section
-      className="relative min-h-[100dvh] w-full flex items-end bg-black text-white overflow-hidden"
+      ref={sectionRef}
+      className="relative min-h-[200vh] w-full bg-black text-white"
       data-hero-root
     >
-      {/* Full-bleed background image carousel */}
-      <div className="absolute inset-0">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentImageIndex}
-            className="absolute inset-0"
-            initial={{ opacity: 0, scale: 1.08 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.2, ease: [0.32, 0.72, 0, 1] }}
-          >
-            <NextImage
-              src={HERO_IMAGES[currentImageIndex] || HERO_IMAGES[0]}
-              alt="Featured work showcase"
-              fill
-              className="object-cover"
-              priority={currentImageIndex === 0}
-              sizes="100vw"
+      {/* ━━━ Sticky viewport container ━━━ */}
+      <div className="sticky top-0 h-[100dvh] w-full overflow-hidden">
+
+        {/* ── Ambient background ── */}
+        <motion.div className="absolute inset-0 z-0" style={{ y: bgY }}>
+          <div className="absolute inset-0 opacity-40">
+            <FloatingLines
+              linesGradient={["#3A000D", "#6D001A", "#4A0012", "#2A0008"]}
+              enabledWaves={["top", "middle", "bottom"]}
+              lineCount={3}
+              lineDistance={8}
+              bendRadius={3}
+              bendStrength={-0.3}
+              animationSpeed={0.6}
+              interactive={true}
+              parallax={true}
+              parallaxStrength={0.1}
             />
-          </motion.div>
-        </AnimatePresence>
-        {/* Cinematic gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-transparent" />
-      </div>
-
-      {/* Content */}
-      <Container className="relative z-10 pb-24 pt-40 md:pt-48 lg:pt-56">
-        <div className="grid grid-cols-12 gap-6 lg:gap-12 items-end">
-          {/* Text column */}
-          <div className="col-span-12 lg:col-span-7 xl:col-span-6">
-            <motion.p
-              className="font-script text-orange text-xl sm:text-2xl md:text-3xl mb-3"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              Take control of your brand
-            </motion.p>
-
-            <motion.h1
-              className="font-display text-[2.75rem] sm:text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl leading-[0.9] uppercase tracking-tight mb-6"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.35 }}
-            >
-              <span className="block text-white">Cinematic</span>
-              <span className="block text-white">campaigns</span>
-              <span className="block text-orange">that move markets.</span>
-            </motion.h1>
-
-            <motion.p
-              className="text-white/50 text-base md:text-lg mb-10 max-w-[48ch] leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              From Creating Brands to Delivering Real Estate Solutions — All in One Place. A complete 360° approach that blends strategy, creativity, and execution.
-            </motion.p>
-
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4 mb-12 lg:mb-0"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.65 }}
-            >
-              <Link
-                href="/contact"
-                className="group relative inline-flex items-center justify-center gap-2 h-13 px-8 bg-orange text-black text-xs font-bold uppercase tracking-wider rounded-full overflow-hidden hover:shadow-[0_0_30px_rgba(255,87,34,0.3)] transition-shadow duration-300"
-              >
-                <span className="relative z-10">Start Project</span>
-                <span className="relative z-10 text-lg transition-transform duration-300 group-hover:translate-x-1">→</span>
-              </Link>
-              <Link
-                href="/work"
-                className="group relative inline-flex items-center justify-center gap-2 h-13 px-8 border border-white/20 text-white text-xs font-bold uppercase tracking-wider rounded-full overflow-hidden hover:border-white/40 transition-all duration-300"
-              >
-                <span className="relative z-10">View Work</span>
-                <span className="relative z-10 text-sm transition-transform duration-300 group-hover:translate-x-1">→</span>
-                <span className="absolute inset-0 bg-white/5 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
-              </Link>
-            </motion.div>
           </div>
 
-          {/* Image carousel indicators */}
-          <div className="hidden lg:flex col-span-5 xl:col-span-6 justify-end items-end pb-2">
-            <div className="flex items-center gap-2">
-              {HERO_IMAGES.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrentImageIndex(i)}
-                  className={`h-[2px] rounded-full transition-all duration-500 ${
-                    i === currentImageIndex ? "w-8 bg-orange" : "w-4 bg-white/30 hover:bg-white/50"
-                  }`}
-                  aria-label={`Show image ${i + 1}`}
-                />
+          {/* Radial vignette for depth */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.4)_50%,rgba(0,0,0,0.85)_100%)]" />
+
+          {/* Bottom fade to black */}
+          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black to-transparent" />
+
+          {/* Subtle grain texture */}
+          <div
+            className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none"
+            style={{ backgroundImage: "url(/noise.png)", backgroundSize: "200px" }}
+          />
+        </motion.div>
+
+        {/* ── Main content — left-aligned layout ── */}
+        <motion.div
+          className="relative z-10 h-full flex flex-col justify-end px-4 sm:px-6 lg:px-8 xl:px-12 pt-20 md:pt-24 lg:pt-28 pb-32 md:pb-36 lg:pb-40 text-left"
+          style={{ opacity: contentOpacity, y: contentY }}
+        >
+          {/* Headline block */}
+          <motion.h1
+            className="font-display uppercase leading-[0.9] tracking-tight max-w-5xl mb-8 md:mb-10"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <span className="block text-[clamp(2.8rem,7vw,5.5rem)] text-white mb-1">
+              We Build
+            </span>
+            <span className="block text-[clamp(3.5rem,10vw,9rem)] relative overflow-hidden h-[1.1em]">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={wordIndex}
+                  className="block text-burgundy"
+                  variants={wordVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                >
+                  {WORDS_ROTATE[wordIndex]}
+                </motion.span>
+              </AnimatePresence>
+            </span>
+            <span className="block text-[clamp(2rem,5.5vw,4.2rem)] text-white/80">
+              That Move Markets.
+            </span>
+          </motion.h1>
+
+          {/* Description */}
+          <motion.p
+            className="max-w-2xl text-white/40 text-sm md:text-[15px] leading-relaxed mb-8 md:mb-10"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            From Creating Brands to Delivering Real Estate Solutions — All in One Place. A complete 360° approach that blends strategy, creativity, and execution.
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.65 }}
+          >
+            <Link
+              href="/contact"
+              className="group relative inline-flex items-center justify-center gap-2.5 h-12 px-8 bg-burgundy text-white text-[11px] font-accent font-semibold uppercase tracking-[0.15em] overflow-hidden hover:shadow-[0_0_30px_rgba(109,0,26,0.3)] transition-all duration-500"
+            >
+              <span className="relative z-10">Start a Project</span>
+              <svg className="relative z-10 w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+              <span className="absolute inset-0 bg-white/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+            </Link>
+            <Link
+              href="/work"
+              className="group relative inline-flex items-center justify-center gap-2.5 h-12 px-8 border border-white/10 text-white text-[11px] font-accent font-semibold uppercase tracking-[0.15em] overflow-hidden hover:border-white/25 hover:bg-white/[0.03] transition-all duration-500"
+            >
+              <span className="relative z-10">View Our Work</span>
+              <svg className="relative z-10 w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </motion.div>
+        </motion.div>
+
+        {/* ── Left side content when video expands ── */}
+        <motion.div
+          className="absolute left-4 md:left-8 lg:left-12 xl:left-16 z-25 max-w-xl"
+          style={{ 
+            opacity: leftContentOpacity, 
+            y: leftContentY,
+            bottom: "16rem", 
+            transformOrigin: "bottom left"
+          }}
+        >
+          <div className="space-y-6 md:space-y-8">
+            <div className="space-y-3 md:space-y-4">
+              <p className="font-editorial italic text-burgundy text-lg md:text-xl lg:text-2xl leading-tight">
+                Creativity That Converts
+              </p>
+              <h2 className="font-display uppercase text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white leading-[0.95] tracking-tight">
+                Where <span className="text-burgundy">Vision</span> Meets<br />Execution
+              </h2>
+            </div>
+            
+            <p className="text-white/60 text-sm md:text-base lg:text-lg leading-relaxed max-w-lg">
+              From concept to completion, we craft campaigns that don't just look good — they deliver results. Real brands. Real impact. Real growth.
+            </p>
+            
+
+          </div>
+        </motion.div>
+
+        {/* ── Small video showcase with parallax expansion ── */}
+        <motion.div
+          className="absolute z-30 w-[280px] md:w-[320px]"
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          style={{ 
+            right: videoRight,
+            bottom: videoBottom,
+            scale: videoScale,
+            opacity: videoOpacity,
+            x: videoTranslateX,
+            y: videoTranslateY,
+            transformOrigin: "bottom right",
+          }}
+        >
+          <motion.div 
+            className="relative group"
+            style={{ borderRadius: videoBorderRadius }}
+          >
+            {/* Video container */}
+            <motion.div 
+              className="relative aspect-video overflow-hidden border border-white/10 bg-black shadow-2xl"
+              style={{ borderRadius: videoBorderRadius }}
+            >
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover"
+              >
+                <source src="/videos/little-bay/biki-singh-1.mp4" type="video/mp4" />
+              </video>
+            </motion.div>
+            
+            {/* Caption */}
+            <motion.p 
+              className="mt-3 text-white/60 text-xs md:text-sm font-accent tracking-wide text-center"
+              style={{ opacity: overlayOpacity }}
+            >
+              The Proof is in the Work
+            </motion.p>
+          </motion.div>
+        </motion.div>
+
+        {/* ── Brand logo marquee ── */}
+        <div className="absolute bottom-0 left-0 right-0 z-20 border-t border-white/[0.05]">
+          <div className="overflow-hidden py-6 md:py-8">
+            <div className="animate-marquee-brands flex gap-8 md:gap-12 items-center whitespace-nowrap">
+              {[...BRAND_LOGOS, ...BRAND_LOGOS, ...BRAND_LOGOS, ...BRAND_LOGOS].map((brand, i) => (
+                <div
+                  key={`${brand.name}-${i}`}
+                  className="relative h-10 md:h-14 w-28 md:w-40 flex-shrink-0 grayscale opacity-30 hover:grayscale-0 hover:opacity-80 transition-all duration-700"
+                >
+                  <Image
+                    src={brand.src}
+                    alt={brand.name}
+                    fill
+                    className="object-contain"
+                    sizes="180px"
+                  />
+                </div>
               ))}
             </div>
           </div>
         </div>
-      </Container>
-
-      {/* Marquee Bottom */}
-      <div className="absolute bottom-0 left-0 right-0 border-t border-white/[0.06] bg-black/60 backdrop-blur-sm py-3 z-30">
-        <div className="animate-marquee whitespace-nowrap flex gap-12">
-          {[...Array(6)].map((_, i) => (
-            <div key={i} className="flex items-center gap-6">
-              <span className="text-[10px] font-bold bg-orange text-black px-2.5 py-0.5 rounded-sm tracking-wider">STUDIO</span>
-              <span className="text-white/40 font-accent text-[11px] uppercase tracking-[0.2em]">
-                BRAND STRATEGY &nbsp;·&nbsp; HIGH-IMPACT CONTENT &nbsp;·&nbsp; PRECISION MEDIA &nbsp;·&nbsp; RESULTS DRIVEN
-              </span>
-            </div>
-          ))}
-        </div>
       </div>
+
+      {/* Hidden accessible heading for screen readers */}
+      <h2 className="sr-only">
+        We build brands, campaigns, stories, and content that move markets.
+      </h2>
     </section>
   );
 }

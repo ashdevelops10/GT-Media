@@ -20,7 +20,7 @@ export function InstagramEmbed({
   title,
   type,
   className = "",
-  brandColor = "#FF5722",
+  brandColor = "#6D001A",
 }: InstagramEmbedProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -69,7 +69,7 @@ export function InstagramEmbed({
   return (
     <div
       ref={containerRef}
-      className={`relative w-full overflow-hidden bg-carbon group ${aspectClass} ${className}`}
+      className={`relative w-full overflow-hidden bg-black group ${aspectClass} ${className}`}
     >
       {/* Poster image — always present as fallback */}
       {isVisible && (

@@ -6,7 +6,7 @@ interface SectionProps {
   children: ReactNode;
   className?: string;
   spacing?: "default" | "compact" | "spacious";
-  background?: "default" | "dark" | "carbon" | "accent" | "parchment";
+  background?: "default" | "dark" | "light" | "accent" | "parchment";
   showGridLines?: boolean;
   id?: string;
 }
@@ -26,11 +26,11 @@ export function Section({
   };
 
   const backgroundClasses = {
-    default: "bg-onyx text-white",
-    dark: "bg-[#0b090a] text-white",
-    carbon: "bg-carbon text-white",
-    parchment: "bg-[#E2D9CB] text-onyx",
-    accent: "text-white bg-gradient-to-br from-garnet via-mahogany to-strawberry",
+    default: "bg-black text-white",
+    dark: "bg-black text-white",
+    light: "bg-white text-black",
+    parchment: "bg-white text-black",
+    accent: "text-white bg-burgundy",
   };
 
   return (

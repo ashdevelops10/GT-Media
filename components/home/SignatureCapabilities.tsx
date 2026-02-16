@@ -14,7 +14,7 @@ const verticals = [
     services: ["Artist Management", "Music Label Management", "Music Distribution", "Music Promotions"],
     link: "/services/music",
     Icon: MusicIcon,
-    gradient: "from-mahogany/20 to-transparent",
+    gradient: "from-burgundy/20 to-transparent",
   },
   {
     title: "Celebrity & Influencer Partnerships",
@@ -59,11 +59,11 @@ export function SignatureCapabilities() {
           transition={{ duration: 0.8 }}
           className="text-center mb-12 md:mb-16 px-4"
         >
-          <p className="font-script text-mahogany text-lg md:text-2xl mb-2">What We Do</p>
-          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl uppercase text-onyx tracking-tight leading-[0.9]">
-            FOUR VERTICALS. <span className="text-mahogany">ONE PARTNER.</span>
+          <p className="font-editorial italic text-burgundy text-lg md:text-2xl mb-2">What We Do</p>
+          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl uppercase text-black tracking-tight leading-[0.9]">
+            FOUR VERTICALS. <span className="text-burgundy">ONE PARTNER.</span>
           </h2>
-          <p className="text-sm md:text-base text-onyx/50 mt-4 max-w-[55ch] mx-auto leading-relaxed">
+          <p className="text-sm md:text-base text-black/50 mt-4 max-w-[55ch] mx-auto leading-relaxed">
             Dedicated practice areas engineered for music, celebrity, brand performance, and political mandates.
           </p>
         </motion.div>
@@ -79,36 +79,36 @@ export function SignatureCapabilities() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <Link href={vertical.link} className="block group h-full">
-                  <div className="relative border border-onyx/8 p-6 md:p-7 h-full flex flex-col rounded-2xl hover:border-mahogany/40 transition-all duration-300 bg-white/40 group-hover:bg-white/60 group-hover:-translate-y-1 group-hover:shadow-lg overflow-hidden">
+                  <div className="relative border border-black/8 p-6 md:p-7 h-full flex flex-col rounded-2xl hover:border-burgundy/40 transition-all duration-300 bg-white/40 group-hover:bg-white/60 group-hover:-translate-y-1 group-hover:shadow-lg overflow-hidden">
 
                     {/* Icon */}
-                    <div className="relative z-10 w-10 h-10 mb-5 text-onyx/30 group-hover:text-mahogany transition-colors duration-300">
+                    <div className="relative z-10 w-10 h-10 mb-5 text-black/30 group-hover:text-burgundy transition-colors duration-300">
                       <IconComponent className="w-full h-full" />
                     </div>
 
-                    <h3 className="relative z-10 font-display text-xl lg:text-2xl uppercase mb-2.5 text-onyx group-hover:text-mahogany transition-colors duration-300 leading-none">
+                    <h3 className="relative z-10 font-display text-xl lg:text-2xl uppercase mb-2.5 text-black group-hover:text-burgundy transition-colors duration-300 leading-none">
                       {vertical.title}
                     </h3>
 
-                    <p className="relative z-10 text-sm text-onyx/50 mb-5 leading-relaxed line-clamp-3">
+                    <p className="relative z-10 text-sm text-black/50 mb-5 leading-relaxed line-clamp-3">
                       {vertical.description}
                     </p>
 
-                    <ul className="relative z-10 space-y-1.5 flex-1 border-t border-onyx/8 pt-4 mb-5">
+                    <ul className="relative z-10 space-y-1.5 flex-1 border-t border-black/8 pt-4 mb-5">
                       {vertical.services.map((service) => (
-                        <li key={service} className="text-onyx/60 text-xs uppercase tracking-wide flex items-start">
-                          <span className="mr-2 text-mahogany/70">»</span>
+                        <li key={service} className="text-black/60 text-xs uppercase tracking-wide flex items-start">
+                          <span className="mr-2 text-burgundy/70">»</span>
                           {service}
                         </li>
                       ))}
                     </ul>
 
                     <div className="relative z-10 mt-auto flex items-center justify-between">
-                      <span className="text-[10px] font-bold uppercase tracking-widest text-mahogany opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-burgundy opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         Explore
                       </span>
-                      <div className="w-7 h-7 rounded-full border border-onyx/15 group-hover:border-mahogany group-hover:bg-mahogany/10 flex items-center justify-center transition-all duration-300">
-                        <span className="text-onyx/50 group-hover:text-mahogany text-sm">↗</span>
+                      <div className="w-7 h-7 rounded-full border border-black/15 group-hover:border-burgundy group-hover:bg-burgundy/10 flex items-center justify-center transition-all duration-300">
+                        <span className="text-black/50 group-hover:text-burgundy text-sm">↗</span>
                       </div>
                     </div>
                   </div>

@@ -8,86 +8,52 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // GT Media - Bold Industrial Theme
+        // GT Media Brand System — Three-Color Palette
 
-        // PURE BLACK (#000000) - Primary background
-        onyx: "#000000",
-        carbon: "#0a0a0a",
-        ink: "#000000",
-        charcoal: "#111111",
-        noir: "#000000",
+        // Primary brand colors
         black: "#000000",
+        burgundy: {
+          DEFAULT: "#6D001A",
+          dark: "#5A0016",
+          light: "#8A0022",
+        },
+        white: "#FFFFFF",
 
-        // BRIGHT ORANGE (#FF5722) - Primary accent
-        orange: "#FF5722",
-        "orange-dark": "#E64A19",
-        "orange-light": "#FF7043",
-        mahogany: "#FF5722",
-        "mahogany-bright": "#FF7043",
-        strawberry: "#FF5722",
-
-        // CREAM WHITE (#F5F0E6) - Primary text
-        cream: "#F5F0E6",
-        cotton: "#F5F0E6",
-        smoke: "#F5F0E6",
-        paper: "#F5F0E6",
-        silver: "#888888",
-        dust: "#666666",
-        stone: "#444444",
-
-        // MUTED GRAY - Secondary elements
-        gray: "#888888",
-        "gray-dark": "#444444",
-        "gray-light": "#aaaaaa",
-
-        // Accent system (via CSS variables)
-        "accent-red": "var(--accent-orange)",
-        "accent-red-deep": "var(--accent-orange-dark)",
-        "accent-red-highlight": "var(--accent-orange-light)",
-        "accent-red-dark": "var(--accent-orange)",
-
-        // Text tokens
-        "text-primary-dark": "#000000",
-        "text-primary-light": "#F5F0E6",
-        "text-secondary": "#888888",
-
-        // Legacy aliases
-        "soft-gray": "#888888",
-        "accent-gold": "#FF5722",
-        auric: "#FF5722",
-        claret: "#E64A19",
-        maroon: "#E64A19",
-        garnet: "#E64A19",
-        cherry: "#FF5722"
+        // Derived gray system (for borders, muted text)
+        muted: {
+          DEFAULT: "rgba(255,255,255,0.5)",
+          foreground: "rgba(255,255,255,0.35)",
+          border: "rgba(255,255,255,0.1)",
+          subtle: "rgba(255,255,255,0.06)",
+        },
       },
       fontFamily: {
         sans: ["var(--font-gt-sans)", "Inter", "system-ui", "-apple-system", "sans-serif"],
         display: ["var(--font-gt-display)", "Bebas Neue", "Impact", "sans-serif"],
-        script: ["var(--font-script)", "Pacifico", "cursive"],
-        accent: ["var(--font-accent)", "Space Grotesk", "ui-monospace", "monospace"]
+        accent: ["var(--font-accent)", "Space Grotesk", "system-ui", "sans-serif"],
+        editorial: ["var(--font-editorial)", "Playfair Display", "Georgia", "serif"],
       },
       fontSize: {
-        // Stage 3: Editorial Typography Scale
-        // Display scale (for hero headlines)
-        "display": ["clamp(4rem, 8vw, 5.5rem)", { lineHeight: "1.05", letterSpacing: "-0.03em" }],
-        "display-sm": ["clamp(2.5rem, 6vw, 3.5rem)", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
+        // Display scale (hero headlines)
+        "display": ["clamp(4rem, 8vw, 5.5rem)", { lineHeight: "1.05", letterSpacing: "0.04em" }],
+        "display-sm": ["clamp(2.5rem, 6vw, 3.5rem)", { lineHeight: "1.1", letterSpacing: "0.04em" }],
 
         // Heading scale
-        "h1": ["clamp(2.25rem, 5vw, 4rem)", { lineHeight: "1.15", letterSpacing: "-0.02em" }],
-        "h2": ["clamp(1.875rem, 4vw, 3rem)", { lineHeight: "1.2", letterSpacing: "-0.01em" }],
-        "h3": ["clamp(1.5rem, 3vw, 2.25rem)", { lineHeight: "1.25", letterSpacing: "0" }],
+        "h1": ["clamp(4rem, 8vw, 5rem)", { lineHeight: "1.1", letterSpacing: "0.06em" }],
+        "h2": ["clamp(3rem, 6vw, 3.5rem)", { lineHeight: "1.1", letterSpacing: "0.05em" }],
+        "h3": ["clamp(2rem, 4vw, 2.5rem)", { lineHeight: "1.15", letterSpacing: "0.04em" }],
         "h4": ["clamp(1.25rem, 2vw, 1.5rem)", { lineHeight: "1.3", letterSpacing: "0" }],
 
         // Body scale
-        "body-lg": ["1.125rem", { lineHeight: "1.7" }],
-        "body": ["1rem", { lineHeight: "1.65" }],
+        "body-lg": ["1.25rem", { lineHeight: "1.6" }],
+        "body": ["1rem", { lineHeight: "1.6" }],
         "body-sm": ["0.875rem", { lineHeight: "1.6" }],
 
-        // Micro/accent scale (for stats, metadata)
+        // Micro/accent scale
         "micro": ["0.8125rem", { lineHeight: "1.5", letterSpacing: "0.02em" }],
         "micro-sm": ["0.75rem", { lineHeight: "1.5", letterSpacing: "0.03em" }],
 
-        // Numeric accent sizes
+        // Stat sizes
         "stat": ["2.5rem", { lineHeight: "1.1", letterSpacing: "-0.01em" }],
         "stat-sm": ["1.75rem", { lineHeight: "1.2", letterSpacing: "0" }]
       },

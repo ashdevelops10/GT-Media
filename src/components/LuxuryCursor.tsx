@@ -86,8 +86,8 @@ export default function LuxuryCursor() {
 
   return (
     <>
-      <div ref={dotRef} className="fixed pointer-events-none z-[9999] w-[4px] h-[4px] bg-auric rounded-full -translate-x-1/2 -translate-y-1/2" />
-      <div ref={haloRef} className="fixed pointer-events-none z-[9998] w-[10px] h-[10px] border border-auric rounded-full -translate-x-1/2 -translate-y-1/2 mix-blend-screen" />
+      <div ref={dotRef} className="fixed pointer-events-none z-[9999] w-[4px] h-[4px] bg-burgundy rounded-full -translate-x-1/2 -translate-y-1/2" />
+      <div ref={haloRef} className="fixed pointer-events-none z-[9998] w-[10px] h-[10px] border border-burgundy rounded-full -translate-x-1/2 -translate-y-1/2 mix-blend-screen" />
     </>
   );
 }

@@ -16,7 +16,7 @@ export function PRWins() {
                             <motion.div
                                 initial={{ rotateY: -10, rotateX: 5, z: 0 }}
                                 whileHover={{ rotateY: -5, rotateX: 0, z: 20 }}
-                                className="absolute top-0 left-4 w-full h-64 bg-onyx border border-white/10 rounded-xl p-6 shadow-2xl transform origin-bottom-left z-10"
+                                className="absolute top-0 left-4 w-full h-64 bg-black border border-white/10 rounded-xl p-6 shadow-2xl transform origin-bottom-left z-10"
                             >
                                 <div className="h-4 w-24 bg-white/10 rounded mb-4" />
                                 <div className="space-y-2 mb-6 opacity-30 blur-sm">
@@ -33,11 +33,11 @@ export function PRWins() {
                             <motion.div
                                 initial={{ rotateY: 10, rotateX: -5, y: 100, x: 40 }}
                                 whileHover={{ rotateY: 5, rotateX: 0, y: 80, x: 20 }}
-                                className="absolute top-12 left-0 w-full h-64 bg-gradient-to-br from-mahogany/20 to-onyx border border-mahogany/30 rounded-xl p-6 shadow-2xl backdrop-blur-sm z-20"
+                                className="absolute top-12 left-0 w-full h-64 bg-gradient-to-br from-burgundy/20 to-black border border-burgundy/30 rounded-xl p-6 shadow-2xl backdrop-blur-sm z-20"
                             >
                                 <div className="flex justify-between items-start mb-6">
-                                    <div className="h-4 w-32 bg-mahogany rounded opacity-80" />
-                                    <div className="px-2 py-1 bg-mahogany/20 rounded text-[10px] text-mahogany uppercase tracking-wider">Confidential</div>
+                                    <div className="h-4 w-32 bg-burgundy rounded opacity-80" />
+                                    <div className="px-2 py-1 bg-burgundy/20 rounded text-[10px] text-burgundy uppercase tracking-wider">Confidential</div>
                                 </div>
                                 <div className="space-y-3 mb-6">
                                     <div className="h-3 w-full bg-white/10 rounded animate-pulse" />
@@ -47,12 +47,12 @@ export function PRWins() {
                                     <div className="flex justify-between items-end text-white">
                                         <div>
                                             <p className="text-3xl font-display">10x</p>
-                                            <p className="text-xs text-silver">Media Reach</p>
+                                            <p className="text-xs text-white/50">Media Reach</p>
                                         </div>
                                         <div className="h-8 w-px bg-white/10" />
                                         <div>
                                             <p className="text-3xl font-display">Viral</p>
-                                            <p className="text-xs text-silver">Buzz</p>
+                                            <p className="text-xs text-white/50">Buzz</p>
                                         </div>
                                     </div>
                                 </div>
@@ -61,19 +61,19 @@ export function PRWins() {
                     </div>
 
                     <div className="order-1 md:order-2">
-                        <p className="text-xs uppercase tracking-widest text-mahogany mb-4 flex items-center gap-2">
-                            <span className="w-2 h-2 rounded-full bg-mahogany animate-pulse" />
+                        <p className="text-xs uppercase tracking-widest text-burgundy mb-4 flex items-center gap-2">
+                            <span className="w-2 h-2 rounded-full bg-burgundy animate-pulse" />
                             Confidential Highlights
                         </p>
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-white mb-5">
-                            PR &amp; MEDIA <span className="text-orange">WINS</span>
+                            PR &amp; MEDIA <span className="text-burgundy">WINS</span>
                         </h2>
                         <p className="text-base text-white/40 mb-6 leading-relaxed">
                             Powered high-profile PR campaigns for undisclosed blue-chip clients, politicians, and enterprises.
                             We deliver viral buzz, exponential media reach, and ethical storytelling at scale—all while strictly adhering to confidentiality agreements.
                         </p>
 
-                        <div className="p-5 bg-white/[0.03] rounded-xl border-l-2 border-mahogany mb-6">
+                        <div className="p-5 bg-white/[0.03] rounded-xl border-l-2 border-burgundy mb-6">
                             <p className="text-white italic">
                                 "Results that speak louder than the NDAs that bind them."
                             </p>
@@ -81,7 +81,7 @@ export function PRWins() {
 
                         <Link
                             href="/contact"
-                            className="inline-flex items-center gap-3 px-8 py-4 bg-white text-onyx rounded-full font-medium hover:bg-mahogany hover:text-white transition-all duration-300"
+                            className="inline-flex items-center gap-3 px-8 py-4 bg-white text-black rounded-full font-medium hover:bg-burgundy hover:text-white transition-all duration-300"
                         >
                             NDA Locked – Let's chat for deets
                             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -1,13 +1,14 @@
-import { Inter, Bebas_Neue, Alex_Brush, Space_Grotesk } from "next/font/google";
+import { Inter, Bebas_Neue, Space_Grotesk, Playfair_Display } from "next/font/google";
 
-// Clean sans-serif for body text
+// Body text - clean sans-serif
 export const gtSans = Inter({
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
   variable: "--font-gt-sans",
   display: "swap",
 });
 
-// Bold condensed headlines - Industrial look
+// Headlines - bold condensed uppercase
 export const gtDisplay = Bebas_Neue({
   weight: "400",
   subsets: ["latin"],
@@ -15,71 +16,20 @@ export const gtDisplay = Bebas_Neue({
   display: "swap",
 });
 
-// Elegant accent font - Refined cursive
-export const scriptFont = Alex_Brush({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-script",
-  display: "swap",
-});
-
-// Technical/accent font
+// Technical / UI accent text - buttons, nav, form labels
 export const accentFont = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-accent",
   display: "swap",
 });
 
-/*
-import localFont from "next/font/local";
-
-// Primary: GT America (or system font stack as fallback)
-// When you add GT America fonts, update paths below
-export const gtSans = localFont({
-  src: [
-    {
-      path: "../public/fonts/GT-Sans-Regular.woff2",
-      weight: "400",
-      style: "normal"
-    },
-    {
-      path: "../public/fonts/GT-Sans-Medium.woff2",
-      weight: "500",
-      style: "normal"
-    }
-  ],
-  variable: "--font-gt-sans",
+// Editorial highlight - taglines, quotes, hero accents (used sparingly)
+export const editorialFont = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-editorial",
   display: "swap",
-  preload: true,
-  fallback: [
-    "system-ui",
-    "-apple-system",
-    "BlinkMacSystemFont",
-    "Segoe UI",
-    "Helvetica Neue",
-    "Arial",
-    "sans-serif"
-  ],
-  adjustFontFallback: "Arial" // Metrics adjustment to prevent reflow
 });
 
-// Display variant (use same family with different optical sizing)
-// For true GT America Expanded/Compressed, add those files
-export const gtDisplay = localFont({
-  src: [
-    {
-      path: "../public/fonts/GT-Sans-Medium.woff2",
-      weight: "600",
-      style: "normal"
-    }
-  ],
-  variable: "--font-gt-display",
-  display: "swap",
-  preload: false, // Lazy load display weights
-  fallback: [
-    "system-ui",
-    "-apple-system",
-    "sans-serif"
-  ]
-});
-*/
+

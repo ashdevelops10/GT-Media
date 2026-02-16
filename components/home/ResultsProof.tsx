@@ -86,9 +86,9 @@ export function ResultsProof() {
           transition={{ duration: 0.8 }}
           className="text-center mb-10 sm:mb-12 md:mb-16"
         >
-          <p className="text-xs sm:text-sm uppercase tracking-widest text-mahogany mb-3 sm:mb-4">Proof of Record</p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display text-onyx mb-4 px-4 sm:px-0">Results That Speak</h2>
-          <p className="text-base sm:text-lg text-onyx/60 max-w-[60ch] mx-auto px-4 sm:px-0">
+          <p className="text-xs sm:text-sm uppercase tracking-widest text-burgundy mb-3 sm:mb-4">Proof of Record</p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display text-black mb-4 px-4 sm:px-0">Results That Speak</h2>
+          <p className="text-base sm:text-lg text-black/60 max-w-[60ch] mx-auto px-4 sm:px-0">
             Select outcomes from recent mandates across music, celebrity, brand, and political ecosystems.
           </p>
         </motion.div>
@@ -102,24 +102,24 @@ export function ResultsProof() {
               transition={{ duration: 0.5, delay: index * 0.08 }}
               className="group relative"
             >
-              <div className="relative border border-onyx/8 p-5 sm:p-6 md:p-7 bg-white/30 hover:border-mahogany/30 hover:bg-white/50 transition-all duration-300 overflow-hidden h-full rounded-2xl">
+              <div className="relative border border-black/8 p-5 sm:p-6 md:p-7 bg-white/30 hover:border-burgundy/30 hover:bg-white/50 transition-all duration-300 overflow-hidden h-full rounded-2xl">
                 {/* Icon */}
-                <div className="relative z-10 text-mahogany/50 mb-3 group-hover:text-mahogany transition-colors duration-300">
+                <div className="relative z-10 text-burgundy/50 mb-3 group-hover:text-burgundy transition-colors duration-300">
                   {result.icon}
                 </div>
 
                 {/* Metric */}
                 <div className="relative z-10 mb-2">
-                  <span className="text-3xl sm:text-4xl text-onyx group-hover:text-mahogany transition-colors duration-300 font-display italic">
+                  <span className="text-3xl sm:text-4xl text-black group-hover:text-burgundy transition-colors duration-300 font-display italic">
                     {result.metric}
                   </span>
-                  <span className="block text-[10px] sm:text-xs uppercase tracking-wider text-mahogany/70 mt-1">
+                  <span className="block text-[10px] sm:text-xs uppercase tracking-wider text-burgundy/70 mt-1">
                     {result.label}
                   </span>
                 </div>
 
                 {/* Description */}
-                <p className="relative z-10 text-sm text-onyx/55 leading-relaxed">{result.description}</p>
+                <p className="relative z-10 text-sm text-black/55 leading-relaxed">{result.description}</p>
               </div>
             </motion.div>
           ))}

@@ -14,7 +14,7 @@ export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-nav border-b border-graphite-700/30 bg-onyx/70 backdrop-blur-md">
+    <header className="fixed inset-x-0 top-0 z-nav border-b border-white/10 bg-black/70 backdrop-blur-md">
       <nav className="luxury-container flex items-center justify-between py-3 sm:py-4 px-4 sm:px-6 lg:px-8">
         <Link
           href="/"
@@ -29,7 +29,7 @@ export default function Nav() {
             <li key={item.href}>
               <Link
                 href={item.href}
-                className="text-sm text-graphite-400 transition-colors duration-xs hover:text-white"
+                className="text-sm text-white/50 transition-colors duration-xs hover:text-white"
               >
                 {item.label}
               </Link>
@@ -55,7 +55,7 @@ export default function Nav() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden absolute top-full left-0 right-0 bg-onyx/95 backdrop-blur-md border-b border-graphite-700/30 transition-all duration-300 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+        className={`md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-md border-b border-white/10 transition-all duration-300 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
           }`}
       >
         <ul className="flex flex-col py-4 px-4">
@@ -64,7 +64,7 @@ export default function Nav() {
               <Link
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="block py-3 text-base text-graphite-400 transition-colors duration-xs hover:text-white border-b border-graphite-700/20 last:border-0"
+                className="block py-3 text-base text-white/50 transition-colors duration-xs hover:text-white border-b border-white/5 last:border-0"
               >
                 {item.label}
               </Link>

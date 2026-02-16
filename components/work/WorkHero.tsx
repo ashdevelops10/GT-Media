@@ -42,7 +42,7 @@ export function WorkHero() {
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-display mb-6">
             Selected Work
           </h1>
-          <p className="text-xl text-silver max-w-[60ch] mx-auto">
+          <p className="text-xl text-white/50 max-w-[60ch] mx-auto">
             Strategic brand systems that drive measurable business outcomes
           </p>
         </motion.div>
@@ -54,7 +54,7 @@ export function WorkHero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="col-span-12 lg:col-span-7 aspect-[16/9] bg-silver/10 relative group overflow-hidden"
+            className="col-span-12 lg:col-span-7 aspect-[16/9] bg-white/20/10 relative group overflow-hidden"
           >
             <Link href={`/case-studies/${flagshipProjects[0]?.id}`} className="block h-full">
               <Image
@@ -65,15 +65,15 @@ export function WorkHero() {
                 sizes="(max-width: 1024px) 100vw, 60vw"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-onyx via-onyx/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
               <div className="absolute bottom-0 left-0 p-8 md:p-12">
-                <p className="text-xs uppercase tracking-widest text-mahogany mb-2">
+                <p className="text-xs uppercase tracking-widest text-burgundy mb-2">
                   {flagshipProjects[0]?.category}
                 </p>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-display mb-2">
                   {flagshipProjects[0]?.title}
                 </h2>
-                <p className="text-silver">{flagshipProjects[0]?.client}</p>
+                <p className="text-white/50">{flagshipProjects[0]?.client}</p>
               </div>
             </Link>
           </motion.div>
@@ -86,7 +86,7 @@ export function WorkHero() {
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 + index * 0.1 }}
-                className="aspect-[16/9] bg-silver/10 relative group overflow-hidden"
+                className="aspect-[16/9] bg-white/20/10 relative group overflow-hidden"
               >
                 <Link href={`/case-studies/${project.id}`} className="block h-full">
                   <Image
@@ -96,13 +96,13 @@ export function WorkHero() {
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                     sizes="(max-width: 1024px) 100vw, 40vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-onyx via-onyx/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
                   <div className="absolute bottom-0 left-0 p-6 md:p-8">
-                    <p className="text-xs uppercase tracking-widest text-mahogany mb-2">
+                    <p className="text-xs uppercase tracking-widest text-burgundy mb-2">
                       {project.category}
                     </p>
                     <h3 className="text-2xl md:text-3xl font-medium mb-1">{project.title}</h3>
-                    <p className="text-silver text-sm">{project.client}</p>
+                    <p className="text-white/50 text-sm">{project.client}</p>
                   </div>
                 </Link>
               </motion.div>

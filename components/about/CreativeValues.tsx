@@ -59,7 +59,7 @@ export function CreativeValues() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display mb-4">
             Our Creative Values
           </h2>
-          <p className="text-base sm:text-lg text-silver max-w-[60ch] mx-auto px-4">
+          <p className="text-base sm:text-lg text-white/50 max-w-[60ch] mx-auto px-4">
             Principles that guide every decision, from strategy to pixel
           </p>
         </motion.div>
@@ -71,25 +71,25 @@ export function CreativeValues() {
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative border border-silver/20 p-6 sm:p-8 hover:border-mahogany/40 transition-all duration-500 bg-gradient-to-br from-onyx to-black overflow-hidden"
+              className="group relative border border-white/20/20 p-6 sm:p-8 hover:border-burgundy/40 transition-all duration-500 bg-gradient-to-br from-black to-black overflow-hidden"
             >
               {/* Large number background */}
-              <span className="absolute -right-2 -top-4 text-[80px] sm:text-[100px] font-display text-silver/5 select-none pointer-events-none group-hover:text-mahogany/10 transition-colors duration-500">
+              <span className="absolute -right-2 -top-4 text-[80px] sm:text-[100px] font-display text-white/50/5 select-none pointer-events-none group-hover:text-burgundy/10 transition-colors duration-500">
                 {value.icon}
               </span>
               
               {/* Content */}
               <div className="relative z-10">
-                <h3 className="text-xl sm:text-2xl font-medium mb-3 sm:mb-4 text-mahogany">{value.title}</h3>
-                <p className="text-silver mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base">{value.principle}</p>
+                <h3 className="text-xl sm:text-2xl font-medium mb-3 sm:mb-4 text-burgundy">{value.title}</h3>
+                <p className="text-white/50 mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base">{value.principle}</p>
                 <div className="flex items-start gap-2">
-                  <span className="text-mahogany mt-0.5">→</span>
-                  <p className="text-xs sm:text-sm text-silver/70 italic">{value.outcome}</p>
+                  <span className="text-burgundy mt-0.5">→</span>
+                  <p className="text-xs sm:text-sm text-white/50/70 italic">{value.outcome}</p>
                 </div>
               </div>
               
               {/* Hover line */}
-              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-mahogany to-mahogany/50 group-hover:w-full transition-all duration-500" />
+              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-burgundy to-burgundy/50 group-hover:w-full transition-all duration-500" />
             </motion.div>
           ))}
         </div>

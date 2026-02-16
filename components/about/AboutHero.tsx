@@ -27,7 +27,7 @@ export function AboutHero() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex items-center"
             >
-              <p className="text-xl text-mahogany italic font-serif">
+              <p className="text-xl text-burgundy italic font-serif">
                 "We hold the creative, the narrative, and the numbers at the same level—because 
                 results matter as much as aesthetics."
               </p>

@@ -21,7 +21,7 @@ export function attachMicroInteractions(scope: HTMLElement) {
     underline.style.bottom = "-8px";
     underline.style.width = "0px";
     underline.style.height = "1px";
-    underline.style.background = "#D9B06A"; // auric
+    underline.style.background = "#6D001A"; // burgundy
     underline.style.transform = "translateX(-50%)";
     a.style.position = "relative";
     a.appendChild(underline);

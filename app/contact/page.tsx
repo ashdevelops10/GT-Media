@@ -5,7 +5,7 @@ import { ContactForm } from "@/components/contact/ContactForm";
 
 export default function ContactPage() {
   return (
-    <main className="relative min-h-screen bg-onyx text-white">
+    <main className="relative min-h-screen bg-black text-white">
       <PremiumNav />
       <ContactHero />
       <ContactForm />

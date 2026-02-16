@@ -77,15 +77,15 @@ export function WorkGrid() {
           <div className="flex flex-col md:flex-row gap-8 justify-between items-start md:items-end">
             <div className="space-y-6 flex-1">
               <div>
-                <p className="text-xs uppercase tracking-widest text-silver mb-3">Industry</p>
+                <p className="text-xs uppercase tracking-widest text-white/50 mb-3">Industry</p>
                 <div className="flex flex-wrap gap-2">
                   {filters.industry.map((filter) => (
                     <button
                       key={filter}
                       onClick={() => setActiveIndustry(filter)}
                       className={`px-4 py-2 rounded-full text-sm transition-all duration-300 border ${activeIndustry === filter
-                        ? "border-mahogany bg-mahogany text-white"
-                        : "border-white/10 text-silver hover:border-white/30 hover:text-white"
+                        ? "border-burgundy bg-burgundy text-white"
+                        : "border-white/10 text-white/50 hover:border-white/30 hover:text-white"
                         }`}
                     >
                       {filter}
@@ -95,15 +95,15 @@ export function WorkGrid() {
               </div>
 
               <div>
-                <p className="text-xs uppercase tracking-widest text-silver mb-3">Discipline</p>
+                <p className="text-xs uppercase tracking-widest text-white/50 mb-3">Discipline</p>
                 <div className="flex flex-wrap gap-2">
                   {filters.category.map((filter) => (
                     <button
                       key={filter}
                       onClick={() => setActiveCategory(filter)}
                       className={`px-4 py-2 rounded-full text-sm transition-all duration-300 border ${activeCategory === filter
-                        ? "border-mahogany bg-mahogany text-white"
-                        : "border-white/10 text-silver hover:border-white/30 hover:text-white"
+                        ? "border-burgundy bg-burgundy text-white"
+                        : "border-white/10 text-white/50 hover:border-white/30 hover:text-white"
                         }`}
                     >
                       {filter}
@@ -114,7 +114,7 @@ export function WorkGrid() {
             </div>
 
             <div className="text-right hidden md:block">
-              <p className="text-sm text-silver">
+              <p className="text-sm text-white/50">
                 Showing <span className="text-white font-medium">{filteredProjects.length}</span> project{filteredProjects.length !== 1 ? "s" : ""}
               </p>
             </div>
@@ -134,7 +134,7 @@ export function WorkGrid() {
                 initial={{ opacity: 0, y: 40 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`group relative overflow-hidden rounded-lg bg-onyx cursor-pointer ${spanClass}`}
+                className={`group relative overflow-hidden rounded-lg bg-black cursor-pointer ${spanClass}`}
                 onClick={() => setSelectedProject(project)}
               >
                 <Image
@@ -144,16 +144,16 @@ export function WorkGrid() {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-onyx/90 via-onyx/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
 
                 <div className="absolute bottom-0 left-0 p-6 w-full transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                  <p className="text-xs uppercase tracking-widest text-mahogany mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                  <p className="text-xs uppercase tracking-widest text-burgundy mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
                     {project.category}
                   </p>
-                  <h3 className="text-2xl font-medium text-white group-hover:text-mahogany transition-colors duration-300">
+                  <h3 className="text-2xl font-medium text-white group-hover:text-burgundy transition-colors duration-300">
                     {project.title}
                   </h3>
-                  <p className="text-silver text-sm opacity-80 group-hover:opacity-100">{project.client}</p>
+                  <p className="text-white/50 text-sm opacity-80 group-hover:opacity-100">{project.client}</p>
                 </div>
 
                 {/* Hover Indicator */}

@@ -25,21 +25,21 @@ export function OriginNarrative() {
           transition={{ duration: 0.8 }}
           className="prose prose-invert prose-lg max-w-none"
         >
-          <p className="text-xl text-silver leading-relaxed mb-8">
+          <p className="text-xl text-white/50 leading-relaxed mb-8">
             GT Media was built for operators who can't afford "nice work" that doesn't move numbers. 
             Our team sits at the intersection of brand strategy, content, performance marketing, and 
             political communications—giving you a partner who understands P&L, fanbases, and 
             constituencies in equal measure.
           </p>
 
-          <p className="text-xl text-silver leading-relaxed mb-12">
+          <p className="text-xl text-white/50 leading-relaxed mb-12">
             We are as comfortable in boardrooms and war-rooms as we are on set or in the edit bay.
             Our cross-industry advantage is simple: we see what works in high-pressure launches across 
             music, celebrity, brands, and politics—and we move those learnings across categories.
           </p>
 
           {/* Timeline */}
-          <div className="space-y-8 border-l-2 border-mahogany/30 pl-8 my-16">
+          <div className="space-y-8 border-l-2 border-burgundy/30 pl-8 my-16">
             {timeline.map((item, index) => (
               <motion.div
                 key={item.year}
@@ -47,13 +47,13 @@ export function OriginNarrative() {
                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
               >
-                <p className="text-mahogany font-medium mb-1">{item.year}</p>
+                <p className="text-burgundy font-medium mb-1">{item.year}</p>
                 <p className="text-white">{item.milestone}</p>
               </motion.div>
             ))}
           </div>
 
-          <p className="text-xl text-silver leading-relaxed">
+          <p className="text-xl text-white/50 leading-relaxed">
             Execution is senior-led, data-visible, and obsessively detailed. GT Media's founder operates 
             as a strategist, operator, and partner—challenging assumptions, stress-testing ideas, and 
             protecting your upside with the urgency of someone whose own name is on the line.

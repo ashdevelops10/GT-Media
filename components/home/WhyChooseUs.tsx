@@ -65,9 +65,9 @@ export function WhyChooseUs() {
           viewport={{ once: true }}
           className="text-center mb-12 md:mb-14"
         >
-          <p className="font-script text-orange text-lg md:text-xl mb-2">Why Us</p>
+          <p className="font-editorial italic text-burgundy text-lg md:text-xl mb-2">Why Us</p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display mb-4 px-4 sm:px-0">
-            ENGINEERED FOR <span className="text-orange">OUTCOMES</span>
+            ENGINEERED FOR <span className="text-burgundy">OUTCOMES</span>
           </h2>
           <p className="text-sm sm:text-base text-white/40 leading-relaxed max-w-[55ch] mx-auto px-4 sm:px-0">
             GT Media is built for leaders who demand ROI from every creative move. We design
@@ -85,24 +85,24 @@ export function WhyChooseUs() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group relative"
             >
-              <div className="relative border border-white/[0.06] p-5 sm:p-6 h-full bg-white/[0.02] hover:border-orange/20 hover:bg-white/[0.04] transition-all duration-300 hover:translate-y-[-2px] overflow-hidden rounded-2xl">
+              <div className="relative border border-white/[0.06] p-5 sm:p-6 h-full bg-white/[0.02] hover:border-burgundy/20 hover:bg-white/[0.04] transition-all duration-300 hover:translate-y-[-2px] overflow-hidden rounded-2xl">
                 {/* Background number */}
-                <span className="absolute -right-2 -top-4 text-[80px] sm:text-[100px] font-display text-silver/5 leading-none pointer-events-none select-none">
+                <span className="absolute -right-2 -top-4 text-[80px] sm:text-[100px] font-display text-white/50/5 leading-none pointer-events-none select-none">
                   0{index + 1}
                 </span>
 
                 {/* Icon */}
-                <div className="relative z-10 text-mahogany mb-4 sm:mb-5 group-hover:scale-110 transition-transform duration-300">
+                <div className="relative z-10 text-burgundy mb-4 sm:mb-5 group-hover:scale-110 transition-transform duration-300">
                   {item.icon}
                 </div>
 
-                <h3 className="relative z-10 text-lg sm:text-xl font-medium mb-2 sm:mb-3 group-hover:text-mahogany transition-colors duration-300">
+                <h3 className="relative z-10 text-lg sm:text-xl font-medium mb-2 sm:mb-3 group-hover:text-burgundy transition-colors duration-300">
                   {item.title}
                 </h3>
-                <p className="relative z-10 text-sm sm:text-base text-silver leading-relaxed">{item.description}</p>
+                <p className="relative z-10 text-sm sm:text-base text-white/50 leading-relaxed">{item.description}</p>
 
                 {/* Hover line */}
-                <div className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-mahogany to-mahogany/0 w-0 group-hover:w-full transition-all duration-500" />
+                <div className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-burgundy to-burgundy/0 w-0 group-hover:w-full transition-all duration-500" />
               </div>
             </motion.div>
           ))}

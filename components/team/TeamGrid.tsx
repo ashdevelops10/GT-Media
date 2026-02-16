@@ -59,11 +59,11 @@ export function TeamGrid() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-50px" }}
                             transition={{ duration: 0.6, delay: index * 0.1 }}
-                            className="group relative bg-carbon border border-white/5 rounded-lg overflow-hidden hover:border-mahogany/30 transition-all duration-500"
+                            className="group relative bg-black border border-white/5 rounded-lg overflow-hidden hover:border-burgundy/30 transition-all duration-500"
                         >
                             {/* Image Container */}
-                            <div className="aspect-[4/5] relative overflow-hidden bg-onyx">
-                                <div className="absolute inset-0 bg-silver/10 flex items-center justify-center text-silver/20 font-display text-4xl">
+                            <div className="aspect-[4/5] relative overflow-hidden bg-black">
+                                <div className="absolute inset-0 bg-white/20/10 flex items-center justify-center text-white/50/20 font-display text-4xl">
                                     {/* Placeholder fallback if image missing */}
                                     {member.name.charAt(0)}
                                 </div>
@@ -80,13 +80,13 @@ export function TeamGrid() {
                 /> */}
 
                                 {/* Gradient Overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-carbon via-carbon/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
 
                                 {/* Social Links Overlay - Slides up on hover */}
-                                <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-gradient-to-t from-mahogany/90 to-mahogany/0 flex gap-4 justify-center pb-8 pt-12">
+                                <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-gradient-to-t from-burgundy/90 to-burgundy/0 flex gap-4 justify-center pb-8 pt-12">
                                     <Link
                                         href={member.social.linkedin}
-                                        className="p-2 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white hover:text-onyx transition-colors duration-300"
+                                        className="p-2 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white hover:text-black transition-colors duration-300"
                                         aria-label={`${member.name}'s LinkedIn`}
                                     >
                                         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -95,7 +95,7 @@ export function TeamGrid() {
                                     </Link>
                                     <Link
                                         href={member.social.instagram}
-                                        className="p-2 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white hover:text-onyx transition-colors duration-300"
+                                        className="p-2 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white hover:text-black transition-colors duration-300"
                                         aria-label={`${member.name}'s Instagram`}
                                     >
                                         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -110,10 +110,10 @@ export function TeamGrid() {
                                 <p className="text-red-500 font-accent text-xs uppercase tracking-widest mb-1">
                                     {member.role}
                                 </p>
-                                <h3 className="text-2xl font-display text-white mb-3 group-hover:text-mahogany transition-colors duration-300">
+                                <h3 className="text-2xl font-display text-white mb-3 group-hover:text-burgundy transition-colors duration-300">
                                     {member.name}
                                 </h3>
-                                <p className="text-silver text-sm leading-relaxed">
+                                <p className="text-white/50 text-sm leading-relaxed">
                                     {member.bio}
                                 </p>
                             </div>

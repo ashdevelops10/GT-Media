@@ -4,7 +4,7 @@ import type React from "react";
 import "./globals.css";
 
 import Providers from "./providers";
-import { gtSans, gtDisplay, scriptFont, accentFont } from "./fonts";
+import { gtSans, gtDisplay, accentFont, editorialFont } from "./fonts";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -76,7 +76,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${gtSans.variable} ${gtDisplay.variable} ${scriptFont.variable} ${accentFont.variable}`}>
+    <html lang="en" className={`${gtSans.variable} ${gtDisplay.variable} ${accentFont.variable} ${editorialFont.variable}`}>
       <head>
         {/* Preconnect to CDNs for performance */}
         <link rel="preconnect" href="https://cdn.sanity.io" />
@@ -109,10 +109,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="bg-onyx text-smoke antialiased font-sans">
+      <body className="bg-black text-white antialiased font-sans">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-smoke focus:px-4 focus:py-2 focus:text-onyx"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-black"
         >
           Skip to main content
         </a>

@@ -25,7 +25,7 @@ export default async function CulturePage() {
     const photos = await getCelebrityPhotos();
 
     return (
-        <div className="relative min-h-screen bg-onyx text-white">
+        <div className="relative min-h-screen bg-black text-white">
             <PremiumNav />
 
             <Section background="dark" spacing="spacious" className="pt-32">
@@ -33,14 +33,14 @@ export default async function CulturePage() {
                     <div className="text-center mb-20">
                         <Link
                             href="/"
-                            className="inline-flex items-center gap-2 text-strawberry text-xs uppercase tracking-[0.3em] font-bold mb-8 hover:tracking-[0.4em] transition-all"
+                            className="inline-flex items-center gap-2 text-burgundy text-xs uppercase tracking-[0.3em] font-bold mb-8 hover:tracking-[0.4em] transition-all"
                         >
                             ← Return Home
                         </Link>
                         <h1 className="font-display text-5xl md:text-7xl lg:text-8xl uppercase mb-8 tracking-tighter">
-                            CULTURAL <span className="text-strawberry">NETWORK</span>
+                            CULTURAL <span className="text-burgundy">NETWORK</span>
                         </h1>
-                        <p className="text-silver text-sm md:text-xl max-w-[60ch] mx-auto leading-relaxed">
+                        <p className="text-white/50 text-sm md:text-xl max-w-[60ch] mx-auto leading-relaxed">
                             A high-credibility ecosystem built on years of trust, influence, and strategic relationships across global music, sports, and entertainment.
                         </p>
                     </div>
@@ -58,7 +58,7 @@ export default async function CulturePage() {
                                     className="object-cover transition-all duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-                                    <p className="text-strawberry text-[10px] uppercase tracking-[0.3em] font-bold mb-1">Impact Event</p>
+                                    <p className="text-burgundy text-[10px] uppercase tracking-[0.3em] font-bold mb-1">Impact Event</p>
                                     <p className="text-white font-display text-xl uppercase leading-none">Global Partnership</p>
                                 </div>
                             </div>

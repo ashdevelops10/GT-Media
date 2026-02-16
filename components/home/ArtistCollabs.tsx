@@ -41,7 +41,7 @@ export function ArtistCollabs() {
         <Section showGridLines background="dark" spacing="compact">
             <Container>
                 <div className="mb-12">
-                    <p className="text-xs uppercase tracking-widest text-mahogany mb-3">
+                    <p className="text-xs uppercase tracking-widest text-burgundy mb-3">
                         Impact & Culture
                     </p>
                     <h2 className="text-4xl md:text-5xl font-display text-white mb-6">
@@ -63,7 +63,7 @@ export function ArtistCollabs() {
                         >
                             <DesignVisual
                                 type={collab.format === "reel" ? "mesh" : "blueprint"}
-                                color={index % 2 === 0 ? "orange" : "carbon"}
+                                color={index % 2 === 0 ? "burgundy" : "dark"}
                                 className="transition-transform duration-700 group-hover:scale-110"
                             />
 
@@ -76,7 +76,7 @@ export function ArtistCollabs() {
                                     className="object-contain"
                                 />
                             </div>
-                            <div className="absolute inset-0 bg-gradient-to-t from-onyx via-transparent to-transparent opacity-80" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
 
                             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                 <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30">
@@ -87,7 +87,7 @@ export function ArtistCollabs() {
                             </div>
 
                             <div className="absolute bottom-0 left-0 p-5 w-full">
-                                <p className="text-xs text-silver uppercase tracking-wider mb-1">{collab.desc}</p>
+                                <p className="text-xs text-white/50 uppercase tracking-wider mb-1">{collab.desc}</p>
                                 <h3 className="text-lg md:text-xl font-medium text-white leading-tight">
                                     {collab.artist}
                                 </h3>

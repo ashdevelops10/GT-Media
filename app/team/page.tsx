@@ -5,7 +5,7 @@ import { TeamGrid } from "@/components/team/TeamGrid";
 
 export default function TeamPage() {
     return (
-        <main className="relative min-h-screen bg-onyx text-white">
+        <main className="relative min-h-screen bg-black text-white">
             <PremiumNav />
             <TeamHero />
             <TeamGrid />

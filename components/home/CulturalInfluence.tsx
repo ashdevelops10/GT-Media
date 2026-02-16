@@ -24,32 +24,32 @@ export async function CulturalInfluence() {
   if (!photos.length) return null;
 
   return (
-    <Section background="carbon" spacing="compact">
+    <Section background="dark" spacing="compact">
       <Container size="wide">
-        <div className="border-t border-dust/10">
+        <div className="border-t border-white/10/10">
           {/* Section Header */}
           <div className="max-w-5xl mx-auto text-center mb-12 md:mb-16 lg:mb-20">
             {/* Accent line */}
             <div className="flex items-center justify-center gap-4 mb-8">
-              <span className="h-px w-12 md:w-16 bg-gradient-to-r from-transparent to-strawberry/60" />
-              <span className="text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-strawberry">
+              <span className="h-px w-12 md:w-16 bg-gradient-to-r from-transparent to-burgundy/60" />
+              <span className="text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-burgundy">
                 Our Network
               </span>
-              <span className="h-px w-12 md:w-16 bg-gradient-to-l from-transparent to-strawberry/60" />
+              <span className="h-px w-12 md:w-16 bg-gradient-to-l from-transparent to-burgundy/60" />
             </div>
 
             <h2 className="font-display text-4xl md:text-5xl lg:text-7xl uppercase mb-6 tracking-tight">
-              Influence & <span className="text-strawberry">Cultural Presence</span>
+              Influence & <span className="text-burgundy">Cultural Presence</span>
             </h2>
 
-            <p className="text-silver text-sm md:text-lg max-w-[50ch] mx-auto mb-10 leading-relaxed font-medium">
+            <p className="text-white/50 text-sm md:text-lg max-w-[50ch] mx-auto mb-10 leading-relaxed font-medium">
               A high-credibility network across celebrity, music, and public ecosystems. We don't just bridge gaps; we engineer authority.
             </p>
 
             <div className="flex justify-center">
               <a
                 href="/culture"
-                className="group relative px-8 py-4 bg-strawberry text-white font-bold uppercase tracking-widest text-xs rounded-full overflow-hidden transition-all duration-300 hover:pr-12"
+                className="group relative px-8 py-4 bg-burgundy text-white font-bold uppercase tracking-widest text-xs rounded-full overflow-hidden transition-all duration-300 hover:pr-12"
               >
                 <span className="relative z-10 font-display">View Full Network</span>
                 <span className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300">→</span>
@@ -64,11 +64,11 @@ export async function CulturalInfluence() {
 
           {/* Footer Caption */}
           <div className="mt-8 flex items-center justify-center gap-4 opacity-40">
-            <span className="h-px w-8 md:w-12 bg-dust/20" />
-            <p className="text-[10px] tracking-[0.3em] uppercase text-silver">
+            <span className="h-px w-8 md:w-12 bg-white/20/20" />
+            <p className="text-[10px] tracking-[0.3em] uppercase text-white/50">
               A glimpse into our deep cultural ties
             </p>
-            <span className="h-px w-8 md:w-12 bg-dust/20" />
+            <span className="h-px w-8 md:w-12 bg-white/20/20" />
           </div>
         </div>
       </Container>

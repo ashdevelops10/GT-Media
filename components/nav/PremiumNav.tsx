@@ -50,13 +50,13 @@ export function PremiumNav() {
             <Link href="/" className="flex items-center gap-2.5 group" aria-label="GT Media - Home">
               <div className={`relative overflow-hidden transition-all duration-500 ${scrolled ? 'w-8 h-8' : 'w-10 h-10'}`}>
                 <NextImage
-                  src="/logos/file_000000001db4720692432eb1b5ba9db6.png"
+                  src="/logos/gt-logo-transparent.png"
                   alt="GT Media Logo"
                   fill
                   className="object-contain group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <span className={`font-display text-white group-hover:text-orange transition-all duration-300 ${scrolled ? 'text-lg' : 'text-xl'}`}>GT Media</span>
+              <span className={`font-display text-white group-hover:text-burgundy transition-all duration-300 ${scrolled ? 'text-lg' : 'text-xl'}`}>GT Media</span>
             </Link>
 
             {/* Desktop nav */}
@@ -70,7 +70,7 @@ export function PremiumNav() {
                     >
                       {item.label}
                       <span
-                        className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 h-[2px] w-0 bg-orange rounded-full transition-all duration-300 group-hover:w-full"
+                        className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 h-[2px] w-0 bg-burgundy rounded-full transition-all duration-300 group-hover:w-full"
                       />
                     </Link>
                   </li>
@@ -78,10 +78,10 @@ export function PremiumNav() {
                 <li>
                   <Link
                     href="/contact"
-                    className="group relative px-6 py-2.5 border border-orange/60 text-orange rounded-full text-xs font-bold uppercase tracking-wider overflow-hidden hover:text-black transition-colors duration-300"
+                    className="group relative px-6 py-2.5 border border-burgundy/60 text-white text-xs font-accent font-bold uppercase tracking-wider overflow-hidden hover:text-white transition-colors duration-300"
                   >
                     <span className="relative z-10">Start Project</span>
-                    <span className="absolute inset-0 bg-orange scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                    <span className="absolute inset-0 bg-burgundy scale-x-100 transition-transform duration-300 origin-left" />
                   </Link>
                 </li>
               </ul>
@@ -134,7 +134,7 @@ export function PremiumNav() {
             <div className="px-6 sm:px-8 pt-6 pb-5 flex items-center justify-between">
               <Link href="/" onClick={() => setOpen(false)} className="flex items-center gap-2">
                 <div className="relative w-8 h-8">
-                  <NextImage src="/logos/file_000000001db4720692432eb1b5ba9db6.png" alt="GT Media" fill className="object-contain" />
+                  <NextImage src="/logos/gt-logo-transparent.png" alt="GT Media" fill className="object-contain" />
                 </div>
                 <span className="font-display text-lg text-white">GT Media</span>
               </Link>
@@ -160,10 +160,10 @@ export function PremiumNav() {
                     <Link
                       href={item.href}
                       onClick={() => setOpen(false)}
-                      className="flex items-center justify-between py-4 text-2xl font-display uppercase text-white/80 hover:text-orange border-b border-white/[0.04] transition-colors duration-200 group"
+                      className="flex items-center justify-between py-4 text-2xl font-display uppercase text-white/80 hover:text-burgundy border-b border-white/[0.04] transition-colors duration-200 group"
                     >
                       <span>{item.label}</span>
-                      <span className="text-sm text-white/20 group-hover:text-orange/60 transition-colors">→</span>
+                      <span className="text-sm text-white/20 group-hover:text-burgundy/60 transition-colors">→</span>
                     </Link>
                   </motion.li>
                 ))}
@@ -175,7 +175,7 @@ export function PremiumNav() {
               <Link
                 href="/contact"
                 onClick={() => setOpen(false)}
-                className="flex items-center justify-center w-full gap-2 px-8 py-4 bg-orange text-black rounded-full font-bold uppercase tracking-wider text-sm hover:bg-orange-light transition-colors duration-200"
+                className="flex items-center justify-center w-full gap-2 px-8 py-4 bg-burgundy text-white rounded-full font-accent font-bold uppercase tracking-wider text-sm hover:bg-burgundy-dark transition-colors duration-200"
               >
                 Start a Project
                 <span>→</span>

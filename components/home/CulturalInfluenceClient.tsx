@@ -81,7 +81,7 @@ export function CulturalInfluenceClient({ photos }: Props) {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute inset-x-0 bottom-0 p-6 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                <p className="text-[10px] uppercase tracking-[0.3em] text-strawberry font-bold">Featured Relationship</p>
+                <p className="text-[10px] uppercase tracking-[0.3em] text-burgundy font-bold">Featured Relationship</p>
                 <p className="text-white font-display text-lg uppercase leading-none mt-1">Cultural Impact</p>
               </div>
             </div>
@@ -90,8 +90,8 @@ export function CulturalInfluenceClient({ photos }: Props) {
       </div>
 
       {/* Gradient Overlays */}
-      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-carbon to-transparent z-20 pointer-events-none" />
-      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-carbon to-transparent z-20 pointer-events-none" />
+      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-20 pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent z-20 pointer-events-none" />
     </div>
   );
 }

@@ -23,20 +23,20 @@ export function FinalCTA() {
           <div className="absolute inset-0 pointer-events-none">
             {/* Corner accents */}
             <div className="absolute top-0 left-0 w-16 sm:w-24 h-16 sm:h-24">
-              <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-mahogany/60 to-transparent" />
-              <div className="absolute top-0 left-0 h-full w-px bg-gradient-to-b from-mahogany/60 to-transparent" />
+              <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-burgundy/60 to-transparent" />
+              <div className="absolute top-0 left-0 h-full w-px bg-gradient-to-b from-burgundy/60 to-transparent" />
             </div>
             <div className="absolute top-0 right-0 w-16 sm:w-24 h-16 sm:h-24">
-              <div className="absolute top-0 right-0 w-full h-px bg-gradient-to-l from-mahogany/60 to-transparent" />
-              <div className="absolute top-0 right-0 h-full w-px bg-gradient-to-b from-mahogany/60 to-transparent" />
+              <div className="absolute top-0 right-0 w-full h-px bg-gradient-to-l from-burgundy/60 to-transparent" />
+              <div className="absolute top-0 right-0 h-full w-px bg-gradient-to-b from-burgundy/60 to-transparent" />
             </div>
             <div className="absolute bottom-0 left-0 w-16 sm:w-24 h-16 sm:h-24">
-              <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-mahogany/60 to-transparent" />
-              <div className="absolute bottom-0 left-0 h-full w-px bg-gradient-to-t from-mahogany/60 to-transparent" />
+              <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-burgundy/60 to-transparent" />
+              <div className="absolute bottom-0 left-0 h-full w-px bg-gradient-to-t from-burgundy/60 to-transparent" />
             </div>
             <div className="absolute bottom-0 right-0 w-16 sm:w-24 h-16 sm:h-24">
-              <div className="absolute bottom-0 right-0 w-full h-px bg-gradient-to-l from-mahogany/60 to-transparent" />
-              <div className="absolute bottom-0 right-0 h-full w-px bg-gradient-to-t from-mahogany/60 to-transparent" />
+              <div className="absolute bottom-0 right-0 w-full h-px bg-gradient-to-l from-burgundy/60 to-transparent" />
+              <div className="absolute bottom-0 right-0 h-full w-px bg-gradient-to-t from-burgundy/60 to-transparent" />
             </div>
 
             {/* Subtle background pattern */}
@@ -58,9 +58,9 @@ export function FinalCTA() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-6 sm:mb-8 rounded-full border-2 border-mahogany/40 flex items-center justify-center"
+              className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-6 sm:mb-8 rounded-full border-2 border-burgundy/40 flex items-center justify-center"
             >
-              <svg className="w-6 h-6 sm:w-8 sm:h-8 text-mahogany" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg className="w-6 h-6 sm:w-8 sm:h-8 text-burgundy" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8L12 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
               </svg>
             </motion.div>
@@ -76,7 +76,7 @@ export function FinalCTA() {
             <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
               <Link
                 href="/contact"
-                className="group relative inline-flex items-center justify-center px-8 sm:px-10 py-3.5 sm:py-4 bg-orange text-black text-sm font-bold uppercase tracking-wider rounded-full overflow-hidden hover:shadow-[0_0_30px_rgba(255,87,34,0.25)] transition-all duration-300"
+                className="group relative inline-flex items-center justify-center px-8 sm:px-10 py-3.5 sm:py-4 bg-burgundy text-white text-sm font-bold uppercase tracking-wider rounded-full overflow-hidden hover:shadow-[0_0_30px_rgba(109,0,26,0.25)] transition-all duration-300"
               >
                 Book a Consultation
                 <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

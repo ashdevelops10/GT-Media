@@ -3,6 +3,7 @@ import nextPlugin from "@next/eslint-plugin-next";
 import typescriptPlugin from "@typescript-eslint/eslint-plugin";
 import typescriptParser from "@typescript-eslint/parser";
 import importPlugin from "eslint-plugin-import";
+import reactHooksPlugin from "eslint-plugin-react-hooks";
 
 export default [
   {
@@ -154,7 +155,8 @@ export default [
     plugins: {
       "@typescript-eslint": typescriptPlugin,
       "@next/next": nextPlugin,
-      import: importPlugin
+      import: importPlugin,
+      "react-hooks": reactHooksPlugin
     },
     rules: {
       ...js.configs.recommended.rules,

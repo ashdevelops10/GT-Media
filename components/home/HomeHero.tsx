@@ -77,7 +77,6 @@ export function HomeHero() {
   const overlayOpacity = useTransform(scrollYProgress, [0.25, 0.5], [1, 0]);
   
   /* Keep video at bottom-right while scaling to 50% screen width */
-  const videoRight = useTransform(scrollYProgress, [0, 0.5, 1], ["3%", "3%", "3%"]);
   const videoBottom = useTransform(scrollYProgress, [0, 0.5, 1], ["8.5rem", "8.5rem", "8.5rem"]);
   const videoTranslateX = useTransform(scrollYProgress, [0, 0.5, 1], ["0%", "0%", "0%"]);
   const videoTranslateY = useTransform(scrollYProgress, [0, 0.5, 1], ["0%", "0%", "0%"]);
@@ -97,26 +96,21 @@ export function HomeHero() {
 
         {/* ── Ambient background ── */}
         <motion.div className="absolute inset-0 z-0" style={{ y: bgY }}>
-          <div className="absolute inset-0 opacity-40">
+          {/* Main animated lines - increased visibility */}
+          <div className="absolute inset-0 opacity-70">
             <FloatingLines
               linesGradient={["#3A000D", "#6D001A", "#4A0012", "#2A0008"]}
-              enabledWaves={["top", "middle", "bottom"]}
-              lineCount={3}
-              lineDistance={8}
-              bendRadius={3}
-              bendStrength={-0.3}
-              animationSpeed={0.6}
-              interactive={true}
-              parallax={true}
-              parallaxStrength={0.1}
             />
           </div>
 
-          {/* Radial vignette for depth */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.4)_50%,rgba(0,0,0,0.85)_100%)]" />
+          {/* Ambient Glow from top */}
+          <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[120%] h-[80%] bg-[radial-gradient(circle_at_center,rgba(109,0,26,0.35)_0%,transparent_60%)] pointer-events-none mix-blend-screen" />
+
+          {/* Radial vignette for depth - softened */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_10%,rgba(0,0,0,0.3)_60%,rgba(0,0,0,0.7)_100%)] pointer-events-none" />
 
           {/* Bottom fade to black */}
-          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black to-transparent pointer-events-none" />
 
           {/* Subtle grain texture */}
           <div
@@ -125,78 +119,94 @@ export function HomeHero() {
           />
         </motion.div>
 
-        {/* ── Main content — left-aligned layout ── */}
-        <motion.div
-          className="relative z-10 h-full flex flex-col justify-end px-4 sm:px-6 lg:px-8 xl:px-12 pt-20 md:pt-24 lg:pt-28 pb-32 md:pb-36 lg:pb-40 text-left"
-          style={{ opacity: contentOpacity, y: contentY }}
-        >
-          {/* Headline block */}
-          <motion.h1
-            className="font-display uppercase leading-[0.9] tracking-tight max-w-5xl mb-8 md:mb-10"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <span className="block text-[clamp(2.8rem,7vw,5.5rem)] text-white mb-1">
-              We Build
-            </span>
-            <span className="block text-[clamp(3.5rem,10vw,9rem)] relative overflow-hidden h-[1.1em]">
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={wordIndex}
-                  className="block text-burgundy"
-                  variants={wordVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
+        {/* ── Main content — horizontal layout ── */}
+        <div className="relative z-10 h-full flex items-center px-6 md:px-12 lg:px-16 xl:px-24 pt-32 pb-32 max-w-[1920px] mx-auto">
+          <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            {/* Left Column: Text Content */}
+            <motion.div
+              style={{ opacity: contentOpacity, y: contentY }}
+              className="lg:col-span-7 xl:col-span-8 flex flex-col items-start gap-8"
+            >
+              {/* Headline block */}
+              <motion.h1
+                className="font-display uppercase leading-[0.9] tracking-tight mb-4"
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <div className="flex flex-wrap items-baseline gap-x-4 mb-1">
+                  <span className="text-[clamp(3.5rem,8vw,8rem)] text-white tracking-tight">
+                    We Build
+                  </span>
+                  <span className="text-[clamp(3.5rem,8vw,8rem)] h-[1.1em] overflow-hidden relative">
+                    <AnimatePresence mode="wait">
+                      <motion.span
+                        key={wordIndex}
+                        className="block text-burgundy"
+                        variants={wordVariants}
+                        initial="enter"
+                        animate="center"
+                        exit="exit"
+                      >
+                        {WORDS_ROTATE[wordIndex]}
+                      </motion.span>
+                    </AnimatePresence>
+                  </span>
+                </div>
+                <span className="block text-[clamp(2rem,5.5vw,4.2rem)] text-white/50 tracking-wide mt-2">
+                  That Move Markets.
+                </span>
+              </motion.h1>
+
+              {/* Description */}
+              <motion.div
+                className="flex flex-col gap-6 items-start w-full max-w-lg"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                <p className="text-white/50 text-sm md:text-base leading-relaxed">
+                  From crafting iconic brands to delivering high-impact real estate solutions — all in one place. A complete 360° approach blending strategy, creativity, and execution.
+                </p>
+
+                {/* CTAs */}
+                <motion.div
+                  className="flex items-center gap-6"
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.65 }}
                 >
-                  {WORDS_ROTATE[wordIndex]}
-                </motion.span>
-              </AnimatePresence>
-            </span>
-            <span className="block text-[clamp(2rem,5.5vw,4.2rem)] text-white/80">
-              That Move Markets.
-            </span>
-          </motion.h1>
+                  <Link
+                    href="/contact"
+                    className="group relative inline-flex items-center justify-center gap-2.5 h-12 px-8 bg-burgundy text-white text-[11px] font-accent font-semibold uppercase tracking-[0.15em] overflow-hidden hover:shadow-[0_0_30px_rgba(109,0,26,0.3)] transition-all duration-500"
+                  >
+                    <span className="relative z-10">Start a Project</span>
+                    <svg className="relative z-10 w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                    <div className="absolute inset-0 bg-white/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                  </Link>
+                  <Link
+                    href="/work"
+                    className="group relative inline-flex items-center justify-center gap-2.5 h-12 px-8 border border-white/10 text-white text-[11px] font-accent font-semibold uppercase tracking-[0.15em] overflow-hidden hover:border-white/25 hover:bg-white/[0.03] transition-all duration-500"
+                  >
+                    <span className="relative z-10">View Our Work</span>
+                    <svg className="relative z-10 w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                </motion.div>
+              </motion.div>
+            </motion.div>
 
-          {/* Description */}
-          <motion.p
-            className="max-w-2xl text-white/40 text-sm md:text-[15px] leading-relaxed mb-8 md:mb-10"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            From Creating Brands to Delivering Real Estate Solutions — All in One Place. A complete 360° approach that blends strategy, creativity, and execution.
-          </motion.p>
+            {/* Right Column: Spacer for Video (Video is absolutely positioned but this helps layout logic if needed) */}
+            <div className="hidden lg:block lg:col-span-5 xl:col-span-4 h-full relative pointer-events-none">
+              {/* Video is positioned absolutely relative to screen still to maintain scroll effect */}
+            </div>
 
-          {/* CTAs */}
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.65 }}
-          >
-            <Link
-              href="/contact"
-              className="group relative inline-flex items-center justify-center gap-2.5 h-12 px-8 bg-burgundy text-white text-[11px] font-accent font-semibold uppercase tracking-[0.15em] overflow-hidden hover:shadow-[0_0_30px_rgba(109,0,26,0.3)] transition-all duration-500"
-            >
-              <span className="relative z-10">Start a Project</span>
-              <svg className="relative z-10 w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-              <span className="absolute inset-0 bg-white/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-            </Link>
-            <Link
-              href="/work"
-              className="group relative inline-flex items-center justify-center gap-2.5 h-12 px-8 border border-white/10 text-white text-[11px] font-accent font-semibold uppercase tracking-[0.15em] overflow-hidden hover:border-white/25 hover:bg-white/[0.03] transition-all duration-500"
-            >
-              <span className="relative z-10">View Our Work</span>
-              <svg className="relative z-10 w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
         {/* ── Left side content when video expands ── */}
         <motion.div
@@ -210,7 +220,7 @@ export function HomeHero() {
         >
           <div className="space-y-6 md:space-y-8">
             <div className="space-y-3 md:space-y-4">
-              <p className="font-editorial italic text-burgundy text-lg md:text-xl lg:text-2xl leading-tight">
+              <p className="font-accent uppercase tracking-widest text-burgundy text-xs md:text-sm font-bold leading-tight">
                 Creativity That Converts
               </p>
               <h2 className="font-display uppercase text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white leading-[0.95] tracking-tight">
@@ -228,12 +238,11 @@ export function HomeHero() {
 
         {/* ── Small video showcase with parallax expansion ── */}
         <motion.div
-          className="absolute z-30 w-[280px] md:w-[320px]"
+          className="absolute z-30 w-[280px] md:w-[320px] right-6 md:right-12 lg:right-16 xl:right-24"
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
           style={{ 
-            right: videoRight,
             bottom: videoBottom,
             scale: videoScale,
             opacity: videoOpacity,
@@ -273,7 +282,7 @@ export function HomeHero() {
         </motion.div>
 
         {/* ── Brand logo marquee ── */}
-        <div className="absolute bottom-0 left-0 right-0 z-20 border-t border-white/[0.05]">
+        <div className="absolute bottom-0 left-0 right-0 z-20">
           <div className="overflow-hidden py-6 md:py-8">
             <div className="animate-marquee-brands flex gap-8 md:gap-12 items-center whitespace-nowrap">
               {[...BRAND_LOGOS, ...BRAND_LOGOS, ...BRAND_LOGOS, ...BRAND_LOGOS].map((brand, i) => (

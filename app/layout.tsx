@@ -26,7 +26,12 @@ export const metadata: Metadata = {
   creator: "GT Media Studio",
   publisher: "GT Media Studio",
   icons: {
-    icon: "/favicon.ico"
+    icon: [
+      { url: '/logos/gt-favicon-optimized.png', media: '(prefers-color-scheme: dark)' },
+      { url: '/logos/gt-favicon-optimized-dark.png', media: '(prefers-color-scheme: light)' },
+    ],
+    shortcut: "/logos/gt-favicon-optimized.png",
+    apple: "/logos/gt-favicon-optimized.png",
   },
   openGraph: {
     type: "website",

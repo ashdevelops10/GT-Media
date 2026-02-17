@@ -4,18 +4,6 @@ import { Container, Section } from "@/components/layout";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const CORE_PARTNERS = [
-  { name: "Mach Global", src: "/logos/mach global.jpg", needsLightBg: true },
-  { name: "Event ResQ", src: "/logos/event resq.jpg", needsLightBg: true },
-  { name: "Saahayak", src: "/logos/sahayak.webp", needsLightBg: true },
-  { name: "Wildhood", src: "/logos/wildhood.jpg" },
-  { name: "Studio Neoteric", src: "/logos/studeo-nuteric-logo.webp", needsLightBg: true },
-  { name: "Rabab Music Studio", src: "/logos/rabab music.webp" },
-  { name: "Uttam", src: "/logos/uttam.png" },
-  { name: "Dharmayu", src: "/logos/dharmayu.png" },
-  { name: "Urban Theka", src: "/logos/urban_theka.png" },
-];
-
 const ALSO_WORKED_WITH = [
   { name: "Bastian", src: "/logos/bastian.png", needsLightBg: true },
   { name: "Wildin", src: "/logos/wildin.png", needsLightBg: true },
@@ -25,78 +13,39 @@ const ALSO_WORKED_WITH = [
 
 export function BrandPartners() {
   return (
-    <Section spacing="compact" className="relative z-10 bg-black overflow-hidden">
+    <Section spacing="compact" className="relative z-10 bg-black overflow-hidden !py-0">
       <Container className="relative z-10">
-        <div className="text-center mb-14 md:mb-16 max-w-3xl mx-auto">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="font-editorial italic text-burgundy text-xl md:text-2xl mb-3"
-          >
-            Digital Marketing Brands
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="font-display text-3xl md:text-5xl lg:text-6xl uppercase text-white tracking-tight leading-[0.9]"
-          >
-            TRUSTED BY THE <span className="text-burgundy">BEST</span>
-          </motion.h2>
-        </div>
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px bg-white/[0.04] border border-white/[0.06] rounded-2xl overflow-hidden">
-          {CORE_PARTNERS.map((partner, index) => (
-            <motion.div
-              key={partner.name}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.04 }}
-              className="group relative flex flex-col items-center justify-center h-36 sm:h-40 bg-black hover:bg-white/[0.03] transition-colors duration-500"
-            >
-              <div className="relative w-full h-full p-6 flex flex-col items-center justify-center gap-3">
-                <div className={`relative w-full h-12 transition-all duration-500 group-hover:scale-105 flex items-center justify-center ${partner.needsLightBg ? "bg-white/90 p-2.5 rounded-lg group-hover:bg-white" : ""}`}>
-                  <Image
-                    src={partner.src}
-                    alt={partner.name}
-                    fill
-                    className="object-contain grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
-                  />
-                </div>
-                <span className="text-[9px] uppercase tracking-[0.25em] text-white/30 group-hover:text-burgundy/80 transition-all duration-300 text-center truncate max-w-full">
-                  {partner.name}
-                </span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Secondary Tier */}
-        <div className="mt-16 md:mt-20">
-          <div className="flex items-center justify-center gap-4 md:gap-8 mb-10">
-            <div className="h-px w-12 bg-white/10 hidden md:block" />
-            <p className="font-editorial italic text-burgundy/50 text-lg">Also Collaborated With</p>
-            <div className="h-px w-12 bg-white/10 hidden md:block" />
+        <div className="py-6 md:py-8 border-t border-white/5">
+          <div className="flex items-center justify-center gap-6 mb-6">
+            <div className="h-px w-12 bg-gradient-to-r from-transparent via-burgundy/50 to-transparent" />
+            <p className="font-editorial italic text-white/40 text-base md:text-lg tracking-wide">Select Collaborations</p>
+            <div className="h-px w-12 bg-gradient-to-r from-transparent via-burgundy/50 to-transparent" />
           </div>
 
-          <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10">
-            {ALSO_WORKED_WITH.map((brand) => (
+          <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10 max-w-4xl mx-auto px-4">
+            {ALSO_WORKED_WITH.map((brand, index) => (
               <motion.div
                 key={brand.name}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="group relative w-28 md:w-36 h-14 md:h-16 bg-white/90 p-2.5 rounded-xl transition-all duration-500 hover:scale-105 grayscale hover:grayscale-0 overflow-hidden"
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                className="relative group"
               >
-                <Image
-                  src={brand.src}
-                  alt={brand.name}
-                  fill
-                  className="object-contain p-2 transition-all duration-500"
-                />
+                <div className="w-28 md:w-32 h-12 flex items-center justify-center transition-all duration-300 hover:-translate-y-1">
+                 <div className="relative w-full h-full opacity-50 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-300 ease-out flex items-center justify-center">
+                    <Image
+                        src={brand.src}
+                        alt={brand.name}
+                        fill
+                        className={`object-contain transition-all duration-300 ${
+                          brand.needsLightBg 
+                            ? 'brightness-0 invert group-hover:filter-none group-hover:bg-white group-hover:rounded px-1' 
+                            : 'brightness-0 invert group-hover:filter-none'
+                        }`}
+                    />
+                 </div>
+                </div>
               </motion.div>
             ))}
           </div>

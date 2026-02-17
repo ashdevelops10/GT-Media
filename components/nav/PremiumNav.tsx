@@ -44,7 +44,7 @@ export function PremiumNav() {
             : "bg-transparent")
         }
       >
-        <div className={`max-w-[1920px] mx-auto px-5 sm:px-8 lg:px-12 transition-all duration-500 ${scrolled ? 'py-3' : 'py-5'}`}>
+        <div className={`max-w-[1920px] mx-auto px-6 md:px-12 lg:px-16 xl:px-24 transition-all duration-500 ${scrolled ? 'py-3' : 'py-5'}`}>
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2.5 group" aria-label="GT Media - Home">

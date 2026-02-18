@@ -82,7 +82,7 @@ export function HomeHero() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[300vh] w-full bg-black text-white"
+      className="relative min-h-[100dvh] md:min-h-[300vh] w-full bg-black text-white"
       data-hero-root
     >
       {/* ━━━ Sticky viewport container ━━━ */}
@@ -114,26 +114,26 @@ export function HomeHero() {
         </motion.div>
 
         {/* ── Main content — horizontal layout ── */}
-        <div className="relative z-10 h-full flex items-start md:items-center px-5 md:px-12 lg:px-16 xl:px-24 pt-24 md:pt-32 pb-32 max-w-[1920px] mx-auto">
+        <div className="relative z-10 h-full flex items-start md:items-center px-5 md:px-12 lg:px-16 xl:px-24 pt-20 md:pt-32 pb-4 md:pb-32 max-w-[1920px] mx-auto overflow-y-auto md:overflow-visible">
           <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-5 md:gap-8 items-center">
             
             {/* Left Column: Text Content */}
             <motion.div
               style={{ opacity: contentOpacity, y: contentY }}
-              className="lg:col-span-7 xl:col-span-8 flex flex-col items-start gap-5 md:gap-8"
+              className="lg:col-span-7 xl:col-span-8 flex flex-col items-start gap-3 md:gap-8"
             >
               {/* Headline block */}
               <motion.h1
-                className="font-display uppercase leading-[0.85] tracking-tight mb-2 md:mb-4"
+                className="font-display uppercase leading-[0.85] tracking-tight mb-0 md:mb-4"
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               >
                 <div className="flex flex-wrap items-baseline gap-x-2 md:gap-x-4 mb-1">
-                  <span className="text-[clamp(2.5rem,9vw,8rem)] text-white tracking-tight">
+                  <span className="text-[clamp(3.2rem,10vw,8rem)] text-white tracking-tight">
                     We Build
                   </span>
-                  <span className="text-[clamp(2.5rem,9vw,8rem)] h-[1.1em] overflow-hidden relative">
+                  <span className="text-[clamp(3.2rem,10vw,8rem)] h-[1.1em] overflow-hidden relative">
                     <AnimatePresence mode="wait">
                       <motion.span
                         key={wordIndex}
@@ -148,7 +148,7 @@ export function HomeHero() {
                     </AnimatePresence>
                   </span>
                 </div>
-                <span className="block text-[clamp(1.1rem,4vw,4.2rem)] text-white/50 tracking-wide mt-1 md:mt-2">
+                <span className="block text-[clamp(1.3rem,4.5vw,4.2rem)] text-white/50 tracking-wide mt-1 md:mt-2">
                   That Move Markets.
                 </span>
               </motion.h1>
@@ -181,7 +181,7 @@ export function HomeHero() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                <p className="text-white/50 text-xs sm:text-sm md:text-base leading-relaxed">
+                <p className="text-white/50 text-sm sm:text-sm md:text-base leading-relaxed">
                   From crafting iconic brands to delivering high-impact real estate solutions — all in one place. A complete 360° approach blending strategy, creativity, and execution.
                 </p>
 
@@ -194,7 +194,7 @@ export function HomeHero() {
                 >
                   <Link
                     href="/contact"
-                    className="group relative inline-flex items-center justify-center gap-2 h-11 md:h-12 px-6 md:px-8 bg-burgundy text-white text-[10px] md:text-[11px] font-accent font-semibold uppercase tracking-[0.12em] md:tracking-[0.15em] overflow-hidden hover:shadow-[0_0_30px_rgba(109,0,26,0.3)] transition-all duration-500"
+                    className="group relative inline-flex items-center justify-center gap-2 h-12 md:h-12 px-6 md:px-8 bg-burgundy text-white text-[11px] md:text-[11px] font-accent font-semibold uppercase tracking-[0.12em] md:tracking-[0.15em] overflow-hidden hover:shadow-[0_0_30px_rgba(109,0,26,0.3)] transition-all duration-500"
                   >
                     <span className="relative z-10">Start a Project</span>
                     <svg className="relative z-10 w-3 h-3 md:w-3.5 md:h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -204,7 +204,7 @@ export function HomeHero() {
                   </Link>
                   <Link
                     href="/work"
-                    className="group relative inline-flex items-center justify-center gap-2 h-11 md:h-12 px-6 md:px-8 border border-white/10 text-white text-[10px] md:text-[11px] font-accent font-semibold uppercase tracking-[0.12em] md:tracking-[0.15em] overflow-hidden hover:border-white/25 hover:bg-white/[0.03] transition-all duration-500"
+                    className="group relative inline-flex items-center justify-center gap-2 h-12 md:h-12 px-6 md:px-8 border border-white/10 text-white text-[11px] md:text-[11px] font-accent font-semibold uppercase tracking-[0.12em] md:tracking-[0.15em] overflow-hidden hover:border-white/25 hover:bg-white/[0.03] transition-all duration-500"
                   >
                     <span className="relative z-10">View Our Work</span>
                     <svg className="relative z-10 w-3 h-3 md:w-3.5 md:h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>

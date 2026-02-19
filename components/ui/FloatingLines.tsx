@@ -454,9 +454,27 @@ export default function FloatingLines({
       renderer.render(scene, camera);
       raf = requestAnimationFrame(renderLoop);
     };
-    renderLoop();
+
+    // Only run the render loop while the canvas is visible in the viewport.
+    // The WebGL loop is the heaviest RAF consumer — running it off-screen
+    // wastes the entire frame budget that Lenis needs for smooth scrolling.
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          if (raf === 0) raf = requestAnimationFrame(renderLoop);
+        } else {
+          cancelAnimationFrame(raf);
+          raf = 0;
+        }
+      },
+      { threshold: 0 }
+    );
+    if (containerRef.current) io.observe(containerRef.current);
+    // Start immediately if already visible
+    raf = requestAnimationFrame(renderLoop);
 
     return () => {
+      io.disconnect();
       cancelAnimationFrame(raf);
       if (ro && containerRef.current) {
         ro.disconnect();

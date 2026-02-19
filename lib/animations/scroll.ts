@@ -29,21 +29,23 @@ export function initSmoothScroll(options: {
   }
 
   const {
-    duration = 1.2,
-    easing = (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    duration,
+    easing,
     orientation = 'vertical',
     smoothWheel = true,
-    wheelMultiplier = 1,
+    wheelMultiplier = 1.2,
   } = options;
 
   lenisInstance = new Lenis({
-    duration,
-    easing,
+    // Use lerp for responsive momentum; omit duration to avoid sluggish fixed-time scroll
+    lerp: 0.1,
+    ...(duration !== undefined && { duration }),
+    ...(easing !== undefined && { easing }),
     orientation,
     gestureOrientation: 'vertical',
     smoothWheel,
     wheelMultiplier,
-    touchMultiplier: 2,
+    touchMultiplier: 1.5,
     infinite: false,
   });
 
@@ -93,7 +95,7 @@ export function scrollTo(
 
   const {
     offset = 0,
-    duration = 1.2,
+    duration = 0.8,
     easing = (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     immediate = false,
   } = options;

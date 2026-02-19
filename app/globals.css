@@ -133,9 +133,9 @@
     margin: 0;
   }
 
-  /* Smooth scroll behavior */
+  /* Lenis handles smooth scrolling — disable native smooth scroll to avoid conflicts */
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -203,8 +203,8 @@
   }
 
   /* Parallax Utilities */
+  /* background-attachment: fixed removed — forces synchronous repaint on every scroll pixel */
   .parallax-bg {
-    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

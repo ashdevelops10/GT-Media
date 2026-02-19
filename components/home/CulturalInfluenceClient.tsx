@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { motion } from "framer-motion";
 
 type Props = {
   photos: string[];
@@ -50,20 +49,13 @@ export function CulturalInfluenceClient({ photos }: Props) {
       className="relative w-full overflow-hidden py-10"
     >
       <div className="flex select-none">
-        <motion.div
-          animate={{
-            x: ["0%", "-50%"],
-          }}
-          transition={{
-            x: {
-              repeat: Infinity,
-              repeatType: "loop",
-              duration: photosWithMeta.length * 6, // Adjusted for percentage and smoothness
-              ease: "linear",
-            },
-          }}
+        <div
           className="flex gap-6 whitespace-nowrap hover:[animation-play-state:paused]"
-          style={{ width: "fit-content" }}
+          style={{
+            width: "fit-content",
+            animation: `marquee ${photosWithMeta.length * 6}s linear infinite`,
+            willChange: "transform",
+          }}
         >
           {marqueePhotos.map((photo, index) => (
             <div
@@ -86,7 +78,7 @@ export function CulturalInfluenceClient({ photos }: Props) {
               </div>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
 
       {/* Gradient Overlays */}

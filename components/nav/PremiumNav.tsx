@@ -38,9 +38,9 @@ export function PremiumNav() {
     <>
       <header
         className={
-          `fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ease-out ` +
+          `fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ease-out border-b border-white/[0.06] ` +
           (scrolled
-            ? "bg-black/80 backdrop-blur-xl border-b border-white/[0.06] shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
+            ? "bg-black/80 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
             : "bg-transparent")
         }
       >

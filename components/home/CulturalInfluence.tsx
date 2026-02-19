@@ -28,14 +28,14 @@ export async function CulturalInfluence() {
       <Container size="wide">
         <div className="border-t border-white/10/10">
           {/* Section Header */}
-          <div className="max-w-5xl mx-auto text-center mb-12 md:mb-16 lg:mb-20">
+          <div className="max-w-5xl mx-auto text-center pt-12 md:pt-16 mb-12 md:mb-16 lg:mb-20">
             {/* Accent line */}
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <span className="h-px w-12 md:w-16 bg-gradient-to-r from-transparent to-burgundy/60" />
+            <div className="flex items-center justify-center gap-12 mb-8">
+              <span className="h-px w-16 md:w-24 bg-gradient-to-r from-transparent to-burgundy/60" />
               <span className="text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-burgundy">
                 Our Network
               </span>
-              <span className="h-px w-12 md:w-16 bg-gradient-to-l from-transparent to-burgundy/60" />
+              <span className="h-px w-16 md:w-24 bg-gradient-to-l from-transparent to-burgundy/60" />
             </div>
 
             <h2 className="font-display text-4xl md:text-5xl lg:text-7xl uppercase mb-6 tracking-tight">

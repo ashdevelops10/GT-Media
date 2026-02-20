@@ -9,7 +9,7 @@ export function ContactForm() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
+    phone: "",
     company: "",
     budget: "",
     goals: "",
@@ -17,11 +17,12 @@ export function ContactForm() {
   });
 
   const budgetOptions = [
-    "Under $25K",
-    "$25K - $50K",
-    "$50K - $100K",
-    "$100K - $250K",
-    "$250K+",
+    "Under ₹2L",
+    "₹2L – ₹5L",
+    "₹5L – ₹10L",
+    "₹10L – ₹25L",
+    "₹25L – ₹50L",
+    "₹50L+",
     "Retainer Discussion",
   ];
 
@@ -65,19 +66,19 @@ export function ContactForm() {
 
               <div className="relative">
                 <input
-                  type="email"
-                  id="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  type="tel"
+                  id="phone"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   required
                   className="peer w-full bg-transparent border-b border-white/20/30 py-3 sm:py-4 text-base sm:text-lg focus:border-burgundy focus:outline-none transition-colors duration-300"
                   placeholder=" "
                 />
                 <label
-                  htmlFor="email"
+                  htmlFor="phone"
                   className="absolute left-0 top-3 sm:top-4 text-sm sm:text-base text-white/50 transition-all duration-300 peer-focus:top-0 peer-focus:text-xs peer-focus:text-burgundy peer-[:not(:placeholder-shown)]:top-0 peer-[:not(:placeholder-shown)]:text-xs"
                 >
-                  Email Address *
+                  Phone / WhatsApp *
                 </label>
               </div>
 
@@ -209,10 +210,10 @@ export function ContactForm() {
                 <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </button>
-            <p className="mt-4 sm:mt-6 text-xs sm:text-sm text-white/50/60">
-              Prefer email?{" "}
-              <a href="mailto:hello@gt-media.com" className="text-burgundy hover:underline">
-                hello@gt-media.com
+            <p className="mt-4 sm:mt-6 text-xs sm:text-sm text-white/50">
+              Prefer WhatsApp?{" "}
+              <a href="https://wa.me/919996884533" target="_blank" rel="noopener noreferrer" className="text-burgundy hover:underline">
+                +91 99968 84533
               </a>
             </p>
           </div>

@@ -23,19 +23,19 @@ export function ContactHero() {
           
           {/* Contact Info */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left max-w-3xl mx-auto">
-            <div className="border border-white/20/20 p-6">
-              <p className="text-xs uppercase tracking-widest text-burgundy mb-2">Email</p>
-              <a href="mailto:hello@gt-media.com" className="text-white hover:text-burgundy transition-colors">
-                hello@gt-media.com
+            <div className="border border-white/20 p-6">
+              <p className="text-xs uppercase tracking-widest text-burgundy mb-2">Call Us</p>
+              <a href="tel:+919996884533" className="text-white hover:text-burgundy transition-colors">
+                +91 99968 84533
               </a>
             </div>
-            <div className="border border-white/20/20 p-6">
+            <div className="border border-white/20 p-6">
               <p className="text-xs uppercase tracking-widest text-burgundy mb-2">WhatsApp</p>
-              <a href="https://wa.me/919999999999" target="_blank" rel="noopener noreferrer" className="text-white hover:text-burgundy transition-colors">
-                +91 99999 99999
+              <a href="https://wa.me/919996884533" target="_blank" rel="noopener noreferrer" className="text-white hover:text-burgundy transition-colors">
+                +91 99968 84533
               </a>
             </div>
-            <div className="border border-white/20/20 p-6">
+            <div className="border border-white/20 p-6">
               <p className="text-xs uppercase tracking-widest text-burgundy mb-2">Location</p>
               <p className="text-white">New Delhi, India</p>
             </div>

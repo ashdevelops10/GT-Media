@@ -13,20 +13,24 @@ const FloatingLines = dynamic(() => import("@/components/ui/FloatingLines"), {
 const WORDS_ROTATE = ["Brands", "Campaigns", "Stories", "Content"];
 
 /* ── Brand logos for the marquee ── */
-const BRAND_LOGOS = [
-  { name: "Mach Global", src: "/logos/mach global.jpg" },
-  { name: "Event ResQ", src: "/logos/event resq.jpg" },
-  { name: "Saahayak", src: "/logos/sahayak.webp" },
-  { name: "Wildhood", src: "/logos/wildhood.jpg" },
-  { name: "Studio Neoteric", src: "/logos/studeo-nuteric-logo.webp" },
-  { name: "Rabab Music", src: "/logos/rabab music.webp" },
-  { name: "Uttam", src: "/logos/uttam.png" },
-  { name: "Dharmayu", src: "/logos/dharmayu.png" },
-  { name: "Urban Theka", src: "/logos/urban_theka.png" },
-  { name: "Bastian", src: "/logos/bastian.png" },
-  { name: "Wildin", src: "/logos/wildin.png" },
-  { name: "Zenergy", src: "/logos/zenergy.svg" },
-  { name: "Little Bay", src: "/logos/little_bay.png" },
+// avg brightness per logo (non-transparent pixels, 0-255 measured via sharp):
+// urban-theka 13 | little_bay 11 | studioneoteric 17  → very dark → invert
+// evenresq    81 | mach-global 89 | dharmayu 100       → dark     → invert
+// wildhood   135 | uttam 142 | sahayak ~mid            → mid/bright → grayscale
+// rabab      193 | kkg 237 | zenergy ~light            → bright   → grayscale
+const BRAND_LOGOS: { name: string; src: string; invertOnRest?: boolean }[] = [
+  { name: "Mach Global",     src: "/logos/mach-global.png",   invertOnRest: true  },
+  { name: "Event ResQ",      src: "/logos/evenresq.webp",      invertOnRest: true  },
+  { name: "Sahayak",         src: "/logos/sahayak.webp" },
+  { name: "Wildhood",        src: "/logos/wildhood.jpg" },
+  { name: "Studio Neoteric", src: "/logos/studioneoteric.png", invertOnRest: true  },
+  { name: "Rabab Music",     src: "/logos/rabab music.webp" },
+  { name: "Uttam",           src: "/logos/uttam.png" },
+  { name: "Dharmayu",        src: "/logos/dharmayu.png",       invertOnRest: true  },
+  { name: "Urban Theka",     src: "/logos/urban-theka.png",    invertOnRest: true  },
+  { name: "KKG",             src: "/logos/kkg.png" },
+  { name: "Little Bay",      src: "/logos/little_bay.png",     invertOnRest: true  },
+  { name: "Zenergy",         src: "/logos/zenergy.svg" },
 ];
 
 /* ── Word rotation animation variants ── */
@@ -274,7 +278,7 @@ export function HomeHero() {
         {/* ── Brand logo marquee ── */}
         <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-auto">
           <div className="overflow-hidden py-3 md:py-10 bg-gradient-to-t from-black via-black/80 to-transparent">
-            <div className="flex w-fit animate-[marquee_60s_linear_infinite] group hover:[animation-play-state:paused]">
+            <div className="flex w-fit animate-[marquee_30s_linear_infinite] group hover:[animation-play-state:paused]">
                 {/* 
                 We create multiple iterations for the marquee loop.
                 The animation slides left by -50%.
@@ -282,24 +286,23 @@ export function HomeHero() {
               {[...BRAND_LOGOS, ...BRAND_LOGOS, ...BRAND_LOGOS, ...BRAND_LOGOS].map((brand, i) => (
                 <div
                   key={`${brand.name}-${i}`}
-                  className={`
-                    flex items-center justify-center 
-                    mx-8 md:mx-12 
-                    relative transition-all duration-300
-                    ${["Bastian", "Urban Theka", "Little Bay", "Wildin"].includes(brand.name) ? "h-14 w-28 md:h-20 md:w-40 scale-110" : "h-10 w-24 md:h-14 md:w-32"}
-                    opacity-60 hover:opacity-100 hover:scale-110
-                  `}
+                  className="group flex-shrink-0 mx-6 md:mx-10 flex items-center justify-center transition-transform duration-300 hover:scale-110"
                 >
                   <Image
                     src={brand.src}
                     alt={brand.name}
-                    fill
-                    className={`
-                      object-contain transition-all duration-300 pointer-events-none 
-                      grayscale contrast-50 brightness-150 hover:filter-none hover:opacity-100
-                    `}
-                    style={{}}
-                    sizes="(max-width: 768px) 120px, 160px"
+                    width={200}
+                    height={80}
+                    className={`h-8 md:h-10 w-auto object-contain transition-all duration-500 pointer-events-none ${
+                      brand.invertOnRest
+                        ? /* transparent-bg logo with dark/coloured content:
+                             brightness-0 collapses all pixels to black → invert makes them
+                             pure white silhouette. On hover: restore brightness + remove invert
+                             to show real logo colours. */
+                          'brightness-0 invert opacity-70 group-hover:brightness-100 group-hover:invert-0 group-hover:opacity-100'
+                        : /* logo already has light/coloured content visible on dark bg */
+                          'grayscale opacity-45 group-hover:grayscale-0 group-hover:opacity-100'
+                    }`}
                   />
                 </div>
               ))}

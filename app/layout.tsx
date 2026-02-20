@@ -104,9 +104,8 @@ export default function RootLayout({
                 'GT Media is a performance-first creative partner uniting brand strategy, high-impact content, and precision media across music, celebrity, brand, and political ecosystems.',
               contactPoint: {
                 '@type': 'ContactPoint',
-                telephone: '+91-9999999999',
+                telephone: '+91-9996884533',
                 contactType: 'customer service',
-                email: 'hello@gt-media.com',
                 areaServed: 'IN',
                 availableLanguage: ['English', 'Hindi']
               }

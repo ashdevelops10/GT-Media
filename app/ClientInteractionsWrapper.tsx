@@ -1,21 +1,21 @@
 "use client";
 
-import dynamic from "next/dynamic";
+import dynamic from"next/dynamic";
 
 const LuxuryCursor = dynamic(() => import("@/src/components/LuxuryCursor"), {
-  ssr: false
+ ssr: false
 });
 
 const InitInteractionsComponent = dynamic(
-  () => import("@/src/animations/InitInteractionsClient"),
-  { ssr: false }
+ () => import("@/src/animations/InitInteractionsClient"),
+ { ssr: false }
 );
 
 export function ClientInteractionsWrapper() {
-  return (
-    <>
-      <LuxuryCursor />
-      <InitInteractionsComponent />
-    </>
-  );
+ return (
+ <>
+ <LuxuryCursor />
+ <InitInteractionsComponent />
+ </>
+ );
 }

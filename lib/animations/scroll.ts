@@ -8,7 +8,7 @@
 // Lenis is optional; we intentionally use require and loose typing
 // so that missing type declarations do not break the build.
 // eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-unsafe-assignment
-const Lenis: any = require('@studio-freight/lenis');
+const Lenis: any = require('lenis');
 
 let lenisInstance: any | null = null;
 

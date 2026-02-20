@@ -12,14 +12,15 @@ export async function generateStaticParams() {
   return slugs.map((s) => ({ slug: s.slug }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   const { isEnabled } = await draftMode();
-  const doc = await getArtistBySlug(params.slug, { preview: isEnabled });
+  const doc = await getArtistBySlug(slug, { preview: isEnabled });
   if (!doc) return {};
   const title = doc.meta?.metaTitle || doc.name;
   const description = doc.meta?.metaDescription || doc.roles?.join(', ') || '';
   const images = doc.meta?.ogImage ? [urlFor(doc.meta.ogImage).width(1200).height(630).url()] : [];
-  const url = `https://www.gt-media.com/artists/${params.slug}`;
+  const url = `https://www.gt-media.com/artists/${slug}`;
   return {
     title,
     description,
@@ -29,9 +30,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default async function ArtistPage({ params }: { params: { slug: string } }) {
+export default async function ArtistPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   const { isEnabled } = await draftMode();
-  const doc = await getArtistBySlug(params.slug, { preview: isEnabled });
+  const doc = await getArtistBySlug(slug, { preview: isEnabled });
   if (!doc) notFound();
 
   return (

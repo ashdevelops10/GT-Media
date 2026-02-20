@@ -13,14 +13,15 @@ export async function generateStaticParams() {
   return slugs.map((s) => ({ slug: s.slug }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   const { isEnabled } = await draftMode();
-  const doc = await getPageBySlug(params.slug, { preview: isEnabled });
+  const doc = await getPageBySlug(slug, { preview: isEnabled });
   if (!doc) return {};
   const title = doc.seo?.metaTitle || doc.title;
   const description = doc.seo?.metaDescription || '';
   const images = doc.seo?.ogImage ? [urlFor(doc.seo.ogImage).width(1200).height(630).url()] : [];
-  const url = `https://www.gt-media.com/pages/${params.slug}`;
+  const url = `https://www.gt-media.com/pages/${slug}`;
   return {
     title,
     description,
@@ -89,9 +90,10 @@ function RenderSection({ section }: { section: PageSection }) {
   return null;
 }
 
-export default async function GenericPage({ params }: { params: { slug: string } }) {
+export default async function GenericPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   const { isEnabled } = await draftMode();
-  const doc = await getPageBySlug(params.slug, { preview: isEnabled });
+  const doc = await getPageBySlug(slug, { preview: isEnabled });
   if (!doc) notFound();
   return (
     <main className="min-h-screen">

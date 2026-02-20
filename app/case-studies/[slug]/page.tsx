@@ -95,14 +95,15 @@ function JsonLd({ data }: { data: any }) {
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />;
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   const { isEnabled } = await draftMode();
-  const doc = await getCaseStudyBySlug(params.slug, { preview: isEnabled });
+  const doc = await getCaseStudyBySlug(slug, { preview: isEnabled });
   if (!doc) return {};
   const title = doc.seo?.metaTitle || doc.title;
   const description = doc.seo?.metaDescription || doc.summary || '';
   const images = doc.seo?.ogImage ? [urlFor(doc.seo.ogImage).width(1200).height(630).url()] : [];
-  const url = `https://www.gtmedia.com/case-studies/${params.slug}`;
+  const url = `https://www.gtmedia.com/case-studies/${slug}`;
   return {
     title,
     description,
@@ -112,9 +113,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default async function CaseStudyPage({ params }: { params: { slug: string } }) {
+export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   const { isEnabled } = await draftMode();
-  const doc = await getCaseStudyBySlug(params.slug, { preview: isEnabled });
+  const doc = await getCaseStudyBySlug(slug, { preview: isEnabled });
   if (!doc) notFound();
 
   const jsonLd = {

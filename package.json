@@ -16,7 +16,7 @@
     "sanity:deploy": "sanity deploy",
     "typecheck": "tsc --noEmit",
     "ci:lh": "npx @lhci/cli@0.13.0 autorun --config=./scripts/ci/lighthouse-ci-config.js",
-    "ci:full-check": "npm run lint && npm run typecheck && npm test --if-present && npm run build && npm run ci:lh"
+    "ci:full-check": "pnpm run lint && pnpm run typecheck && pnpm run build && pnpm run ci:lh"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",
@@ -39,8 +39,9 @@
     "web-vitals": "^5.1.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@next/eslint-plugin-next": "16.1.1",
     "@sanity/types": "^4.19.0",
-    "@types/gsap": "^3.0.0",
     "@types/node": "^22.0.0",
     "@types/node-fetch": "^2.6.4",
     "@types/react": "^19.2.7",
@@ -51,7 +52,10 @@
     "eslint-config-next": "16.1.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.30.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
     "husky": "^9.1.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
     "lint-staged": "^15.2.0",
     "postcss": "^8.4.47",
     "prettier": "^3.4.0",

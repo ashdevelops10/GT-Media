@@ -11,13 +11,14 @@ export async function generateStaticParams() {
   return slugs.map((s) => ({ slug: s.slug }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const doc = await getServiceBySlug(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const doc = await getServiceBySlug(slug);
   if (!doc) return {};
   const title = doc.title;
   const description = doc.description?.slice(0, 160) || '';
   const images = doc.thumbnail ? [urlFor(doc.thumbnail).width(1200).height(630).url()] : [];
-  const url = `https://www.gt-media.com/services/${params.slug}`;
+  const url = `https://www.gt-media.com/services/${slug}`;
   return {
     title,
     description,
@@ -27,8 +28,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default async function ServicePage({ params }: { params: { slug: string } }) {
-  const doc = await getServiceBySlug(params.slug);
+export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const doc = await getServiceBySlug(slug);
   if (!doc) notFound();
 
   return (

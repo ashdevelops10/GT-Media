@@ -460,7 +460,7 @@ export default function FloatingLines({
     // wastes the entire frame budget that Lenis needs for smooth scrolling.
     const io = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry?.isIntersecting) {
           if (raf === 0) raf = requestAnimationFrame(renderLoop);
         } else {
           cancelAnimationFrame(raf);

@@ -16,7 +16,6 @@ interface InstagramEmbedProps {
 export function InstagramEmbed({
   poster,
   video,
-  instagramUrl,
   title,
   type,
   className = "",

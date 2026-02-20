@@ -16,7 +16,8 @@ export default [
       ".git/**",
       "coverage/**",
       "public/**",
-      ".env*"
+      ".env*",
+      "next-env.d.ts"
     ]
   },
   // Main config for TypeScript and JavaScript files

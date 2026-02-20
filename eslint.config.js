@@ -171,6 +171,10 @@ export default [
       "@typescript-eslint/no-empty-object-type": "warn",
       "@typescript-eslint/no-require-imports": "off",
       "no-undef": "off",  // Let TypeScript handle this
+      "@typescript-eslint/no-unused-vars": ["warn", {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }],
       
       "import/order": [
         "warn",

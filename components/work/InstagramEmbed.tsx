@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 interface InstagramEmbedProps {
   poster: string;
@@ -16,7 +16,7 @@ interface InstagramEmbedProps {
 export function InstagramEmbed({
   poster,
   video,
-  instagramUrl,
+  instagramUrl: _instagramUrl,
   title,
   type,
   className = "",

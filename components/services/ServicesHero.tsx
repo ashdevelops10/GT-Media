@@ -25,7 +25,7 @@ export function ServicesHero() {
           </p>
 
           {/* Proof Metrics */}
-          <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-10 sm:mt-12 md:mt-16 pt-10 sm:pt-12 md:pt-16 border-t border-white/20/20">
+          <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-10 md:mt-12 pt-8 sm:pt-10 md:pt-12 border-t border-white/20/20">
             <div className="group">
               <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 sm:mb-3 rounded-full border border-burgundy/30 flex items-center justify-center group-hover:bg-burgundy/10 transition-colors duration-300">
                 <svg className="w-5 h-5 sm:w-6 sm:h-6 text-burgundy" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

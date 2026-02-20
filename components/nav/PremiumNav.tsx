@@ -38,14 +38,14 @@ export function PremiumNav() {
     <>
       <header
         className={
-          `fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ease-out border-b border-white/[0.06] ` +
+          `fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ease-out ` +
           (scrolled
             ? "bg-black/80 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
             : "bg-transparent")
         }
       >
         <div className={`max-w-[1920px] mx-auto px-6 md:px-12 lg:px-16 xl:px-24 transition-all duration-500 ${scrolled ? 'py-3' : 'py-5'}`}>
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between lg:border-b lg:border-white/60 lg:pb-3">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2.5 group" aria-label="GT Media - Home">
               <div className={`relative overflow-hidden transition-all duration-500 ${scrolled ? 'w-8 h-8' : 'w-10 h-10'}`}>

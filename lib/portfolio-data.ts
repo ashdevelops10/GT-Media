@@ -153,7 +153,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     style: "UGC / Meme / Viral",
     instagramUrl: "https://www.instagram.com/reel/DFFxf_iP0A_/",
     shortcode: "DFFxf_iP0A_",
-    poster: "/portfolio/wh-horse-meme.jpg",
+    poster: "/portfolio/wildhood.png",
     engagement: { likes: 1500, comments: 9 },
     date: "2025-01-21",
   },

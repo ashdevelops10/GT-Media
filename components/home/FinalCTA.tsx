@@ -17,7 +17,7 @@ export function FinalCTA() {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.8 }}
-          className="relative text-center py-12 sm:py-16 md:py-20 px-6 sm:px-10 md:px-16 rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden"
+          className="relative text-center py-10 sm:py-12 md:py-14 px-6 sm:px-10 md:px-16 rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden"
         >
           {/* Background decorative elements */}
           <div className="absolute inset-0 pointer-events-none">

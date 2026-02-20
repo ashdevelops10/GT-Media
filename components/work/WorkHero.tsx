@@ -37,7 +37,7 @@ export function WorkHero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-10"
         >
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-display mb-6">
             Selected Work

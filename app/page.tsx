@@ -6,10 +6,7 @@ import { Suspense } from "react";
 import { ClientInteractionsWrapper } from "./ClientInteractionsWrapper";
 
 // Lazy load non-critical sections
-const FeaturedWork = dynamic(() => import("@/components/home/FeaturedWork").then(mod => ({ default: mod.FeaturedWork })), {
-  loading: () => <div className="h-96 bg-black animate-pulse" />,
-  ssr: true
-});
+
 
 const BrandPartners = dynamic(() => import("@/components/home/BrandPartners").then(mod => ({ default: mod.BrandPartners })), {
   loading: () => <div className="h-80 bg-black animate-pulse" />,
@@ -68,9 +65,7 @@ export default async function HomePage() {
       <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
         <SignatureCapabilities />
       </Suspense>
-      <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
-        <FeaturedWork />
-      </Suspense>
+
       <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
         <BrandShowcase />
       </Suspense>

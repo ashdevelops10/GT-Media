@@ -17,7 +17,7 @@ export function TeamHero() {
     return (
         <section
             ref={ref}
-            className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-black"
+            className="relative h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden bg-black"
         >
             {/* Background gradients */}
             <div className="absolute inset-0 bg-black z-0">
@@ -42,7 +42,7 @@ export function TeamHero() {
                             transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                             className="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.1] mb-6"
                         >
-                            Meet the GT Media Dream Team – <span className="text-white/50 italic">Crafting Viral Stories.</span>
+                            Meet the Team
                         </motion.h1>
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}

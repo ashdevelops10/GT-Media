@@ -28,9 +28,9 @@ export default async function CulturePage() {
         <div className="relative min-h-screen bg-black text-white">
             <PremiumNav />
 
-            <Section background="dark" spacing="spacious" className="pt-32">
+            <Section background="dark" spacing="spacious" className="pt-24">
                 <Container>
-                    <div className="text-center mb-20">
+                    <div className="text-center mb-12">
                         <Link
                             href="/"
                             className="inline-flex items-center gap-2 text-burgundy text-xs uppercase tracking-[0.3em] font-bold mb-8 hover:tracking-[0.4em] transition-all"

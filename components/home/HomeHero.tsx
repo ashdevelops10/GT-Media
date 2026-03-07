@@ -18,19 +18,19 @@ const WORDS_ROTATE = ["Brands","Campaigns","Stories","Content"];
 // evenresq 81 | mach-global 89 | dharmayu 100 → dark → invert
 // wildhood 135 | uttam 142 | sahayak ~mid → mid/bright → grayscale
 // rabab 193 | kkg 237 | zenergy ~light → bright → grayscale
-const BRAND_LOGOS: { name: string; src: string; invertOnRest?: boolean }[] = [
- { name:"Mach Global", src:"/logos/mach-global.png", invertOnRest: true },
+const BRAND_LOGOS: { name: string; src: string; invertOnRest?: boolean; grayscaleOnly?: boolean; scale?: number }[] = [
+ { name:"Mach Global", src:"/logos/mach-global.png", grayscaleOnly: true, scale: 3.2 },
  { name:"Event ResQ", src:"/logos/evenresq.webp", invertOnRest: true },
- { name:"Sahayak", src:"/logos/sahayak.webp"},
- { name:"Wildhood", src:"/logos/wildhood.jpg"},
- { name:"Studio Neoteric", src:"/logos/studioneoteric.png", invertOnRest: true },
- { name:"Rabab Music", src:"/logos/rabab music.webp"},
- { name:"Uttam", src:"/logos/uttam.png"},
- { name:"Dharmayu", src:"/logos/dharmayu.png", invertOnRest: true },
- { name:"Urban Theka", src:"/logos/urban-theka.png", invertOnRest: true },
- { name:"KKG", src:"/logos/kkg.png"},
- { name:"Little Bay", src:"/logos/little_bay.png", invertOnRest: true },
- { name:"Zenergy", src:"/logos/zenergy.svg"},
+ { name:"Sahayak", src:"/logos/sahayak.webp" },
+ { name:"Wildhood", src:"/logos/wildhood.jpg", grayscaleOnly: true },
+ { name:"Studio Neoteric", src:"/logos/studioneoteric.png", invertOnRest: true, scale: 1.4 },
+ { name:"Rabab Music", src:"/logos/rabab music.webp", grayscaleOnly: true, scale: 1.12 },
+ { name:"Uttam", src:"/logos/uttam.png", grayscaleOnly: true, scale: 1.2 },
+ { name:"Dharmayu", src:"/logos/dharmayu.png", grayscaleOnly: true, scale: 1.5 },
+ { name:"Urban Theka", src:"/logos/urban-theka.png", invertOnRest: true, scale: 2.2 },
+ { name:"KKG", src:"/logos/kkg.png", invertOnRest: true, scale: 2.4 },
+ { name:"Little Bay", src:"/logos/little_bay.png", invertOnRest: true, scale: 2.9 },
+ { name:"Zenergy", src:"/logos/zenergy.svg" },
 ];
 
 /* ── Word rotation animation variants ── */
@@ -262,13 +262,18 @@ export function HomeHero() {
  {[...BRAND_LOGOS, ...BRAND_LOGOS, ...BRAND_LOGOS, ...BRAND_LOGOS].map((brand, i) => (
  <div
  key={`${brand.name}-${i}`}
- className="group/logo flex-shrink-0 mx-4 md:mx-8 relative w-[100px] h-[36px] md:w-[140px] md:h-[48px] flex items-center justify-center px-2 py-1 transition-all duration-300 hover:bg-white hover:scale-105" >
+ className="group/logo flex-shrink-0 mx-4 md:mx-8 relative w-[100px] h-[36px] md:w-[140px] md:h-[48px] flex items-center justify-center px-2 py-1 transition-all duration-300 hover:bg-white hover:scale-105 overflow-hidden" >
  <Image
  src={brand.src}
  alt={brand.name}
  fill
  sizes="140px"
- className="object-contain transition-all duration-500 pointer-events-none brightness-0 invert opacity-60 group-hover/logo:brightness-100 group-hover/logo:invert-0 group-hover/logo:opacity-100 !p-1"
+ className={`object-contain transition-all duration-500 pointer-events-none ${
+  brand.grayscaleOnly
+   ? 'grayscale opacity-70 group-hover/logo:grayscale-0 group-hover/logo:opacity-100'
+   : 'brightness-0 invert opacity-60 group-hover/logo:brightness-100 group-hover/logo:invert-0 group-hover/logo:opacity-100'
+ }`}
+ style={brand.scale ? { transform: `scale(${brand.scale})` } : undefined}
  />
  </div>
  ))}

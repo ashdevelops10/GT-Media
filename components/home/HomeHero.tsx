@@ -258,7 +258,7 @@ export function HomeHero() {
  {/* ── Brand logo marquee ── */}
  <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-auto">
  <div className="overflow-hidden py-3 md:py-10 bg-gradient-to-t from-black via-black/80 to-transparent">
- <div className="flex w-fit animate-[marquee_30s_linear_infinite] hover:[animation-play-state:paused]">
+ <div className="flex w-fit animate-[marquee_30s_linear_infinite] md:animate-[marquee_40s_linear_infinite] hover:[animation-play-state:paused]">
  {[...BRAND_LOGOS, ...BRAND_LOGOS, ...BRAND_LOGOS, ...BRAND_LOGOS].map((brand, i) => (
  <div
  key={`${brand.name}-${i}`}

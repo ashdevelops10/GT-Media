@@ -5,9 +5,9 @@ import Image from"next/image";
 import { motion } from"framer-motion";
 
 const ALSO_WORKED_WITH = [
- { name:"Bastian", src:"/logos/bastian.png", needsLightBg: true, scale: 3.0 },
- { name:"Wildin", src:"/logos/wildin.png", needsLightBg: true, scale: 2.6 },
- { name:"Mobe", src:"/logos/mobe.png", needsLightBg: false, scale: 1.15 },
+ { name:"Bastian", src:"/logos/bastian.png", needsLightBg: true, scaleMobile: 2.5, scaleDesktop: 3.0 },
+ { name:"Wildin", src:"/logos/wildin.png", needsLightBg: true, scaleMobile: 2.2, scaleDesktop: 2.6 },
+ { name:"Mobe", src:"/logos/mobe.png", needsLightBg: false, scaleMobile: 1.55, scaleDesktop: 2.0 },
 ];
 
 export function BrandPartners() {
@@ -30,18 +30,18 @@ export function BrandPartners() {
  viewport={{ once: true }}
  transition={{ delay: index * 0.1, duration: 0.5 }}
  className="relative group" >
- <div className="w-32 md:w-36 h-14 flex items-center justify-center transition-all duration-300 hover:-translate-y-1">
+ <div className="w-28 sm:w-32 md:w-36 h-12 sm:h-14 flex items-center justify-center transition-all duration-300 hover:-translate-y-1">
  <div className="relative w-full h-full overflow-hidden opacity-40 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-300 ease-out flex items-center justify-center">
  <Image
  src={brand.src}
  alt={brand.name}
  fill
- className={`object-contain transition-all duration-300 ${
- brand.needsLightBg
- ? 'brightness-0 invert group-hover:filter-none'
- : 'brightness-0 invert group-hover:filter-none'
- }`}
- style={brand.scale ? { transform: `scale(${brand.scale})` } : undefined}
+ className="object-contain transition-all duration-300 [transform:scale(var(--logo-scale-mobile))] sm:[transform:scale(var(--logo-scale-sm))] md:[transform:scale(var(--logo-scale-desktop))] brightness-0 invert group-hover:filter-none"
+ style={{
+ ['--logo-scale-mobile' as string]: brand.scaleMobile,
+ ['--logo-scale-sm' as string]: ((brand.scaleMobile + brand.scaleDesktop) / 2).toFixed(2),
+ ['--logo-scale-desktop' as string]: brand.scaleDesktop,
+ }}
  />
  </div>
  </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from"react";
+import { useEffect, useRef, useState } from"react";
 import { motion } from"framer-motion";
 import Image from"next/image";
 import Link from"next/link";
@@ -16,6 +16,30 @@ function getFeaturedItem(brand: Brand) {
 
 export function BrandShowcase() {
  const scrollRef = useRef<HTMLDivElement>(null);
+ const [scrollProgress, setScrollProgress] = useState(0);
+
+ useEffect(() => {
+ const el = scrollRef.current;
+ if (!el) return;
+
+ const updateProgress = () => {
+ const maxScroll = el.scrollWidth - el.clientWidth;
+ if (maxScroll <= 0) {
+ setScrollProgress(0);
+ return;
+ }
+ setScrollProgress(el.scrollLeft / maxScroll);
+ };
+
+ updateProgress();
+ el.addEventListener("scroll", updateProgress, { passive: true });
+ window.addEventListener("resize", updateProgress);
+
+ return () => {
+ el.removeEventListener("scroll", updateProgress);
+ window.removeEventListener("resize", updateProgress);
+ };
+ }, []);
 
  return (
  <Section spacing="compact"className="bg-black relative overflow-hidden">
@@ -99,6 +123,7 @@ export function BrandShowcase() {
  instagramUrl={featured.instagramUrl}
  title={featured.title}
  type={featured.type ==="carousel"?"post": featured.type}
+ aspect={brand.id ==="urban-theka"?"reel": undefined}
  brandColor={brand.color}
  />
 
@@ -117,13 +142,14 @@ export function BrandShowcase() {
  })}
  </div>
 
- {/* Scroll indicator — mobile only */}
- <div className="flex lg:hidden justify-center gap-1.5 mt-4">
- {BRANDS.map((b) => (
+ {/* Scroll progress indicator — mobile only */}
+ <div className="lg:hidden mt-4 px-5">
+ <div className="h-px w-full bg-white/15 overflow-hidden">
  <div
- key={b.id}
- className="w-1.5 h-1.5 rounded-full bg-white/10" />
- ))}
+ className="h-full bg-burgundy transition-[width] duration-150 ease-out"
+ style={{ width: `${Math.min(100, Math.max(0, scrollProgress * 100))}%` }}
+ />
+ </div>
  </div>
  </Container>
  </Section>

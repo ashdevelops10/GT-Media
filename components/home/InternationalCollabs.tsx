@@ -101,20 +101,27 @@ export function InternationalCollabs() {
  <svg
  viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 w-full h-full opacity-[0.08]" xmlns="http://www.w3.org/2000/svg" >
  <defs>
- <pattern id="world-dots"x="0"y="0"width="1"height="1"patternUnits="userSpaceOnUse">
- <circle cx="0.5"cy="0.5"r="0.1"fill="currentColor"/>
- </pattern>
  <linearGradient id="arcGradient"x1="0%"y1="0%"x2="100%"y2="0%">
  <stop offset="0%"stopColor="#6D001A"stopOpacity="0"/>
  <stop offset="50%"stopColor="#6D001A"stopOpacity="1"/>
  <stop offset="100%"stopColor="#6D001A"stopOpacity="0"/>
  </linearGradient>
+ <radialGradient id="mapGlow" cx="50%" cy="50%" r="55%">
+ <stop offset="0%" stopColor="white" stopOpacity="0.07" />
+ <stop offset="100%" stopColor="white" stopOpacity="0" />
+ </radialGradient>
  </defs>
- <rect width="100"height="100"fill="url(#world-dots)"className="text-white"/>
+ <rect width="100" height="100" fill="url(#mapGlow)" />
 
- {/* Minimalist World Contours (Simplified for performance & style) */}
- <path
- d="M20,30 Q25,25 35,30 T45,35 T55,30 T70,35 T85,30" fill="none" stroke="white" strokeWidth="0.1" strokeOpacity="0.2" />
+ {/* Stylized world map silhouette */}
+ <g fill="white" fillOpacity="0.1" stroke="white" strokeOpacity="0.25" strokeWidth="0.18">
+ <path d="M9 25 L14 20 L20 18 L25 20 L27 24 L24 28 L20 30 L18 34 L14 36 L11 33 L9 29 Z" />
+ <path d="M23 38 L27 41 L29 47 L28 54 L25 61 L22 66 L20 62 L21 55 L19 48 L20 42 Z" />
+ <path d="M29 12 L33 10 L36 12 L35 16 L31 17 L28 15 Z" />
+ <path d="M39 22 L45 20 L52 21 L58 24 L63 24 L68 22 L74 24 L80 28 L86 30 L90 34 L88 38 L82 39 L76 36 L70 36 L64 34 L60 36 L54 37 L49 35 L45 32 L40 31 L37 27 Z" />
+ <path d="M49 36 L54 39 L57 45 L56 52 L53 58 L49 63 L45 60 L44 53 L45 46 L47 40 Z" />
+ <path d="M79 58 L84 60 L88 64 L87 68 L82 70 L77 67 L76 62 Z" />
+ </g>
 
  {/* Connecting Arcs */}
  {isInView && locations.map((loc, idx) => (

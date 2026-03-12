@@ -9,6 +9,7 @@ interface InstagramEmbedProps {
  instagramUrl: string;
  title: string;
  type:"reel"|"post"|"carousel";
+ aspect?:"reel"|"square";
  className?: string;
  brandColor?: string;
 }
@@ -19,6 +20,7 @@ export function InstagramEmbed({
  instagramUrl,
  title,
  type,
+ aspect,
  className ="",
  brandColor ="#6D001A",
 }: InstagramEmbedProps) {
@@ -63,7 +65,7 @@ export function InstagramEmbed({
  }
  }, [isVisible, video]);
 
- const isReel = type ==="reel";
+ const isReel = (aspect ?? type) ==="reel";
  const aspectClass = isReel ?"aspect-[9/16]":"aspect-square";
 
  return (

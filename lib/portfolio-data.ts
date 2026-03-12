@@ -59,7 +59,7 @@ export const BRANDS: Brand[] = [
     id: "mach-global",
     name: "Mach Global",
     handle: "@mach.immigration",
-    logo: "/logos/mach global.jpg",
+    logo: "/logos/mach-global.png",
     industry: "Immigration & Education",
     description:
       "Visa consultancy and immigration services — Canada, UK, Europe, New Zealand — based in Panchkula.",
@@ -70,7 +70,7 @@ export const BRANDS: Brand[] = [
     id: "event-resq",
     name: "EventResQ",
     handle: "@eventresq_",
-    logo: "/logos/event resq.jpg",
+    logo: "/logos/evenresq.webp",
     industry: "Event Safety & Medical",
     description:
       "On-ground emergency medical services for festivals, concerts, and large-scale events across India.",
@@ -81,7 +81,7 @@ export const BRANDS: Brand[] = [
     id: "urban-theka",
     name: "Urban Theka",
     handle: "@urbantheka",
-    logo: "/logos/urban_theka.png",
+    logo: "/logos/urban-theka.png",
     industry: "Fashion / Streetwear",
     description:
       "Punjabi streetwear brand — designed for Sidhu Moosewala, worn by the culture. Mohali & Chandigarh.",
